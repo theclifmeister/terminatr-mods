@@ -1,6 +1,6 @@
-# A kanban board of every project's tasks, in a full view. Open it from
-# the dashboard's ≡ menu ("Mission control · mission-control"); esc
-# returns.
+# A kanban board of every project's tasks, in a full view. Open it with
+# M on the dashboard, or from the ≡ menu ("Mission control ·
+# mission-control"); esc returns.
 id = "mission-control"
 name = "Mission control"
 version = "1.1.0"
