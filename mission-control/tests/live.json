@@ -1,0 +1,35 @@
+{
+  "name": "a thread's change draws the open board again; done is cut to the setting's newest; a project it can't read says so",
+  "settings": { "done_limit": 1 },
+  "answers": [
+    { "method": "projects.list", "result": [{ "slug": "alpha" }, { "slug": "gone" }] },
+    { "method": "tasks.list", "params": { "slug": "alpha" },
+      "result": [
+        { "id": "T2", "title": "Dark mode", "status": "started", "steps_done": 0, "steps_total": 0, "thread": "t-0002", "steps": [] },
+        { "id": "T6", "title": "Old", "status": "done", "steps_done": 0, "steps_total": 0, "steps": [], "updated": "2026-09-01" },
+        { "id": "T7", "title": "New", "status": "done", "steps_done": 0, "steps_total": 0, "steps": [], "updated": "2026-10-01" }
+      ] },
+    { "method": "project.get", "params": { "slug": "alpha" },
+      "result": { "project": "alpha", "inbox": [], "ready": [], "needs_you": [],
+        "threads": [{ "id": "t-0002", "title": "Dark mode", "session": "s-2", "state": "working" }] } }
+  ],
+  "events": [
+    { "name": "view.opened", "project": "alpha",
+      "data": { "view": "board", "slot": "full", "project": "alpha", "width": 100, "height": 30 } },
+    { "name": "thread.state", "project": "alpha",
+      "data": { "project": "alpha", "thread": "t-0002", "task": "T2", "state": "blocked", "needs_you": "Which port?" } }
+  ],
+  "expect": {
+    "calls": [
+      { "method": "ui.view.set", "params": { "view": "board", "widget": { "children": [
+        {}, { "kind": "text", "role": "bad" },
+        { "id": "ready", "rows": [] },
+        { "id": "started", "rows": [{ "id": "alpha/T2" }] },
+        { "id": "review" },
+        { "id": "done", "title": "DONE 2 (the 1 newest)", "rows": [{ "id": "alpha/T7" }] }
+      ] } } },
+      { "method": "projects.list" },
+      { "method": "ui.view.set", "params": { "view": "board" } }
+    ]
+  }
+}

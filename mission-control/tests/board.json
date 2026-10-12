@@ -1,0 +1,78 @@
+{
+  "name": "the board lists every project's tasks by lane, with each card's thread state, PR and CI, needs-you mark and tm's actions",
+  "answers": [
+    { "method": "projects.list", "result": [{ "slug": "beta" }, { "slug": "alpha" }] },
+    { "method": "tasks.list", "params": { "slug": "alpha" },
+      "result": [
+        { "id": "T1", "title": "Search", "status": "ready", "steps_done": 0, "steps_total": 0, "steps": [] },
+        { "id": "T2", "title": "Dark mode", "status": "started", "steps_done": 1, "steps_total": 3, "thread": "t-0002", "steps": [] },
+        { "id": "T3", "title": "Fix login", "status": "review", "steps_done": 2, "steps_total": 2, "thread": "t-0003", "steps": [] },
+        { "id": "T4", "title": "Upgrade Go", "status": "blocked", "steps_done": 0, "steps_total": 0, "thread": "t-0004", "steps": [] }
+      ] },
+    { "method": "project.get", "params": { "slug": "alpha" },
+      "result": { "project": "alpha", "inbox": [], "ready": [],
+        "needs_you": [{ "why": "review", "task": "T3", "title": "Fix login", "thread": "t-0003" }],
+        "threads": [
+          { "id": "t-0002", "title": "Dark mode", "session": "s-2", "state": "working", "task": { "id": "T2", "title": "Dark mode", "status": "started", "steps_done": 1, "steps_total": 3, "current": "Settings picker" },
+            "pr": "#12 open, checks pass", "pr_url": "https://github.com/o/r/pull/12", "pr_checks": "pass" },
+          { "id": "t-0003", "title": "Fix login", "session": "s-3", "state": "idle", "pr": "#13 open, 1 check failed", "pr_bad": true, "pr_checks": "fail" },
+          { "id": "t-0004", "title": "Upgrade Go", "session": "s-4", "state": "blocked", "needs_you": "Which port?" }
+        ] } },
+    { "method": "tasks.list", "params": { "slug": "beta" },
+      "result": [
+        { "id": "T1", "title": "Old", "status": "done", "steps_done": 0, "steps_total": 0, "steps": [], "updated": "2026-10-01" },
+        { "id": "T2", "title": "Newer", "status": "done", "steps_done": 0, "steps_total": 0, "steps": [], "updated": "2026-10-05" },
+        { "id": "T3", "title": "Docs", "status": "review", "steps_done": 0, "steps_total": 0, "steps": [], "asked": "accept" },
+        { "id": "T5", "title": "Idea", "status": "open", "steps_done": 0, "steps_total": 0, "steps": [] }
+      ] },
+    { "method": "project.get", "params": { "slug": "beta" },
+      "result": { "project": "beta", "inbox": [], "ready": [], "needs_you": [], "threads": [] } }
+  ],
+  "events": [
+    { "name": "view.opened", "project": "alpha",
+      "data": { "view": "board", "slot": "full", "project": "alpha", "width": 120, "height": 40 } }
+  ],
+  "expect": {
+    "calls": [
+      { "method": "ui.view.set", "params": { "view": "board", "widget": { "kind": "stack", "children": [
+        { "kind": "text", "lines": [[{ "text": "2 projects" }, {}, { "text": "READY 1" }, {}, { "text": "STARTED 2" }, {}, { "text": "REVIEW 2" }, {}, { "text": "DONE 2" }, {}, { "text": "2 need you", "role": "warn" }], [{}]] },
+        { "kind": "table", "id": "ready", "title": "READY 1", "rows": [
+          { "id": "alpha/T1", "cells": [[], [{ "text": "alpha" }], [{ "text": "T1" }], [], [], [], [{ "text": "Search" }]],
+            "actions": [
+              { "id": "task.show", "target": { "project": "alpha", "task": "T1" } },
+              { "id": "task.delegate", "target": { "project": "alpha", "task": "T1" } }] }] },
+        { "kind": "table", "id": "started", "title": "STARTED 2", "rows": [
+          { "id": "alpha/T4",
+            "cells": [[{ "text": "!", "role": "warn" }], [{}], [{ "text": "T4" }], [{ "icon": "blocked", "role": "warn" }, { "text": " waiting" }], [], [], [{}]],
+            "actions": [
+              { "id": "session.attach", "target": { "session": "s-4" } },
+              { "id": "task.show", "target": { "project": "alpha", "task": "T4" } },
+              { "id": "task.coordinator", "target": { "project": "alpha", "task": "T4" } }],
+            "more": [[{}, { "text": "needs you: " }, { "text": "Which port?" }], [{}, { "icon": "thread" }, { "text": " t-0004" }]] },
+          { "id": "alpha/T2",
+            "cells": [[], [{}], [{ "text": "T2" }], [{ "icon": "working", "role": "good" }, { "text": " working" }], [{ "text": "1/3" }], [{ "text": "#12" }, {}, { "icon": "ci.pass", "role": "good" }], [{ "text": "Dark mode" }]],
+            "actions": [
+              { "id": "session.attach", "target": { "session": "s-2" } },
+              { "id": "task.show", "target": { "project": "alpha", "task": "T2" } }],
+            "more": [[{}, { "icon": "thread" }, { "text": " t-0002" }, { "text": "  ▸ Settings picker" }], [{}, { "text": "PR #12 open, checks pass" }]] }] },
+        { "kind": "table", "id": "review", "title": "REVIEW 2", "rows": [
+          { "id": "alpha/T3",
+            "cells": [[{ "text": "!" }], [{}], [{ "text": "T3" }], [{ "icon": "idle" }, { "text": " idle" }], [{ "text": "2/2" }], [{ "text": "#13", "role": "bad" }, {}, { "icon": "ci.fail", "role": "bad" }], [{}]],
+            "actions": [
+              { "id": "session.attach", "target": { "session": "s-3" } },
+              { "id": "task.show", "target": { "project": "alpha", "task": "T3" } },
+              { "id": "task.accept", "target": { "project": "alpha", "task": "T3" } },
+              { "id": "task.send-back", "target": { "project": "alpha", "task": "T3" } }] },
+          { "id": "beta/T3",
+            "cells": [[], [{ "text": "beta" }], [{ "text": "T3" }], [], [], [], [{ "text": "Docs" }]],
+            "actions": [{ "id": "task.show", "target": { "project": "beta", "task": "T3" } }],
+            "more": [[{}, { "text": "asked the coordinator (accept)" }]] }] },
+        { "kind": "table", "id": "done", "title": "DONE 2", "rows": [
+          { "id": "beta/T2", "actions": [
+              { "id": "task.show", "target": { "project": "beta", "task": "T2" } },
+              { "id": "task.send-back", "target": { "project": "beta", "task": "T2" } }] },
+          { "id": "beta/T1" }] }
+      ] } } }
+    ]
+  }
+}
