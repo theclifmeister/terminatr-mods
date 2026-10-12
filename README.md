@@ -36,3 +36,12 @@ For example:
 
 then pick it in Settings (General: Theme). To pin a release, add `@<tag>`
 after the subfolder.
+
+### Total conversions
+
+A theme, an icon set, a layout and sidebar columns in one mod. Pick its
+parts in Settings (General: Theme, Icons and Layout).
+
+| mod | what | install |
+|-----|------|---------|
+| [Mainframe](mainframe) | an IBM 3270 green screen: green phosphor (green-bar paper on light terminals), ASCII icons, a compact layout and a JES-style JOB column (RUN, WAIT, HELD, DONE, ABEND); needs terminatr v0.22.0 | `tm mod install https://github.com/theclifmeister/terminatr-mods.git//mainframe` |
