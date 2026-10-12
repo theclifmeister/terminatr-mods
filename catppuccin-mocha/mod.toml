@@ -1,0 +1,10 @@
+id = "catppuccin-mocha"
+name = "Catppuccin Mocha"
+version = "1.0.0"
+api = "1.4"
+description = "The Catppuccin Mocha palette for the dashboard's colours (dark flavour)."
+authors = ["Clifmeister"]
+homepage = "https://github.com/theclifmeister/terminatr-mods/tree/main/catppuccin-mocha"
+
+[provides]
+theme = "theme.toml"

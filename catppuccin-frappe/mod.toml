@@ -1,0 +1,10 @@
+id = "catppuccin-frappe"
+name = "Catppuccin Frappé"
+version = "1.0.0"
+api = "1.4"
+description = "The Catppuccin Frappé palette for the dashboard's colours (dark flavour)."
+authors = ["Clifmeister"]
+homepage = "https://github.com/theclifmeister/terminatr-mods/tree/main/catppuccin-frappe"
+
+[provides]
+theme = "theme.toml"
