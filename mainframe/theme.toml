@@ -1,0 +1,38 @@
+# Mainframe: an IBM 3270 green screen over tm's roles. Each role is
+# { fg, bg, bold, faint, reverse }; a colour pair is the ANSI fallback
+# first, then the truecolor value. The console picks [dark] or [light]
+# by the terminal's background; a theme can't paint the background
+# itself, so [dark] wants a black terminal for the full look.
+#
+# [dark] is green phosphor: bright green text, dim green for faint,
+# reverse video for the selection, amber for warn, red for bad and
+# turquoise (a 3270 field colour) for info. [light] is the same screen
+# printed on green-bar paper: dark green ink on a pale terminal.
+
+# Green phosphor
+[dark]
+head      = { fg = ["brightgreen", "#66ff66"], bold = true }
+sel       = { fg = ["black", "#001a00"], bg = ["green", "#1fae3a"] }
+sel_focus = { fg = ["black", "#001a00"], bg = ["brightgreen", "#33ff66"], bold = true }
+faint     = { fg = ["green", "#1c8a33"] }
+accent    = { fg = ["brightgreen", "#99ffaa"] }
+title     = { fg = ["brightwhite", "#e6ffe6"], bold = true }
+bad       = { fg = ["red", "#ff4545"], bold = true }
+warn      = { fg = ["yellow", "#ffb000"] }
+good      = { fg = ["brightgreen", "#33ff66"] }
+info      = { fg = ["cyan", "#40e0d0"] }
+plain     = { fg = ["brightgreen", "#33ff66"] }
+
+# Green-bar paper
+[light]
+head      = { fg = ["black", "#003311"], bold = true }
+sel       = { fg = ["brightwhite", "#f2f8ea"], bg = ["green", "#2a7a3f"] }
+sel_focus = { fg = ["brightwhite", "#f2f8ea"], bg = ["black", "#003311"], bold = true }
+faint     = { fg = ["brightblack", "#6b8f72"] }
+accent    = { fg = ["green", "#1d6b33"] }
+title     = { fg = ["black", "#00401a"], bold = true }
+bad       = { fg = ["red", "#b3001b"], bold = true }
+warn      = { fg = ["yellow", "#9a5800"] }
+good      = { fg = ["green", "#1a7a2e"] }
+info      = { fg = ["cyan", "#00666e"] }
+plain     = { fg = ["green", "#0f4d1f"] }
