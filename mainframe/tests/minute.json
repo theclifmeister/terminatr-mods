@@ -1,0 +1,22 @@
+{
+  "name": "every minute it looks at its projects again: a thread that called tm done shows DONE",
+  "answers": [
+    { "method": "project.get", "params": { "slug": "demo" },
+      "result": { "project": "demo", "inbox": [], "ready": [], "needs_you": [],
+        "threads": [{ "id": "t-0001", "title": "Login", "state": "idle", "done": true }] } }
+  ],
+  "events": [
+    { "name": "mod.ready", "data": { "projects": [
+      { "project": "demo", "needs_you": [], "inbox": [], "ready": [], "threads": [
+        { "id": "t-0001", "title": "Login", "state": "working" } ] } ] } },
+    { "name": "clock.minute", "data": { "now": "2026-10-12T16:00:00Z" } }
+  ],
+  "expect": {
+    "calls": [
+      { "method": "ui.cell.set", "params": { "column": "job", "target": { "project": "demo", "thread": "t-0001" }, "spans": [{ "text": "RUN", "role": "head" }] } },
+      { "method": "project.get", "params": { "slug": "demo" } },
+      { "method": "ui.cell.set", "params": { "column": "job", "target": { "project": "demo", "thread": "t-0001" }, "spans": [{ "text": "DONE", "role": "good" }] } }
+    ],
+    "store": { "drawn": ["demo/t-0001"] }
+  }
+}

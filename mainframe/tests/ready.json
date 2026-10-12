@@ -1,0 +1,24 @@
+{
+  "name": "at the start each thread gets its job status; a resolved thread drawn before is cleared",
+  "store": { "drawn": ["demo/t-0009"] },
+  "events": [
+    { "name": "mod.ready", "data": { "projects": [
+      { "project": "demo", "needs_you": [], "inbox": [], "ready": [], "threads": [
+        { "id": "t-0001", "title": "Login", "state": "working" },
+        { "id": "t-0002", "title": "Build", "state": "idle" },
+        { "id": "t-0003", "title": "Port", "state": "blocked", "needs_you": "Which port?" },
+        { "id": "t-0004", "title": "Docs", "state": "idle", "done": true },
+        { "id": "t-0005", "title": "CI", "state": "working", "needs_you": "Merge?", "pr_checks": "fail" } ] } ] } }
+  ],
+  "expect": {
+    "calls": [
+      { "method": "ui.cell.set", "params": { "column": "job", "target": { "project": "demo", "thread": "t-0001" }, "spans": [{ "text": "RUN", "role": "head" }] } },
+      { "method": "ui.cell.set", "params": { "column": "job", "target": { "project": "demo", "thread": "t-0002" }, "spans": [{ "text": "WAIT", "role": "faint" }] } },
+      { "method": "ui.cell.set", "params": { "column": "job", "target": { "project": "demo", "thread": "t-0003" }, "spans": [{ "text": "HELD", "role": "warn" }] } },
+      { "method": "ui.cell.set", "params": { "column": "job", "target": { "project": "demo", "thread": "t-0004" }, "spans": [{ "text": "DONE", "role": "good" }] } },
+      { "method": "ui.cell.set", "params": { "column": "job", "target": { "project": "demo", "thread": "t-0005" }, "spans": [{ "text": "ABEND", "role": "bad" }] } },
+      { "method": "ui.cell.set", "params": { "column": "job", "target": { "project": "demo", "thread": "t-0009" }, "spans": null } }
+    ],
+    "store": { "drawn": ["demo/t-0001", "demo/t-0002", "demo/t-0003", "demo/t-0004", "demo/t-0005"] }
+  }
+}

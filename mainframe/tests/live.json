@@ -1,0 +1,29 @@
+{
+  "name": "a thread's state and checks redraw its cell only when its status changes; thread.resolved clears it",
+  "events": [
+    { "name": "mod.ready", "data": { "projects": [] } },
+    { "name": "thread.started", "project": "demo",
+      "data": { "project": "demo", "thread": "t-0001", "agent": "claude" } },
+    { "name": "thread.state", "project": "demo",
+      "data": { "project": "demo", "thread": "t-0001", "state": "working" } },
+    { "name": "thread.state", "project": "demo",
+      "data": { "project": "demo", "thread": "t-0001", "state": "blocked", "needs_you": "Which port?" } },
+    { "name": "thread.state", "project": "demo",
+      "data": { "project": "demo", "thread": "t-0001", "state": "blocked", "needs_you": "Which port?" } },
+    { "name": "pr.changed", "project": "demo",
+      "data": { "project": "demo", "thread": "t-0001", "number": 41, "state": "OPEN", "checks": "fail" } },
+    { "name": "thread.resolved", "project": "demo",
+      "data": { "project": "demo", "thread": "t-0001", "agent": "claude" } }
+  ],
+  "expect": {
+    "calls": [
+      { "method": "ui.cell.set", "params": { "column": "job", "target": { "project": "demo", "thread": "t-0001" }, "spans": [{ "text": "WAIT", "role": "faint" }] } },
+      { "method": "ui.cell.set", "params": { "column": "job", "target": { "project": "demo", "thread": "t-0001" }, "spans": [{ "text": "RUN", "role": "head" }] } },
+      { "method": "ui.cell.set", "params": { "column": "job", "target": { "project": "demo", "thread": "t-0001" }, "spans": [{ "text": "HELD", "role": "warn" }] } },
+      { "method": "ui.cell.set", "params": { "column": "job", "target": { "project": "demo", "thread": "t-0001" }, "spans": [{ "text": "ABEND", "role": "bad" }] } },
+      { "method": "ui.cell.set", "params": { "column": "job", "target": { "project": "demo", "thread": "t-0001" }, "spans": null } }
+    ],
+    "no_calls": ["project.get"],
+    "store": { "drawn": [] }
+  }
+}

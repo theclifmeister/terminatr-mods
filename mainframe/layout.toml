@@ -1,0 +1,5 @@
+# Mainframe's sidebar: the JOB column first, like a JES status display,
+# then what needs you and the agent's state, the step count, and the
+# rest. The PR/CI column (ci) is left out: ABEND in JOB already marks a
+# failing check. The safety columns would show even if left out.
+sidebar = ["mainframe.job", "needs", "state", "count", "paused", "inactive", "remote"]

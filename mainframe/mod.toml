@@ -1,0 +1,28 @@
+# A green-screen total conversion: an IBM 3270 theme (green phosphor on
+# dark terminals, green-bar paper on light ones), an ASCII icon set, a
+# sidebar layout and a JOB column with each thread's status in JES
+# words: RUN, WAIT, HELD, DONE or ABEND. Pick the theme, icons and
+# layout in Settings (General); the column shows once the mod is on.
+id = "mainframe"
+name = "Mainframe"
+version = "1.0.0"
+api = "1.4"
+min_tm = "0.22.0"
+description = "An IBM 3270 green screen: a green phosphor theme (green-bar paper on light terminals), ASCII icons, a compact sidebar layout and a JES-style JOB column (RUN, WAIT, HELD, DONE, ABEND)."
+authors = ["Clifmeister"]
+homepage = "https://github.com/theclifmeister/terminatr-mods/tree/main/mainframe"
+
+[provides]
+main = "main.ts"
+theme = "theme.toml"
+icons = "icons.toml"
+layout = "layout.toml"
+
+[[provides.columns]]
+id = "job"
+title = "JOB"
+width = 5
+where = ["sidebar.thread"]
+
+[permissions]
+project_read = true

@@ -1,0 +1,38 @@
+# Mainframe's icons: plain ASCII, as a 3270 screen would draw them.
+# base = "ascii" keeps every glyph ASCII and gives any left out; every
+# glyph is one cell (the tree connectors mid and end two). X is the
+# 3270's "input inhibited" mark, here a thread blocked on you.
+base = "ascii"
+name = "mainframe"
+wide = false
+
+folder     = "+"
+folderOpen = "-"
+mid        = "|-"
+end        = "+-"
+coord      = ""
+thread     = ""
+hint       = "!"
+current    = ">"
+remote     = "@"
+paused     = "="
+inactive   = "_"
+working    = "*"
+blocked    = "X"
+idle       = "."
+starting   = "+"
+running    = ">"
+review     = "?"
+done       = "#"
+other      = "~"
+none       = "."
+ciPass     = "+"
+ciFail     = "x"
+ciRun      = "~"
+fold       = ">"
+unfold     = "v"
+todoDone   = "x"
+todoNow    = ">"
+todoOpen   = "_"
+barOn      = "#"
+barOff     = "."
