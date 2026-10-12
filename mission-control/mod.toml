@@ -3,7 +3,7 @@
 # returns.
 id = "mission-control"
 name = "Mission control"
-version = "1.0.0"
+version = "1.1.0"
 api = "1.4"
 description = "A kanban board of every project's tasks: Ready, Started, Review and Done lanes of cards with the thread's live state, PR and CI, and a needs-you mark; enter, A, x, D and c are tm's own actions on the card."
 authors = ["Clifmeister"]
@@ -16,6 +16,11 @@ main = "main.ts"
 id = "board"
 title = "Mission control"
 slot = "full"
+
+[[provides.commands]]
+id = "open"
+title = "Open Mission control"
+key = "M"
 
 [permissions]
 project_read = true

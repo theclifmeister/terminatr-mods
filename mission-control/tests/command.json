@@ -1,0 +1,11 @@
+{
+  "name": "the M command opens the full view",
+  "events": [
+    { "name": "command.run", "project": "demo", "data": { "command": "open", "project": "demo" } }
+  ],
+  "expect": {
+    "calls": [
+      { "method": "ui.view.open", "params": { "view": "board" } }
+    ]
+  }
+}

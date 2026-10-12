@@ -24,13 +24,14 @@ A code mod. It asks for `project_read` (reads your projects) and `views`
     tm mod install https://github.com/theclifmeister/terminatr-mods.git//mission-control
     tm mod enable mission-control
 
-Then open it from the dashboard's ≡ menu: *Mission control ·
-mission-control*. `esc` takes you back.
+Then open it with `M` on the dashboard (or prefix then `M` anywhere), or
+from the ≡ menu: *Mission control · mission-control*. `esc` takes you back.
 
 ## Keys
 
 | key | does |
 |-----|------|
+| M | (on the dashboard) open the board |
 | ↑ ↓ (j k) | previous / next card in the lane |
 | tab / shift+tab | next / previous lane |
 | enter | attach to the card's thread session; show the task when no session runs it |
