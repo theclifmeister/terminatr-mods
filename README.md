@@ -16,6 +16,18 @@ Orbit) or from the ≡ menu (*Mission control · mission-control*,
 *Orbit · orbit*); esc returns. Each README lists the keys and what the
 mod API doesn't let it do.
 
+## Layouts
+
+Layout-only mods: no code, just where the panels go. Each needs terminatr
+v0.23.0. Install one, enable it, then pick it in Settings (General:
+Layout). terminatr's own Zen, Cockpit and Compact layouts are built in.
+
+| mod | what | pick it when | install |
+|-----|------|--------------|---------|
+| [Spotlight](spotlight) | no sidebar, details on the right at 65% | you read reports and tasks more than you scan threads | `tm mod install https://github.com/theclifmeister/terminatr-mods.git//spotlight` |
+| [Triage](triage) | dashboard of needs then cards, slim sidebar on the right | you start the day by clearing what needs you | `tm mod install https://github.com/theclifmeister/terminatr-mods.git//triage` |
+| [Mainframe](mainframe) | a 3270 screen: no header, compact rows, narrow left sidebar, details along the bottom | you want the green-screen look (comes with the Mainframe total conversion below) | `tm mod install https://github.com/theclifmeister/terminatr-mods.git//mainframe` |
+
 ## Themes
 
 The four [Catppuccin](https://github.com/catppuccin/palette) flavours. Each
@@ -44,4 +56,4 @@ parts in Settings (General: Theme, Icons and Layout).
 
 | mod | what | install |
 |-----|------|---------|
-| [Mainframe](mainframe) | an IBM 3270 green screen: green phosphor (green-bar paper on light terminals), ASCII icons, a compact layout and a JES-style JOB column (RUN, WAIT, HELD, DONE, ABEND); needs terminatr v0.22.0 | `tm mod install https://github.com/theclifmeister/terminatr-mods.git//mainframe` |
+| [Mainframe](mainframe) | an IBM 3270 green screen: green phosphor (green-bar paper on light terminals), ASCII icons, a 3270 screen layout and a JES-style JOB column (RUN, WAIT, HELD, DONE, ABEND); needs terminatr v0.23.0 | `tm mod install https://github.com/theclifmeister/terminatr-mods.git//mainframe` |

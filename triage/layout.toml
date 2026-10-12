@@ -1,0 +1,8 @@
+# Triage: the dashboard shows what needs you, then the cards; the other
+# section is left out. The sidebar is slim and on the right.
+[sidebar]
+mode = "slim"
+side = "right"
+
+[dashboard]
+sections = ["needs", "cards"]

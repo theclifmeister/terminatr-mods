@@ -1,0 +1,12 @@
+# A layout, a data mod with no code. Pick it in Settings (General: Layout).
+id = "spotlight"
+name = "Spotlight"
+version = "1.0.0"
+api = "1.5"
+min_tm = "0.23.0"
+description = "No sidebar and a wide details panel on the right, for reading reports and tasks."
+authors = ["Clifmeister"]
+homepage = "https://github.com/theclifmeister/terminatr-mods/tree/main/spotlight"
+
+[provides]
+layout = "layout.toml"
