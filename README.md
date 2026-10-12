@@ -4,6 +4,12 @@ User mods for [terminatr](https://github.com/theclifmeister/terminatr), one
 mod per subfolder. Install one with `tm mod install <git-url>//<subfolder>`,
 then turn it on in the Mods tab or with `tm mod enable <id>`.
 
+## Views
+
+| mod | what | install |
+|-----|------|---------|
+| [Orbit](orbit) | a radar full view (≡ menu): each project a planet, its threads orbiting it, closer as they near done, pulsing when they need you; enter attaches | `tm mod install https://github.com/theclifmeister/terminatr-mods.git//orbit` |
+
 ## Themes
 
 The four [Catppuccin](https://github.com/catppuccin/palette) flavours. Each
