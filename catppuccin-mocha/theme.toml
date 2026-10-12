@@ -1,0 +1,36 @@
+# Catppuccin Mocha (https://github.com/catppuccin/palette) over tm's
+# roles. Each role is { fg, bg, bold, faint, reverse }; a colour pair is
+# the ANSI fallback first, then the truecolor value from the palette.
+# The console picks [dark] or [light] by the terminal's background:
+# Mocha is a dark flavour, so [dark] is Mocha and [light] borrows
+# Latte, keeping the text readable on a light terminal.
+#
+# Mapping: head/plain = text, sel = base on mauve, faint = overlay1,
+# accent = mauve, title = blue, bad = red, warn = yellow, good = green,
+# info = sapphire.
+
+# Mocha
+[dark]
+head   = { fg = ["brightwhite", "#cdd6f4"], bold = true }
+sel    = { fg = ["black", "#1e1e2e"], bg = ["magenta", "#cba6f7"] }
+faint  = { fg = ["brightblack", "#7f849c"] }
+accent = { fg = ["magenta", "#cba6f7"] }
+title  = { fg = ["blue", "#89b4fa"], bold = true }
+bad    = { fg = ["red", "#f38ba8"] }
+warn   = { fg = ["yellow", "#f9e2af"] }
+good   = { fg = ["green", "#a6e3a1"] }
+info   = { fg = ["cyan", "#74c7ec"] }
+plain  = { fg = ["white", "#cdd6f4"] }
+
+# Latte
+[light]
+head   = { fg = ["black", "#4c4f69"], bold = true }
+sel    = { fg = ["brightwhite", "#eff1f5"], bg = ["magenta", "#8839ef"] }
+faint  = { fg = ["brightblack", "#8c8fa1"] }
+accent = { fg = ["magenta", "#8839ef"] }
+title  = { fg = ["blue", "#1e66f5"], bold = true }
+bad    = { fg = ["red", "#d20f39"] }
+warn   = { fg = ["yellow", "#df8e1d"] }
+good   = { fg = ["green", "#40a02b"] }
+info   = { fg = ["cyan", "#209fb5"] }
+plain  = { fg = ["black", "#4c4f69"] }
