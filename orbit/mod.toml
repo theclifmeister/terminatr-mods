@@ -1,0 +1,32 @@
+# Orbit: a radar of every project's threads, as a full view. Open it
+# from the dashboard's ≡ menu ("Orbit · orbit"); esc returns.
+id = "orbit"
+name = "Orbit"
+version = "1.0.0"
+api = "1.4"
+description = "A radar full view: each project a planet, its threads orbiting it, closer as their task nears done, pulsing when they need you."
+authors = ["Clifmeister"]
+homepage = "https://github.com/theclifmeister/terminatr-mods/tree/main/orbit"
+
+[provides]
+main = "main.ts"
+
+[[provides.views]]
+id = "radar"
+title = "Orbit"
+slot = "full"
+
+[permissions]
+project_read = true
+views = true
+
+[settings.animate]
+type = "bool"
+default = true
+label = "Turn the orbits and pulse what needs you, once a second, while the view is open"
+
+[settings.glyphs]
+type = "choice"
+default = "unicode"
+options = ["unicode", "ascii"]
+label = "Glyphs the radar draws with: unicode (● ○ ▲ ◆), or ascii for terminals that lack them"

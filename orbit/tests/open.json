@@ -1,0 +1,36 @@
+{
+  "name": "opening the view draws every project's threads: a list whose rows attach, or show the task without a session",
+  "answers": [
+    { "method": "projects.list", "result": [{ "slug": "demo" }] },
+    { "method": "project.get", "params": { "slug": "demo" }, "result": { "project": "demo", "needs_you": [{ "why": "Which port?", "title": "T2 Port", "thread": "t-0002" }], "inbox": [], "ready": [],
+        "threads": [
+          { "id": "t-0001", "title": "Docs", "session": "s-1", "state": "working", "task": { "id": "T1", "title": "Docs", "status": "doing", "steps_done": 2, "steps_total": 4 } },
+          { "id": "t-0002", "title": "Port", "session": "s-2", "state": "waiting", "needs_you": "Which port?", "task": { "id": "T2", "title": "Port", "status": "doing", "steps_done": 1, "steps_total": 3 } },
+          { "id": "t-0003", "title": "Review me", "state": "idle", "task": { "id": "T3", "title": "Review me", "status": "review", "steps_done": 3, "steps_total": 3 } }
+        ] } }
+  ],
+  "events": [
+    { "name": "view.opened", "project": "demo", "data": { "view": "radar", "slot": "full", "project": "demo", "width": 90, "height": 30 } }
+  ],
+  "expect": {
+    "calls": [
+      { "method": "projects.list" },
+      { "method": "project.get", "params": { "slug": "demo" } },
+      { "method": "ui.view.set", "params": { "view": "radar", "widget": { "kind": "stack", "children": [
+        { "kind": "text", "id": "radar" },
+        { "kind": "text", "id": "legend" },
+        { "kind": "text", "id": "detail", "lines": [[{ "role": "faint" }]] },
+        { "kind": "list", "id": "threads", "rows": [
+          { "id": "head:demo", "head": true, "spans": [{ "text": "demo", "role": "head" }] },
+          { "id": "demo/t-0002", "spans": [{ "icon": "blocked", "role": "bad" }, { "text": " t-0002", "role": "bad" }, { "text": " T2" }, { "text": " Port" }, { "text": "  1/3" }, { "text": "  needs you", "role": "bad" }],
+            "actions": [{ "id": "session.attach", "target": { "session": "s-2" } }] },
+          { "id": "demo/t-0001", "spans": [{ "icon": "working", "role": "good" }, {}, {}, {}, { "text": "  2/4" }],
+            "actions": [{ "id": "session.attach", "target": { "session": "s-1" } }] },
+          { "id": "demo/t-0003", "spans": [{ "icon": "review", "role": "info" }, {}, {}, {}, { "text": "  3/3" }],
+            "actions": [{ "id": "task.show", "target": { "project": "demo", "task": "T3" } }] }
+        ] },
+        { "kind": "keys", "keys": [{ "key": "p", "label": "pause orbits" }] }
+      ] } } }
+    ]
+  }
+}
