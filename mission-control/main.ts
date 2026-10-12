@@ -270,6 +270,11 @@ async function refresh(): Promise<void> {
   }
 }
 
+// The O/M key (and the ≡ menu entry of the same command): open the full view.
+$.on("command.run", async () => {
+  await $.ui.view.open(VIEW);
+});
+
 $.on("view.opened", async (e) => {
   if (e.view !== VIEW) return;
   shown.add(e.project ?? "");

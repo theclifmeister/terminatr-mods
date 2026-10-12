@@ -11,7 +11,8 @@ then turn it on in the Mods tab or with `tm mod enable <id>`.
 | [Mission control](mission-control) | a kanban board of every project's tasks (Ready, Started, Review, Done) with each thread's live state, PR and CI, and a needs-you mark; a full view from the dashboard's ≡ menu | `tm mod install https://github.com/theclifmeister/terminatr-mods.git//mission-control` |
 | [Orbit](orbit) | a radar full view (≡ menu): each project a planet, its threads orbiting it, closer as they near done, pulsing when they need you; enter attaches | `tm mod install https://github.com/theclifmeister/terminatr-mods.git//orbit` |
 
-Open each from the ≡ menu (*Mission control · mission-control*,
+Open each with its dashboard key (**M** for Mission control, **O** for
+Orbit) or from the ≡ menu (*Mission control · mission-control*,
 *Orbit · orbit*); esc returns. Each README lists the keys and what the
 mod API doesn't let it do.
 

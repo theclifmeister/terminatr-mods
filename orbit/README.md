@@ -34,7 +34,8 @@ asks you to confirm what the mod reads and draws.
 
 ## Use
 
-Open it from the dashboard's ≡ menu (**Orbit · orbit**). esc goes back.
+Open it with **O** on the dashboard (or prefix then O anywhere), or from
+the ≡ menu (**Orbit · orbit**, **Open Orbit** with its key). esc goes back.
 
 | key | does |
 |-----|------|
