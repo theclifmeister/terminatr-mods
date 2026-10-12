@@ -1,0 +1,29 @@
+# A kanban board of every project's tasks, in a full view. Open it from
+# the dashboard's ≡ menu ("Mission control · mission-control"); esc
+# returns.
+id = "mission-control"
+name = "Mission control"
+version = "1.0.0"
+api = "1.4"
+description = "A kanban board of every project's tasks: Ready, Started, Review and Done lanes of cards with the thread's live state, PR and CI, and a needs-you mark; enter, A, x, D and c are tm's own actions on the card."
+authors = ["Clifmeister"]
+homepage = "https://github.com/theclifmeister/terminatr-mods/tree/main/mission-control"
+
+[provides]
+main = "main.ts"
+
+[[provides.views]]
+id = "board"
+title = "Mission control"
+slot = "full"
+
+[permissions]
+project_read = true
+views = true
+
+[settings.done_limit]
+type = "int"
+default = 10
+min = 0
+max = 200
+label = "Done cards shown, newest first"

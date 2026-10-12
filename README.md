@@ -4,6 +4,16 @@ User mods for [terminatr](https://github.com/theclifmeister/terminatr), one
 mod per subfolder. Install one with `tm mod install <git-url>//<subfolder>`,
 then turn it on in the Mods tab or with `tm mod enable <id>`.
 
+## Views
+
+| mod | what | install |
+|-----|------|---------|
+| [Mission control](mission-control) | a kanban board of every project's tasks (Ready, Started, Review, Done) with each thread's live state, PR and CI, and a needs-you mark; a full view from the dashboard's ≡ menu | `tm mod install https://github.com/theclifmeister/terminatr-mods.git//mission-control` |
+
+Open it from the ≡ menu (*Mission control · mission-control*); esc
+returns. Its README lists the keys and what the mod API doesn't let it
+do.
+
 ## Themes
 
 The four [Catppuccin](https://github.com/catppuccin/palette) flavours. Each
