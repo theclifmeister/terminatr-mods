@@ -1,5 +1,26 @@
-# Mainframe's sidebar: the JOB column first, like a JES status display,
-# then what needs you and the agent's state, the step count, and the
-# rest. The PR/CI column (ci) is left out: ABEND in JOB already marks a
-# failing check. The safety columns would show even if left out.
-sidebar = ["mainframe.job", "needs", "state", "count", "paused", "inactive", "remote"]
+# Mainframe's layout: the JOB column first in the sidebar, like a JES
+# status display, then what needs you and the agent's state, the step
+# count, and the rest. The PR/CI column (ci) is left out: ABEND in JOB
+# already marks a failing check. The safety columns would show even if
+# left out.
+#
+# The screen is a 3270 terminal: no header, compact rows and status bar,
+# a narrow sidebar on the left, and the details along the bottom like a
+# message area. 30% of the height is 12 rows at 120x40 and 7 at 80x24.
+[sidebar]
+columns = ["mainframe.job", "needs", "state", "count", "paused", "inactive", "remote"]
+side = "left"
+width = 34
+
+[details]
+place = "bottom"
+size = "30%"
+
+[header]
+style = "hidden"
+
+[status_bar]
+style = "compact"
+
+[rows]
+density = "compact"

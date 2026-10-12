@@ -1,0 +1,12 @@
+# A layout, a data mod with no code. Pick it in Settings (General: Layout).
+id = "triage"
+name = "Triage"
+version = "1.0.0"
+api = "1.5"
+min_tm = "0.23.0"
+description = "A dashboard of what needs you, then cards, with a slim sidebar on the right."
+authors = ["Clifmeister"]
+homepage = "https://github.com/theclifmeister/terminatr-mods/tree/main/triage"
+
+[provides]
+layout = "layout.toml"

@@ -8,8 +8,9 @@ An IBM 3270 green screen for terminatr, in one mod:
   green ink on the pale background), so it stays readable either way
 - **an icon set**: plain ASCII glyphs (`*` working, `X` blocked, `.`
   idle, `#` done, `|-` / `+-` for the tree)
-- **a layout**: the sidebar's columns reordered to put the job status
-  first
+- **a layout**: a 3270 screen: no header, compact rows and status bar, a
+  narrow sidebar on the left with the job status first, and the details
+  along the bottom like a message area
 - **a JOB column**: each thread's status in the sidebar, in the words of
   a JES job queue
 
@@ -46,6 +47,17 @@ its CI fails shows ABEND. tm sends no event when a thread calls
 
 The PR/CI column (`ci`) is left out: ABEND already marks a failing
 check. Pick the default layout to get it back.
+
+The rest of the screen:
+
+| part | setting |
+|------|---------|
+| header | hidden |
+| rows, status bar | compact |
+| sidebar | left, 34 cells wide |
+| details | along the bottom, 30% of the height (12 rows at 120x40, 7 at 80x24) |
+
+The layout needs terminatr v0.23.0 (mod API 1.5).
 
 ## Roles
 

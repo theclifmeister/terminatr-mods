@@ -1,0 +1,8 @@
+# Spotlight: the thread list stays narrow, the details panel takes two
+# thirds of the width on the right. The sidebar is hidden (b brings it back).
+[sidebar]
+mode = "hidden"
+
+[details]
+place = "right"
+size = "65%"
