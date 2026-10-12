@@ -1,0 +1,57 @@
+# Validates and tests every mod (each root folder with a mod.toml) with
+# terminatr's tm, on pull requests and on pushes to main.
+name: mods
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+env:
+  # mainframe, spotlight and triage need min_tm 0.23.0. To move up, change
+  # both: the sha256 is tm_linux_amd64.tar.gz's line in the release's
+  # checksums.txt.
+  TM_VERSION: v0.23.0
+  TM_SHA256: 63a05e4f55ecf51fc299db8e1e7e34a3eb4b2cbf09d78bb939e3ec9bcb827e80
+
+jobs:
+  mods:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Install tm
+        run: |
+          set -euo pipefail
+          tmp=$(mktemp -d)
+          curl -fsSL -o "$tmp/tm.tar.gz" \
+            "https://github.com/theclifmeister/terminatr/releases/download/$TM_VERSION/tm_linux_amd64.tar.gz"
+          echo "$TM_SHA256  $tmp/tm.tar.gz" | sha256sum -c -
+          mkdir -p "$HOME/.local/bin"
+          tar -xzf "$tmp/tm.tar.gz" -C "$tmp" tm
+          install -m 0755 "$tmp/tm" "$HOME/.local/bin/tm"
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+
+      - name: Find mods
+        id: mods
+        run: |
+          set -euo pipefail
+          dirs=()
+          for d in */; do
+            [ -f "$d/mod.toml" ] && dirs+=("${d%/}")
+          done
+          [ ${#dirs[@]} -gt 0 ] || { echo "no mod folders found" >&2; exit 1; }
+          echo "dirs=${dirs[*]}" >> "$GITHUB_OUTPUT"
+          tm --version
+
+      - name: tm mod validate
+        run: tm mod validate ${{ steps.mods.outputs.dirs }}
+
+      # tm mod test prints "read/write on closed pipe" on stderr as harness
+      # noise; the exit code is what counts.
+      - name: tm mod test
+        run: tm mod test ${{ steps.mods.outputs.dirs }}

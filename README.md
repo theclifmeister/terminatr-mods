@@ -4,6 +4,16 @@ User mods for [terminatr](https://github.com/theclifmeister/terminatr), one
 mod per subfolder. Install one with `tm mod install <git-url>//<subfolder>`,
 then turn it on in the Mods tab or with `tm mod enable <id>`.
 
+Every pull request and push to main runs the **mods** check
+([.github/workflows/mods.yml](.github/workflows/mods.yml)): it installs
+tm v0.23.0 and runs `tm mod validate` and `tm mod test` on each folder
+with a `mod.toml`. Run the same locally before pushing:
+
+    tm mod validate */ && tm mod test */
+
+(`tm mod test` may print `read/write on closed pipe`; that's harness
+noise, the exit code is what counts.)
+
 ## Views
 
 | mod | what | install |
