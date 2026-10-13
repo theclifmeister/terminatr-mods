@@ -8,6 +8,13 @@
 # reverse video for the selection, amber for warn, red for bad and
 # turquoise (a 3270 field colour) for info. [light] is the same screen
 # printed on green-bar paper: dark green ink on a pale terminal.
+#
+# [dark.pane] and [light.pane] (mod API 1.6) colour the panes the same
+# way on a truecolor terminal: default text and background and the 16
+# ANSI colours (black red green yellow blue magenta cyan white, then the
+# bright ones). Everything leans green, but red, amber and turquoise stay
+# apart for errors, warnings and info, and bright black (faint text)
+# stays readable. A program's own truecolor passes through unchanged.
 
 # Green phosphor
 [dark]
@@ -23,6 +30,14 @@ good      = { fg = ["brightgreen", "#33ff66"] }
 info      = { fg = ["cyan", "#40e0d0"] }
 plain     = { fg = ["brightgreen", "#33ff66"] }
 
+[dark.pane]
+fg = "#33ff66"
+bg = "#050a05"
+palette = [
+  "#0d1f10", "#ff4545", "#1fae3a", "#ffb000", "#3d9970", "#a8d860", "#40e0d0", "#b3e6b3",
+  "#5c9967", "#ff6b6b", "#33ff66", "#ffd040", "#66cc99", "#ccff66", "#7fffe6", "#e6ffe6",
+]
+
 # Green-bar paper
 [light]
 head      = { fg = ["black", "#003311"], bold = true }
@@ -36,3 +51,11 @@ warn      = { fg = ["yellow", "#9a5800"] }
 good      = { fg = ["green", "#1a7a2e"] }
 info      = { fg = ["cyan", "#00666e"] }
 plain     = { fg = ["green", "#0f4d1f"] }
+
+[light.pane]
+fg = "#0f4d1f"
+bg = "#f2f8ea"
+palette = [
+  "#003311", "#b3001b", "#1a7a2e", "#9a5800", "#1f5f4a", "#5a6b00", "#00666e", "#c4d9bc",
+  "#53735a", "#c8102e", "#1f8535", "#8a4f00", "#2a6f58", "#4d5c00", "#00737c", "#dce9d4",
+]

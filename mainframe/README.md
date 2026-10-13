@@ -5,7 +5,8 @@ An IBM 3270 green screen for terminatr, in one mod:
 - **a theme**: green phosphor on a dark terminal (bright green text, dim
   green for faint, reverse video for the selection, amber warnings, red
   failures, turquoise info), and green-bar paper on a light one (dark
-  green ink on the pale background), so it stays readable either way
+  green ink on the pale background), so it stays readable either way;
+  the panes take the same colours, background included
 - **an icon set**: plain ASCII glyphs (`*` working, `X` blocked, `.`
   idle, `#` done, `|-` / `+-` for the tree)
 - **a layout**: a 3270 screen: no header, compact rows and status bar, a
@@ -15,8 +16,13 @@ An IBM 3270 green screen for terminatr, in one mod:
   a JES job queue
 
 A code mod (for the JOB column) that also carries data files. It asks for
-`project_read` (reads your projects). It needs terminatr v0.22.0 or later
-(the theme sets `sel_focus`, the sidebar's focused row).
+`project_read` (reads your projects). It needs terminatr v0.24.0 or later
+(mod API 1.6, for the pane colours).
+
+Panes follow the theme on a truecolor terminal. Codex and shells follow
+without change; Claude Code needs an ANSI theme (`/theme`, then "Dark
+mode (ANSI colors only)" or the light ANSI one), because its default
+themes draw in truecolor, which panes pass through unchanged.
 
 ## Install
 
@@ -77,10 +83,11 @@ The layout needs terminatr v0.23.0 (mod API 1.5).
 
 ## What it can't do
 
-These are limits of terminatr's mod API (1.4), not things left out:
+These are limits of terminatr's mod API (1.6), not things left out:
 
-- **No background.** A theme colours text and selections, not the
-  terminal's background, so the phosphor look wants a black terminal.
+- **Not every background.** The panes get the theme's background, but
+  the console around them (sidebar, status bar) keeps the terminal's,
+  so the phosphor look still wants a black terminal.
 - **No fonts or borders.** The 3270 font and the screen's frame are the
   terminal's to draw.
 - **Not one switch.** Theme, icons and layout are three pickers in
