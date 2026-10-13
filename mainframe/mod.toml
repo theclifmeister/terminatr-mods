@@ -5,7 +5,7 @@
 # layout in Settings (General); the column shows once the mod is on.
 id = "mainframe"
 name = "Mainframe"
-version = "1.2.1"
+version = "1.2.2"
 api = "1.6"
 min_tm = "0.24.0"
 description = "An IBM 3270 green screen: a green phosphor theme (green-bar paper on light terminals), ASCII icons, a compact sidebar layout and a JES-style JOB column (RUN, WAIT, HELD, DONE, ABEND)."

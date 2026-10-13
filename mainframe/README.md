@@ -19,10 +19,13 @@ A code mod (for the JOB column) that also carries data files. It asks for
 `project_read` (reads your projects). It needs terminatr v0.24.0 or later
 (mod API 1.6, for the pane colours).
 
-Panes follow the theme on a truecolor terminal. Codex and shells follow
-without change; Claude Code needs an ANSI theme (`/theme`, then "Dark
-mode (ANSI colors only)" or the light ANSI one), because its default
-themes draw in truecolor, which panes pass through unchanged.
+Panes follow the theme on a truecolor terminal, Claude Code included:
+from terminatr v0.25.0, Claude panes pick up a generated Claude theme on
+their next start or resume, with no manual step. Codex and shells follow
+without change. On terminatr older than 0.25.0, Claude Code needs an ANSI
+theme (`/theme`, then "Dark mode (ANSI colors only)" or the light ANSI
+one), because its default themes draw in truecolor, which panes pass
+through unchanged.
 
 ## Install
 
