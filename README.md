@@ -59,6 +59,27 @@ For example:
 then pick it in Settings (General: Theme). To pin a release, add `@<tag>`
 after the subfolder.
 
+### More themes
+
+Same idea, other palettes: each follows your terminal, with its dark flavour
+on dark terminals and the light side named below on light ones. Install and
+enable them the same way.
+
+| mod | looks | colours from | install |
+|-----|-------|--------------|---------|
+| [Tokyo Night Night](tokyonight-night) | dark Night; Day on light terminals | [folke/tokyonight.nvim](https://github.com/folke/tokyonight.nvim) | `tm mod install https://github.com/theclifmeister/terminatr-mods.git//tokyonight-night` |
+| [Tokyo Night Storm](tokyonight-storm) | dark Storm; Day on light terminals | [folke/tokyonight.nvim](https://github.com/folke/tokyonight.nvim) | `tm mod install https://github.com/theclifmeister/terminatr-mods.git//tokyonight-storm` |
+| [Tokyo Night Moon](tokyonight-moon) | dark Moon; Day on light terminals | [folke/tokyonight.nvim](https://github.com/folke/tokyonight.nvim) | `tm mod install https://github.com/theclifmeister/terminatr-mods.git//tokyonight-moon` |
+| [Dracula](dracula) | dark Dracula; Alucard on light terminals | [Dracula](https://github.com/dracula/dracula-theme) | `tm mod install https://github.com/theclifmeister/terminatr-mods.git//dracula` |
+| [Gruvbox](gruvbox) | dark and light, medium contrast | [morhetz/gruvbox](https://github.com/morhetz/gruvbox) | `tm mod install https://github.com/theclifmeister/terminatr-mods.git//gruvbox` |
+| [GitHub](github) | dark Dark Default; Light Default on light terminals | [primer/github-vscode-theme](https://github.com/primer/github-vscode-theme) | `tm mod install https://github.com/theclifmeister/terminatr-mods.git//github` |
+| [One](one) | One Dark; One Light on light terminals | [One Dark Pro](https://github.com/Binaryify/OneDark-Pro), Atom One Light via [iTerm2-Color-Schemes](https://github.com/mbadolato/iTerm2-Color-Schemes) | `tm mod install https://github.com/theclifmeister/terminatr-mods.git//one` |
+| [Rosé Pine](rose-pine) | dark Rosé Pine; Dawn on light terminals | [Rosé Pine](https://github.com/rose-pine) | `tm mod install https://github.com/theclifmeister/terminatr-mods.git//rose-pine` |
+| [Rosé Pine Moon](rose-pine-moon) | dark Moon; Dawn on light terminals | [Rosé Pine](https://github.com/rose-pine) | `tm mod install https://github.com/theclifmeister/terminatr-mods.git//rose-pine-moon` |
+| [Kanagawa Wave](kanagawa-wave) | dark Wave; Lotus on light terminals | [rebelot/kanagawa.nvim](https://github.com/rebelot/kanagawa.nvim) | `tm mod install https://github.com/theclifmeister/terminatr-mods.git//kanagawa-wave` |
+| [Kanagawa Dragon](kanagawa-dragon) | dark Dragon; Lotus on light terminals | [rebelot/kanagawa.nvim](https://github.com/rebelot/kanagawa.nvim) | `tm mod install https://github.com/theclifmeister/terminatr-mods.git//kanagawa-dragon` |
+| [Solarized](solarized) | dark and light variants | [Ethan Schoonover](https://github.com/altercation/solarized) | `tm mod install https://github.com/theclifmeister/terminatr-mods.git//solarized` |
+
 ### Total conversions
 
 A theme, an icon set, a layout and sidebar columns in one mod. Pick its
