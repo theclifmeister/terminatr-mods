@@ -6,7 +6,9 @@
 # (Binaryify/OneDark-Pro, theme OneDark-Pro.json, terminal.ansi*).
 # [light] is One Light, with the terminal palette of
 # Ghostty's "Atom One Light" (mbadolato/iTerm2-Color-Schemes, ghostty/);
-# Atom shipped no terminal palette (see README).
+# Atom shipped no terminal palette (see README). The light warn and info
+# roles use Atom One Light's own syntax colours instead (amber, blue), for
+# contrast on the background.
 #
 # Mapping: head/plain = foreground, sel = background on blue (dark) or
 # magenta (light), faint = bright black, accent = magenta, title = blue,
@@ -41,9 +43,9 @@ faint  = { fg = ["brightblack", "#bbbbbb"] }
 accent = { fg = ["magenta", "#950095"] }
 title  = { fg = ["blue", "#2f5af3"], bold = true }
 bad    = { fg = ["red", "#de3e35"] }
-warn   = { fg = ["yellow", "#d2b67c"] }
+warn   = { fg = ["yellow", "#c18401"] }
 good   = { fg = ["green", "#3f953a"] }
-info   = { fg = ["cyan", "#3f953a"] }
+info   = { fg = ["cyan", "#4078f2"] }
 plain  = { fg = ["black", "#2a2c33"] }
 
 [light.pane]

@@ -28,8 +28,10 @@ Atom shipped no terminal palette, so the sources differ per side:
   from [iTerm2-Color-Schemes](https://github.com/mbadolato/iTerm2-Color-Schemes)
   (`ghostty/Atom One Light`): the 16 ANSI colours, foreground `#2a2c33` and
   background `#f9f9f9`. It is a community port of Atom's One Light, not
-  an Atom file. Some slots repeat (cyan equals green, normal and bright are
-  mostly the same) and yellow is pale, as in that palette.
+  an Atom file. The palette's cyan equals green and its yellow is pale,
+  so the `warn` and `info` roles do not use them: `warn` is Atom One Light's
+  amber `#c18401` and `info` its blue `#4078f2`, both readable on `#f9f9f9`.
+  The pane palette is unchanged.
 
 ## Roles
 
@@ -41,9 +43,9 @@ Atom shipped no terminal palette, so the sources differ per side:
 | accent | magenta | magenta |
 | title  | blue, bold | blue, bold |
 | bad    | red | red |
-| warn   | yellow | yellow |
+| warn   | yellow | amber `#c18401` |
 | good   | green | green |
-| info   | cyan | cyan |
+| info   | cyan | blue `#4078f2` |
 
 ## Licence and attribution
 
