@@ -1,0 +1,53 @@
+# Kanagawa Wave (https://github.com/rebelot/kanagawa.nvim, MIT) over tm's
+# roles. Each role is { fg, bg, bold, faint, reverse }; a colour pair is
+# the ANSI fallback first, then the truecolor value.
+# The console picks [dark] or [light] by the terminal's background:
+# [dark] is Wave, [light] is Lotus.
+#
+# Pane palettes (mod API 1.6) are the upstream terminal palette
+# (extras/alacritty_kanagawa.toml; Lotus: extras/kitty/kanagawa_light.conf): default text and
+# background plus the 16 ANSI colours, black red green yellow blue magenta
+# cyan white, then the bright ones. The roles reuse those colours; sel is
+# the upstream selection colour.
+
+# Wave
+[dark]
+head   = { fg = ["brightwhite", "#dcd7ba"], bold = true }
+sel    = { fg = ["white", "#c8c093"], bg = ["blue", "#2d4f67"] }
+faint  = { fg = ["brightblack", "#727169"] }
+accent = { fg = ["magenta", "#957fb8"] }
+title  = { fg = ["blue", "#7e9cd8"], bold = true }
+bad    = { fg = ["red", "#c34043"] }
+warn   = { fg = ["yellow", "#e6c384"] }
+good   = { fg = ["green", "#98bb6c"] }
+info   = { fg = ["cyan", "#7fb4ca"] }
+plain  = { fg = ["white", "#dcd7ba"] }
+
+[dark.pane]
+fg = "#dcd7ba"
+bg = "#1f1f28"
+palette = [
+  "#090618", "#c34043", "#76946a", "#c0a36e", "#7e9cd8", "#957fb8", "#6a9589", "#c8c093",
+  "#727169", "#e82424", "#98bb6c", "#e6c384", "#7fb4ca", "#938aa9", "#7aa89f", "#dcd7ba",
+]
+
+# Lotus (upstream kitty/kanagawa_light.conf)
+[light]
+head   = { fg = ["black", "#545464"], bold = true }
+sel    = { fg = ["black", "#43436c"], bg = ["white", "#c9cbd1"] }
+faint  = { fg = ["brightblack", "#8a8980"] }
+accent = { fg = ["magenta", "#624c83"] }
+title  = { fg = ["blue", "#4d699b"], bold = true }
+bad    = { fg = ["red", "#c84053"] }
+warn   = { fg = ["yellow", "#836f4a"] }
+good   = { fg = ["green", "#6f894e"] }
+info   = { fg = ["cyan", "#597b75"] }
+plain  = { fg = ["black", "#545464"] }
+
+[light.pane]
+fg = "#545464"
+bg = "#f2ecbc"
+palette = [
+  "#1f1f28", "#c84053", "#6f894e", "#77713f", "#4d699b", "#b35b79", "#597b75", "#545464",
+  "#8a8980", "#d7474b", "#6e915f", "#836f4a", "#6693bf", "#624c83", "#5e857a", "#43436c",
+]

@@ -1,0 +1,11 @@
+id = "kanagawa-wave"
+name = "Kanagawa Wave"
+version = "1.0.0"
+api = "1.6"
+min_tm = "0.24.0"
+description = "The Kanagawa Wave palette for the dashboard's colours, with Lotus as the light side."
+authors = ["Clifmeister"]
+homepage = "https://github.com/theclifmeister/terminatr-mods/tree/main/kanagawa-wave"
+
+[provides]
+theme = "theme.toml"
