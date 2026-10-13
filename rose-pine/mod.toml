@@ -1,0 +1,11 @@
+id = "rose-pine"
+name = "Rosé Pine"
+version = "1.0.0"
+api = "1.6"
+min_tm = "0.24.0"
+description = "The Rosé Pine palette for the dashboard's colours (Dawn on light terminals)."
+authors = ["Clifmeister"]
+homepage = "https://github.com/theclifmeister/terminatr-mods/tree/main/rose-pine"
+
+[provides]
+theme = "theme.toml"
