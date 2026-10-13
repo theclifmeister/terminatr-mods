@@ -1,0 +1,38 @@
+{
+  "name": "the race order under a project: finished first, then review, then by progress, at most 4 rows, the badge counting the flags; a project without threads gets a null tree; view.closed clears it",
+  "answers": [
+    { "method": "project.get", "params": { "slug": "demo" },
+      "result": { "project": "demo", "needs_you": [], "inbox": [], "ready": [], "threads": [
+        { "id": "t-0001", "title": "Sidebar", "state": "working", "task": { "id": "T3", "title": "Sidebar sections", "status": "started", "steps_done": 1, "steps_total": 3 } },
+        { "id": "t-0002", "title": "Docs", "state": "blocked", "needs_you": "Which licence?", "task": { "id": "T4", "title": "Docs", "status": "started", "steps_done": 2, "steps_total": 3 } },
+        { "id": "t-0003", "title": "Release", "state": "idle", "task": { "id": "T5", "title": "Release", "status": "review", "steps_done": 2, "steps_total": 2 } },
+        { "id": "t-0004", "title": "Spike", "state": "idle", "done": true },
+        { "id": "t-0005", "title": "Free practice", "state": "starting" }
+      ] } },
+    { "method": "project.get", "params": { "slug": "quiet" },
+      "result": { "project": "quiet", "needs_you": [], "inbox": [], "ready": [], "threads": [] } }
+  ],
+  "events": [
+    { "name": "view.opened", "project": "demo",
+      "data": { "view": "order", "slot": "sidebar.project.section", "project": "demo", "width": 30, "height": 2 } },
+    { "name": "view.opened", "project": "quiet",
+      "data": { "view": "order", "slot": "sidebar.project.section", "project": "quiet", "width": 30, "height": 2 } },
+    { "name": "view.closed", "project": "demo",
+      "data": { "view": "order", "slot": "sidebar.project.section", "project": "demo", "width": 30, "height": 2 } }
+  ],
+  "expect": {
+    "calls": [
+      { "method": "project.get", "params": { "slug": "demo" } },
+      { "method": "ui.view.set", "params": { "view": "order",
+        "options": { "project": "demo", "height": 4, "badge": [{ "text": "1 ", "role": "bad" }, { "icon": "blocked", "role": "bad" }] },
+        "widget": { "kind": "list", "id": "cars", "rows": [
+          { "id": "t-0004", "spans": [{ "text": "P1 ", "role": "head" }, { "icon": "done", "role": "good" }, { "text": " t-0004" }] },
+          { "id": "t-0003", "spans": [{ "text": "P2 ", "role": "head" }, { "icon": "review", "role": "info" }, { "text": " t-0003" }, { "text": " T5", "role": "faint" }, { "text": " 2/2", "role": "faint" }] },
+          { "id": "t-0002", "spans": [{ "text": "P3 ", "role": "head" }, { "icon": "blocked", "role": "bad" }, { "text": " t-0002" }, { "text": " T4", "role": "faint" }, { "text": " 2/3", "role": "faint" }] },
+          { "id": "t-0001", "spans": [{ "text": "P4 ", "role": "head" }, { "icon": "working", "role": "good" }, { "text": " t-0001" }, { "text": " T3", "role": "faint" }, { "text": " 1/3", "role": "faint" }] }
+        ] } } },
+      { "method": "ui.view.set", "params": { "view": "order", "options": { "project": "quiet" }, "widget": null } },
+      { "method": "ui.view.set", "params": { "view": "order", "options": { "project": "demo" }, "widget": null } }
+    ]
+  }
+}

@@ -1,0 +1,128 @@
+# Pit Wall: an F1 race-engineer total conversion. Threads are cars, the
+# user is the race engineer on the pit wall. Data files: a
+# carbon-and-papaya theme (with pane palettes), an icon set of tyres and
+# flags, and a layout with the timing tower on the left and the
+# telemetry along the bottom; pick each in Settings (General: Theme,
+# Icons and Layout), and a keymap (F1 is help, F2/F3 jump to the cars
+# calling, F4 the telemetry, F5 the timing tower). Code: a tyre-wear
+# column, the race order under each project, a lap chart in the details
+# panel, race control in the coordinator's panel, a race results tab,
+# the pit calls card, live timing, the Debrief and Radio commands,
+# box-box notifications and two toast hooks, all on once the mod is.
+id = "pit-wall"
+name = "Pit Wall"
+version = "1.0.0"
+api = "1.7"
+min_tm = "0.25.3"
+description = "An F1 pit wall: a carbon-and-papaya theme (pane palettes included), tyre-and-flag icons, a timing-tower layout and an F-key keymap; a tyre-wear column (each session's context window: soft, worn, BOX BOX), the race order under each project, a lap chart beside a thread, race control beside the coordinator, a race results tab, a pit calls card (enter attaches, C changes tyres, a answers), live timing (L), the Debrief (B) and Radio (R) commands, and box-box notifications whose buttons answer a question. The tyre column needs the Agent mod on for Claude sessions."
+authors = ["Clifmeister"]
+homepage = "https://github.com/theclifmeister/terminatr-mods/tree/main/pit-wall"
+
+[provides]
+main = "main.ts"
+theme = "theme.toml"
+icons = "icons.toml"
+layout = "layout.toml"
+keymap = "keymap.toml"
+
+# Tyre wear: each session's context window, in the layout as
+# pit-wall.tyres. Reads session.state, which for Claude sessions needs
+# the Agent mod on (Settings, Agent mod, or [agent_mod] enabled = true).
+[[provides.columns]]
+id = "tyres"
+title = "tyres"
+width = 8
+where = ["sidebar.thread", "sidebar.coordinator", "dashboard.thread"]
+
+# The race order under each project: its threads, finished first, then
+# the furthest along. Enter on its header opens the results tab.
+[[provides.views]]
+id = "order"
+title = "race order"
+slot = "sidebar.project.section"
+opens = "results"
+description = "this project's threads in race order; enter opens the race results"
+
+# The lap chart: a thread's steps as laps and its PR as sectors, in the
+# details panel and beside the thread's pane.
+[[provides.views]]
+id = "laps"
+title = "Lap chart"
+slot = "details.section"
+
+# Race control beside the coordinator: flags, the inbox, merges.
+[[provides.views]]
+id = "control"
+title = "Race control"
+slot = "coordinator.section"
+
+# Race results: the podium of done tasks and the merged pull requests.
+[[provides.views]]
+id = "results"
+title = "Race results"
+slot = "project.tab"
+
+# The pit calls: the cars calling the pit wall. A call's row binds
+# session.attach (enter) and session.clear (C, a tyre change); each
+# option of its question is a row that binds question.answer (a).
+[[provides.views]]
+id = "calls"
+title = "Pit calls"
+slot = "dashboard.card"
+
+# Live timing: every car of every project, in race order.
+[[provides.views]]
+id = "timing"
+title = "Live timing"
+slot = "full"
+
+# The debrief: what each project did today.
+[[provides.views]]
+id = "debrief"
+title = "Debrief"
+slot = "full"
+
+# R opens the pit calls card on the top call; tm mod run says it in a line.
+[[provides.commands]]
+id = "radio"
+title = "Radio: the top pit call"
+key = "R"
+
+[[provides.commands]]
+id = "timing"
+title = "Live timing"
+key = "L"
+
+# B opens the debrief; tm mod run pit-wall debrief says it in a line.
+[[provides.commands]]
+id = "debrief"
+title = "Debrief"
+key = "B"
+
+[permissions]
+project_read = true
+views = true
+notify = true
+# The card's rows bind session.clear and question.answer, and a
+# notification's buttons question.answer: each opens tm's own
+# confirmation; the mod answers and clears nothing itself.
+actions = ["session.clear", "question.answer"]
+
+[settings.notify]
+type = "bool"
+default = true
+label = "Box-box notifications: when a car calls the pit wall, and when its tyres are gone"
+
+[settings.worn]
+type = "int"
+default = 60
+min = 20
+max = 90
+label = "Tyres are worn from this % of the context window"
+
+[settings.box]
+type = "int"
+default = 85
+min = 50
+max = 99
+label = "BOX BOX (clear the conversation) from this %"

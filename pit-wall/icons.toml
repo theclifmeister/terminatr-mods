@@ -1,0 +1,28 @@
+# Pit Wall's icons: tyres and flags over the unicode base, which gives
+# any glyph left out and keeps its rules (one cell per glyph, two for
+# the tree connectors, no emoji, nothing from the Private Use Area).
+#
+# A car's state is its tyre: ◉ turning (working), ○ at rest (idle), ◌
+# being fitted (starting), ◈ under scrutineering (review). The flags are
+# the marshals': ⚑ a car stopped on track (blocked, in the bad or warn
+# role), ▚ the chequered flag (done, a passed check, a done step). A
+# failing check is a flag too, in the bad role; a running one the tyre
+# being fitted.
+base = "unicode"
+name = "pit-wall"
+
+folder     = "▣"
+folderOpen = "▣"
+working    = "◉"
+idle       = "○"
+starting   = "◌"
+running    = "▹"
+blocked    = "⚑"
+review     = "◈"
+done       = "▚"
+ciPass     = "▚"
+ciFail     = "⚑"
+ciRun      = "◌"
+todoDone   = "▚"
+todoNow    = "◉"
+todoOpen   = "○"

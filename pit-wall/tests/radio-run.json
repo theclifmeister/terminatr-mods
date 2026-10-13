@@ -1,0 +1,84 @@
+{
+  "name": "tm mod run pit-wall radio can't open the card: the radio says the top call, with its options, as a toast, or that it is silent",
+  "answers": [
+    {
+      "method": "ui.view.open",
+      "params": {
+        "view": "calls"
+      },
+      "error": "ui.view.open works only in a handler for a human input"
+    }
+  ],
+  "events": [
+    {
+      "name": "session.question",
+      "project": "demo",
+      "data": {
+        "session": "s-7",
+        "project": "demo",
+        "thread": "t-0012",
+        "role": "thread",
+        "question": {
+          "question": "Which port?",
+          "options": [
+            {
+              "label": "8080"
+            },
+            {
+              "label": "3000"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "command.run",
+      "project": "demo",
+      "data": {
+        "command": "radio",
+        "project": "demo"
+      }
+    },
+    {
+      "name": "command.run",
+      "project": "other",
+      "data": {
+        "command": "radio",
+        "project": "other"
+      }
+    }
+  ],
+  "expect": {
+    "calls": [
+      {
+        "method": "ui.view.open",
+        "params": {
+          "view": "calls"
+        }
+      },
+      {
+        "method": "ui.toast",
+        "params": {
+          "text": "Radio: demo t-0012 calls: Which port? (8080 / 3000)",
+          "level": "warn"
+        }
+      },
+      {
+        "method": "ui.view.open",
+        "params": {
+          "view": "calls"
+        }
+      },
+      {
+        "method": "ui.toast",
+        "params": {
+          "text": "Radio silent: no car is calling the pit wall.",
+          "level": "info"
+        }
+      }
+    ],
+    "no_calls": [
+      "ui.view.set"
+    ]
+  }
+}

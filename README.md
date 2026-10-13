@@ -6,7 +6,7 @@ then turn it on in the Mods tab or with `tm mod enable <id>`.
 
 Every pull request and push to main runs the **mods** check
 ([.github/workflows/mods.yml](.github/workflows/mods.yml)): it installs
-tm v0.24.0 and runs `tm mod validate` and `tm mod test` on each folder
+tm v0.25.3 and runs `tm mod validate` and `tm mod test` on each folder
 with a `mod.toml`. Run the same locally before pushing:
 
     tm mod validate */ && tm mod test */
@@ -24,7 +24,9 @@ noise, the exit code is what counts.)
 Open each with its dashboard key (**M** for Mission control, **O** for
 Orbit) or from the ≡ menu (*Mission control · mission-control*,
 *Orbit · orbit*); esc returns. Each README lists the keys and what the
-mod API doesn't let it do.
+mod API doesn't let it do. [Pit Wall](pit-wall) (under Total
+conversions) brings two more full views: *Live timing* (**L**) and
+*Debrief* (**B**).
 
 ## Layouts
 
@@ -88,3 +90,4 @@ parts in Settings (General: Theme, Icons and Layout).
 | mod | what | install |
 |-----|------|---------|
 | [Mainframe](mainframe) | an IBM 3270 green screen: green phosphor (green-bar paper on light terminals), ASCII icons, a 3270 screen layout and a JES-style JOB column (RUN, WAIT, HELD, DONE, ABEND); needs terminatr v0.24.0 | `tm mod install https://github.com/theclifmeister/terminatr-mods.git//mainframe` |
+| [Pit Wall](pit-wall) | an F1 pit wall, the showcase that uses every mod surface: a carbon-and-papaya theme, tyre-and-flag icons, a timing-tower layout, an F-key keymap, a tyre-wear column (context use: soft, worn, BOX BOX), the race order under each project, a lap chart and race control in the panels, a race results tab, a pit calls card (enter attaches, C changes tyres, a answers), live timing (L), Debrief (B) and Radio (R) commands, and box-box notifications whose buttons answer a question; needs terminatr v0.25.3 | `tm mod install https://github.com/theclifmeister/terminatr-mods.git//pit-wall` |

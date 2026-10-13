@@ -1,0 +1,25 @@
+{
+  "name": "the tyres column: soft below the worn threshold, worn from it, BOX BOX from the box threshold; an exited session loses its cell; a session outside the projects has none",
+  "events": [
+    { "name": "session.state", "project": "demo",
+      "data": { "session": "s-1", "project": "demo", "thread": "t-0001", "role": "thread", "state": "working", "context": 42 } },
+    { "name": "session.state", "project": "demo",
+      "data": { "session": "s-2", "project": "demo", "thread": "t-0002", "role": "thread", "state": "idle", "context": 71 } },
+    { "name": "session.state", "project": "demo",
+      "data": { "session": "s-3", "project": "demo", "role": "coordinator", "state": "working", "context": 93 } },
+    { "name": "session.state",
+      "data": { "session": "s-9", "role": "shell", "state": "idle", "context": 90 } },
+    { "name": "session.state", "project": "demo",
+      "data": { "session": "s-2", "project": "demo", "thread": "t-0002", "role": "thread", "state": "exited", "context": 71 } }
+  ],
+  "expect": {
+    "calls": [
+      { "method": "ui.cell.set", "params": { "column": "tyres", "target": { "session": "s-1" }, "spans": [{ "text": "soft 42%", "role": "faint" }] } },
+      { "method": "ui.cell.set", "params": { "column": "tyres", "target": { "session": "s-2" }, "spans": [{ "text": "worn 71%", "role": "warn" }] } },
+      { "method": "ui.cell.set", "params": { "column": "tyres", "target": { "session": "s-3" }, "spans": [{ "text": "BOX BOX", "role": "bad" }] } },
+      { "method": "ui.cell.set", "params": { "column": "tyres", "target": { "session": "s-2" }, "spans": null } }
+    ],
+    "no_calls": ["ui.view.set"],
+    "store": { "sessions": { "s-1": { "project": "demo", "thread": "t-0001", "context": 42 }, "s-3": { "role": "coordinator", "context": 93 }, "s-2": null, "s-9": null } }
+  }
+}
