@@ -6,7 +6,7 @@ then turn it on in the Mods tab or with `tm mod enable <id>`.
 
 Every pull request and push to main runs the **mods** check
 ([.github/workflows/mods.yml](.github/workflows/mods.yml)): it installs
-tm v0.23.0 and runs `tm mod validate` and `tm mod test` on each folder
+tm v0.24.0 and runs `tm mod validate` and `tm mod test` on each folder
 with a `mod.toml`. Run the same locally before pushing:
 
     tm mod validate */ && tm mod test */
@@ -66,4 +66,4 @@ parts in Settings (General: Theme, Icons and Layout).
 
 | mod | what | install |
 |-----|------|---------|
-| [Mainframe](mainframe) | an IBM 3270 green screen: green phosphor (green-bar paper on light terminals), ASCII icons, a 3270 screen layout and a JES-style JOB column (RUN, WAIT, HELD, DONE, ABEND); needs terminatr v0.23.0 | `tm mod install https://github.com/theclifmeister/terminatr-mods.git//mainframe` |
+| [Mainframe](mainframe) | an IBM 3270 green screen: green phosphor (green-bar paper on light terminals), ASCII icons, a 3270 screen layout and a JES-style JOB column (RUN, WAIT, HELD, DONE, ABEND); needs terminatr v0.24.0 | `tm mod install https://github.com/theclifmeister/terminatr-mods.git//mainframe` |
