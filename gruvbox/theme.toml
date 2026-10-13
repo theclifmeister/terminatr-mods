@@ -1,0 +1,53 @@
+# Gruvbox, medium contrast (https://github.com/morhetz/gruvbox) over tm's
+# roles. Each role is { fg, bg, bold, faint, reverse }; a colour pair is
+# the ANSI fallback first, then the truecolor value from the palette.
+# The console picks [dark] or [light] by the terminal's background.
+#
+# Mapping (dark): head/plain = fg1, sel = bg0 on yellow, faint = gray,
+# accent = purple, title = blue, bad = red, warn = yellow, good = green,
+# info = aqua. [light] uses the light-mode (faded) accents.
+#
+# [dark.pane] and [light.pane] (mod API 1.6) colour the panes the same way
+# on a truecolor terminal: default text and background plus the 16 ANSI
+# colours, from Gruvbox's own terminal palette (gruvbox-contrib xresources:
+# black red green yellow blue magenta cyan white, then the bright ones).
+
+[dark]
+head   = { fg = ["brightwhite", "#ebdbb2"], bold = true }
+sel    = { fg = ["black", "#282828"], bg = ["yellow", "#fabd2f"] }
+faint  = { fg = ["brightblack", "#928374"] }
+accent = { fg = ["magenta", "#d3869b"] }
+title  = { fg = ["blue", "#83a598"], bold = true }
+bad    = { fg = ["red", "#fb4934"] }
+warn   = { fg = ["yellow", "#fabd2f"] }
+good   = { fg = ["green", "#b8bb26"] }
+info   = { fg = ["cyan", "#8ec07c"] }
+plain  = { fg = ["white", "#ebdbb2"] }
+
+[dark.pane]
+fg = "#ebdbb2"
+bg = "#282828"
+palette = [
+  "#282828", "#cc241d", "#98971a", "#d79921", "#458588", "#b16286", "#689d6a", "#a89984",
+  "#928374", "#fb4934", "#b8bb26", "#fabd2f", "#83a598", "#d3869b", "#8ec07c", "#ebdbb2",
+]
+
+[light]
+head   = { fg = ["black", "#3c3836"], bold = true }
+sel    = { fg = ["brightwhite", "#fbf1c7"], bg = ["yellow", "#b57614"] }
+faint  = { fg = ["brightblack", "#928374"] }
+accent = { fg = ["magenta", "#8f3f71"] }
+title  = { fg = ["blue", "#076678"], bold = true }
+bad    = { fg = ["red", "#9d0006"] }
+warn   = { fg = ["yellow", "#b57614"] }
+good   = { fg = ["green", "#79740e"] }
+info   = { fg = ["cyan", "#427b58"] }
+plain  = { fg = ["black", "#3c3836"] }
+
+[light.pane]
+fg = "#3c3836"
+bg = "#fbf1c7"
+palette = [
+  "#fdf4c1", "#cc241d", "#98971a", "#d79921", "#458588", "#b16286", "#689d6a", "#7c6f64",
+  "#928374", "#9d0006", "#79740e", "#b57614", "#076678", "#8f3f71", "#427b58", "#3c3836",
+]

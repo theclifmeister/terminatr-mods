@@ -1,0 +1,11 @@
+id = "gruvbox"
+name = "Gruvbox"
+version = "1.0.0"
+api = "1.6"
+min_tm = "0.24.0"
+description = "The Gruvbox palette (medium contrast) for the dashboard's colours, dark and light."
+authors = ["Clifmeister"]
+homepage = "https://github.com/theclifmeister/terminatr-mods/tree/main/gruvbox"
+
+[provides]
+theme = "theme.toml"
