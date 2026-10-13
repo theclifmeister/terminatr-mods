@@ -1,0 +1,11 @@
+id = "dracula"
+name = "Dracula"
+version = "1.0.0"
+api = "1.6"
+min_tm = "0.24.0"
+description = "The Dracula palette for the dashboard's colours, with Alucard, Dracula's official light theme."
+authors = ["Clifmeister"]
+homepage = "https://github.com/theclifmeister/terminatr-mods/tree/main/dracula"
+
+[provides]
+theme = "theme.toml"
