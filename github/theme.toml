@@ -1,0 +1,56 @@
+# GitHub (https://github.com/primer/github-vscode-theme, MIT) over tm's
+# roles. Each role is { fg, bg, bold, faint, reverse }; a colour pair is
+# the ANSI fallback first, then the truecolor value from the palette.
+# The console picks [dark] or [light] by the terminal's background:
+# [dark] is GitHub Dark Default, [light] is GitHub Light Default.
+#
+# Mapping: head/plain = default text, sel = canvas on blue, faint = muted
+# text, accent = magenta, title = blue, bad = red, warn = yellow,
+# good = green, info = cyan.
+#
+# [dark.pane] and [light.pane] (mod API 1.6) colour the panes the same way
+# on a truecolor terminal: default text and background plus the 16 ANSI
+# colours, from the theme's terminal.ansi* colours (black red green yellow
+# blue magenta cyan white, then the bright ones).
+
+# Dark Default
+[dark]
+head   = { fg = ["brightwhite", "#e6edf3"], bold = true }
+sel    = { fg = ["black", "#0d1117"], bg = ["blue", "#58a6ff"] }
+faint  = { fg = ["brightblack", "#7d8590"] }
+accent = { fg = ["magenta", "#bc8cff"] }
+title  = { fg = ["blue", "#58a6ff"], bold = true }
+bad    = { fg = ["red", "#ff7b72"] }
+warn   = { fg = ["yellow", "#d29922"] }
+good   = { fg = ["green", "#3fb950"] }
+info   = { fg = ["cyan", "#39c5cf"] }
+plain  = { fg = ["white", "#e6edf3"] }
+
+[dark.pane]
+fg = "#e6edf3"
+bg = "#0d1117"
+palette = [
+  "#484f58", "#ff7b72", "#3fb950", "#d29922", "#58a6ff", "#bc8cff", "#39c5cf", "#b1bac4",
+  "#6e7681", "#ffa198", "#56d364", "#e3b341", "#79c0ff", "#d2a8ff", "#56d4dd", "#ffffff",
+]
+
+# Light Default
+[light]
+head   = { fg = ["black", "#1f2328"], bold = true }
+sel    = { fg = ["brightwhite", "#ffffff"], bg = ["blue", "#0969da"] }
+faint  = { fg = ["brightblack", "#656d76"] }
+accent = { fg = ["magenta", "#8250df"] }
+title  = { fg = ["blue", "#0969da"], bold = true }
+bad    = { fg = ["red", "#cf222e"] }
+warn   = { fg = ["yellow", "#4d2d00"] }
+good   = { fg = ["green", "#116329"] }
+info   = { fg = ["cyan", "#1b7c83"] }
+plain  = { fg = ["black", "#1f2328"] }
+
+[light.pane]
+fg = "#1f2328"
+bg = "#ffffff"
+palette = [
+  "#24292f", "#cf222e", "#116329", "#4d2d00", "#0969da", "#8250df", "#1b7c83", "#6e7781",
+  "#57606a", "#a40e26", "#1a7f37", "#633c01", "#218bff", "#a475f9", "#3192aa", "#8c959f",
+]
