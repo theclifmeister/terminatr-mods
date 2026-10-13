@@ -1,0 +1,37 @@
+{
+  "name": "race control beside the coordinator: the flags, the inbox, the merges and the cars; an inbox item draws it again",
+  "answers": [
+    { "method": "project.get", "params": { "slug": "demo" },
+      "result": { "project": "demo", "needs_you": [], "ready": [],
+        "inbox": [{ "id": "i1", "kind": "report", "subject": "t-0001 reported", "summary": "", "count": 1, "what": "report" },
+                  { "id": "i2", "kind": "question", "subject": "Which port?", "summary": "", "needs_user": true, "count": 1, "what": "question" }],
+        "threads": [
+          { "id": "t-0001", "title": "Sidebar", "state": "working", "pr": "#412 open, checks passed", "pr_checks": "pass" },
+          { "id": "t-0002", "title": "Docs", "state": "blocked", "needs_you": "Which licence?" },
+          { "id": "t-0003", "title": "Release", "state": "idle", "pr": "#400 merged", "pr_checks": "pass" },
+          { "id": "t-0004", "title": "Build", "state": "working", "pr": "#415 open, 1 check failed", "pr_bad": true, "pr_checks": "fail" }
+        ] } }
+  ],
+  "events": [
+    { "name": "view.opened", "project": "demo",
+      "data": { "view": "control", "slot": "coordinator.section", "project": "demo", "width": 38, "height": 4 } },
+    { "name": "inbox.item", "project": "other",
+      "data": { "project": "other", "id": "i7", "kind": "report", "subject": "x", "summary": "", "needs_user": false } },
+    { "name": "inbox.item", "project": "demo",
+      "data": { "project": "demo", "id": "i3", "kind": "report", "subject": "t-0004 reported", "summary": "", "needs_user": false } }
+  ],
+  "expect": {
+    "calls": [
+      { "method": "project.get", "params": { "slug": "demo" } },
+      { "method": "ui.view.set", "params": { "view": "control", "options": { "project": "demo", "height": 4 },
+        "widget": { "kind": "kv", "pairs": [
+          { "key": "flags", "value": [{ "icon": "blocked", "role": "bad" }, { "text": " 1 red: needs you" }, { "text": "  " }, { "icon": "blocked", "role": "warn" }, { "text": " 1 yellow: checks failing" }] },
+          { "key": "inbox", "value": [{ "text": "2 items" }, { "text": ", 1 for you", "role": "warn" }] },
+          { "key": "merges", "value": [{ "icon": "done", "role": "good" }, { "text": " 1 merged" }, { "text": "  " }, { "text": "2 open", "role": "info" }] },
+          { "key": "cars", "value": [{ "text": "4 on track, 2 on a flying lap" }] }
+        ] } } },
+      { "method": "project.get", "params": { "slug": "demo" } },
+      { "method": "ui.view.set", "params": { "view": "control", "options": { "project": "demo" } } }
+    ]
+  }
+}

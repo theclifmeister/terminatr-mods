@@ -1,0 +1,43 @@
+{
+  "name": "enter on the race order's header opens the results tab; the tab lists the podium (done tasks, newest first, enter shows one), the rest classified, and the merged PRs, with a count",
+  "answers": [
+    { "method": "tasks.list", "params": { "slug": "demo" },
+      "result": [
+        { "id": "T1", "title": "Old", "status": "done", "steps_done": 0, "steps_total": 0, "updated": "2026-10-01", "steps": [] },
+        { "id": "T2", "title": "Login", "status": "done", "steps_done": 3, "steps_total": 3, "updated": "2026-10-12", "thread": "t-0002", "steps": [] },
+        { "id": "T3", "title": "Sidebar", "status": "started", "steps_done": 1, "steps_total": 3, "thread": "t-0001", "steps": [] },
+        { "id": "T4", "title": "Docs", "status": "done", "steps_done": 0, "steps_total": 0, "updated": "2026-10-11", "steps": [] },
+        { "id": "T5", "title": "Build", "status": "done", "steps_done": 0, "steps_total": 0, "updated": "2026-10-13", "steps": [] }
+      ] },
+    { "method": "project.get", "params": { "slug": "demo" },
+      "result": { "project": "demo", "needs_you": [], "inbox": [], "ready": [], "threads": [
+        { "id": "t-0001", "title": "Sidebar", "state": "working", "pr": "#412 open, checks passed", "pr_checks": "pass", "task": { "id": "T3", "title": "Sidebar", "status": "started", "steps_done": 1, "steps_total": 3 } },
+        { "id": "t-0003", "title": "Release", "state": "idle", "pr": "#400 merged", "pr_checks": "pass" }
+      ] } }
+  ],
+  "events": [
+    { "name": "ui.click", "project": "demo", "data": { "view": "order", "target": { "project": "demo" } } },
+    { "name": "view.opened", "project": "demo",
+      "data": { "view": "results", "slot": "project.tab", "project": "demo", "width": 70, "height": 20 } }
+  ],
+  "expect": {
+    "calls": [
+      { "method": "ui.view.open", "params": { "view": "results" } },
+      { "method": "ui.view.set", "params": { "view": "results", "options": { "project": "demo", "count": 4 },
+        "widget": { "kind": "stack", "children": [
+          { "kind": "list", "id": "results", "rows": [
+            { "id": "podium", "head": true, "spans": [{ "text": "PODIUM", "role": "head" }] },
+            { "id": "T5", "spans": [{ "text": "P1 ", "role": "head" }, { "icon": "done", "role": "good" }, { "text": " T5 Build" }, { "text": "  2026-10-13", "role": "faint" }],
+              "actions": [{ "id": "task.show", "target": { "project": "demo", "task": "T5" } }] },
+            { "id": "T2", "spans": [{ "text": "P2 ", "role": "faint" }, { "icon": "done", "role": "good" }, { "text": " T2 Login" }, { "text": "  2026-10-12", "role": "faint" }, { "text": "  t-0002", "role": "faint" }] },
+            { "id": "T4", "spans": [{ "text": "P3 ", "role": "faint" }, { "icon": "done", "role": "good" }, { "text": " T4 Docs" }, { "text": "  2026-10-11", "role": "faint" }] },
+            { "id": "classified", "head": true },
+            { "id": "T1", "spans": [{ "text": "    ", "role": "faint" }, { "icon": "done", "role": "good" }, { "text": " T1 Old" }, { "text": "  2026-10-01", "role": "faint" }] },
+            { "id": "merged", "head": true, "spans": [{ "text": "MERGED", "role": "head" }] },
+            { "id": "t-0003", "spans": [{ "icon": "ci.pass", "role": "good" }, { "text": " #400 ", "role": "faint" }, { "text": "t-0003 Release" }] }
+          ] },
+          { "kind": "text", "role": "faint" }
+        ] } } }
+    ]
+  }
+}
