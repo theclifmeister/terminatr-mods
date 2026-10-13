@@ -4,12 +4,12 @@
 #
 # [dark] is One Dark, with the terminal palette of One Dark Pro
 # (Binaryify/OneDark-Pro, theme OneDark-Pro.json, terminal.ansi*).
-# [light] is One Light, from Atom's one-light-syntax colours
-# (atom/atom, colors.less); Atom shipped no terminal palette, so the
-# 16 ANSI slots are a mapping of those syntax colours (see README).
+# [light] is One Light, with the terminal palette of
+# Ghostty's "Atom One Light" (mbadolato/iTerm2-Color-Schemes, ghostty/);
+# Atom shipped no terminal palette (see README).
 #
 # Mapping: head/plain = foreground, sel = background on blue (dark) or
-# purple (light), faint = bright black, accent = magenta, title = blue,
+# magenta (light), faint = bright black, accent = magenta, title = blue,
 # bad = red, warn = yellow, good = green, info = cyan.
 
 # One Dark
@@ -35,21 +35,21 @@ palette = [
 
 # One Light
 [light]
-head   = { fg = ["black", "#383a42"], bold = true }
-sel    = { fg = ["brightwhite", "#fafafa"], bg = ["magenta", "#a626a4"] }
-faint  = { fg = ["brightblack", "#a0a1a7"] }
-accent = { fg = ["magenta", "#a626a4"] }
-title  = { fg = ["blue", "#4078f2"], bold = true }
-bad    = { fg = ["red", "#e45649"] }
-warn   = { fg = ["yellow", "#b76b01"] }
-good   = { fg = ["green", "#50a14f"] }
-info   = { fg = ["cyan", "#0184bc"] }
-plain  = { fg = ["black", "#383a42"] }
+head   = { fg = ["black", "#2a2c33"], bold = true }
+sel    = { fg = ["brightwhite", "#f9f9f9"], bg = ["magenta", "#950095"] }
+faint  = { fg = ["brightblack", "#bbbbbb"] }
+accent = { fg = ["magenta", "#950095"] }
+title  = { fg = ["blue", "#2f5af3"], bold = true }
+bad    = { fg = ["red", "#de3e35"] }
+warn   = { fg = ["yellow", "#d2b67c"] }
+good   = { fg = ["green", "#3f953a"] }
+info   = { fg = ["cyan", "#3f953a"] }
+plain  = { fg = ["black", "#2a2c33"] }
 
 [light.pane]
-fg = "#383a42"
-bg = "#fafafa"
+fg = "#2a2c33"
+bg = "#f9f9f9"
 palette = [
-  "#383a42", "#e45649", "#50a14f", "#b76b01", "#4078f2", "#a626a4", "#0184bc", "#a0a1a7",
-  "#696c77", "#ca1243", "#50a14f", "#b76b01", "#4078f2", "#a626a4", "#0184bc", "#fafafa",
+  "#000000", "#de3e35", "#3f953a", "#d2b67c", "#2f5af3", "#950095", "#3f953a", "#bbbbbb",
+  "#000000", "#de3e35", "#3f953a", "#d2b67c", "#2f5af3", "#a00095", "#3f953a", "#ffffff",
 ]

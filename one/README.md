@@ -24,27 +24,24 @@ Atom shipped no terminal palette, so the sources differ per side:
   [One Dark Pro](https://github.com/Binaryify/OneDark-Pro)
   (`themes/OneDark-Pro.json`, `terminal.ansi*`, foreground and background),
   which match Atom's One Dark background `#282c34` and foreground `#abb2bf`.
-- **One Light** ([light]): Atom's own
-  [one-light-syntax](https://github.com/atom/atom/tree/master/packages/one-light-syntax)
-  colours (`colors.less`, HSL converted to hex): foreground `#383a42`,
-  background `#fafafa`. Neither One Dark Pro nor onedark.vim defines a light
-  terminal palette, so the 16 ANSI slots are a mapping, not an upstream
-  table: black/foreground mono-1, red hue-5, green hue-4, yellow orange
-  hue-6, blue hue-2, magenta hue-3, cyan hue-1, white mono-3, bright black
-  mono-2, bright red hue-5-2; other bright colours repeat the normal ones,
-  and bright white is the background.
+- **One Light** ([light]): Ghostty's "Atom One Light" terminal palette,
+  from [iTerm2-Color-Schemes](https://github.com/mbadolato/iTerm2-Color-Schemes)
+  (`ghostty/Atom One Light`): the 16 ANSI colours, foreground `#2a2c33` and
+  background `#f9f9f9`. It is a community port of Atom's One Light, not
+  an Atom file. Some slots repeat (cyan equals green, normal and bright are
+  mostly the same) and yellow is pale, as in that palette.
 
 ## Roles
 
 | role   | One Dark | One Light |
 |--------|----------|-----------|
 | head, plain | foreground | foreground |
-| sel    | background on blue | background on purple |
-| faint  | comment grey | mono-3 |
-| accent | magenta | purple |
+| sel    | background on blue | background on magenta |
+| faint  | comment grey | white (ANSI 7) |
+| accent | magenta | magenta |
 | title  | blue, bold | blue, bold |
 | bad    | red | red |
-| warn   | yellow | orange |
+| warn   | yellow | yellow |
 | good   | green | green |
 | info   | cyan | cyan |
 
@@ -55,7 +52,8 @@ MIT, as the upstream sources. Copyright notices kept in this folder:
 - `LICENSE-OneDark-Pro`: Copyright (c) 2013-2022 Binaryify (One Dark Pro)
 - `LICENSE-onedark.vim`: Copyright (c) 2015 Joshua Dick (onedark.vim, whose
   palette One Dark Pro's matches; kept as a reference, no values copied)
-- `LICENSE-atom`: Copyright (c) 2011-2022 GitHub Inc. (Atom, One Light)
+- `LICENSE-iTerm2-Color-Schemes`: Copyright (c) 2011 to Present Mark Badolato
+  (the Atom One Light terminal palette)
 
 ## Develop
 
