@@ -1,0 +1,57 @@
+# Rosé Pine (https://github.com/rose-pine) over tm's roles. Each role is
+# { fg, bg, bold, faint, reverse }; a colour pair is the ANSI fallback
+# first, then the truecolor value from the palette.
+# The console picks [dark] or [light] by the terminal's background:
+# [dark] is Rosé Pine and [light] is Rosé Pine Dawn, keeping the text
+# readable on a light terminal.
+#
+# Mapping: head/plain = text, sel = base on iris, faint = muted,
+# accent = iris, title = foam, bad = love, warn = gold, good = pine,
+# info = rose.
+#
+# [dark.pane] and [light.pane] (mod API 1.6) colour the panes the same way
+# on a truecolor terminal: default text and background plus the 16 ANSI
+# colours, from Rosé Pine's official terminal (Alacritty) palette (black
+# red green yellow blue magenta cyan white, then the bright ones).
+
+# Rosé Pine
+[dark]
+head   = { fg = ["brightwhite", "#e0def4"], bold = true }
+sel    = { fg = ["black", "#191724"], bg = ["magenta", "#c4a7e7"] }
+faint  = { fg = ["brightblack", "#6e6a86"] }
+accent = { fg = ["magenta", "#c4a7e7"] }
+title  = { fg = ["blue", "#9ccfd8"], bold = true }
+bad    = { fg = ["red", "#eb6f92"] }
+warn   = { fg = ["yellow", "#f6c177"] }
+good   = { fg = ["green", "#31748f"] }
+info   = { fg = ["cyan", "#ebbcba"] }
+plain  = { fg = ["white", "#e0def4"] }
+
+[dark.pane]
+fg = "#e0def4"
+bg = "#191724"
+palette = [
+  "#26233a", "#eb6f92", "#31748f", "#f6c177", "#9ccfd8", "#c4a7e7", "#ebbcba", "#e0def4",
+  "#6e6a86", "#eb6f92", "#31748f", "#f6c177", "#9ccfd8", "#c4a7e7", "#ebbcba", "#e0def4",
+]
+
+# Dawn
+[light]
+head   = { fg = ["black", "#575279"], bold = true }
+sel    = { fg = ["brightwhite", "#faf4ed"], bg = ["magenta", "#907aa9"] }
+faint  = { fg = ["brightblack", "#797593"] }
+accent = { fg = ["magenta", "#907aa9"] }
+title  = { fg = ["blue", "#56949f"], bold = true }
+bad    = { fg = ["red", "#b4637a"] }
+warn   = { fg = ["yellow", "#ea9d34"] }
+good   = { fg = ["green", "#286983"] }
+info   = { fg = ["cyan", "#d7827e"] }
+plain  = { fg = ["black", "#575279"] }
+
+[light.pane]
+fg = "#575279"
+bg = "#faf4ed"
+palette = [
+  "#f2e9e1", "#b4637a", "#286983", "#ea9d34", "#56949f", "#907aa9", "#d7827e", "#575279",
+  "#9893a5", "#b4637a", "#286983", "#ea9d34", "#56949f", "#907aa9", "#d7827e", "#575279",
+]
