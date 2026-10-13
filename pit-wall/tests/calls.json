@@ -1,0 +1,34 @@
+{
+  "name": "the pit calls card: a question's options as radio rows binding question.answer, the call's row binding session.attach and session.clear; a thread that needs you without a known session binds task.show; a resolved thread's call goes",
+  "events": [
+    { "name": "view.opened", "data": { "view": "calls", "slot": "dashboard.card", "width": 80, "height": 8 } },
+    { "name": "session.question", "project": "demo",
+      "data": { "session": "s-7", "project": "demo", "thread": "t-0012", "role": "thread",
+        "question": { "question": "Which port?", "options": [{ "label": "8080", "description": "the usual" }, { "label": "3000" }] } } },
+    { "name": "thread.state", "project": "web",
+      "data": { "project": "web", "thread": "t-0003", "task": "T4", "state": "blocked", "needs_you": "Merge or release?" } },
+    { "name": "thread.resolved", "project": "web",
+      "data": { "project": "web", "thread": "t-0003", "task": "T4", "agent": "claude" } }
+  ],
+  "expect": {
+    "calls": [
+      { "method": "ui.view.set", "params": { "view": "calls", "options": { "height": 3 }, "widget": { "kind": "stack", "children": [{ "kind": "list", "id": "calls", "rows": [] }, { "kind": "text" }] } } },
+      { "method": "ui.view.set", "params": { "view": "calls", "options": { "height": 5 }, "widget": { "children": [{ "rows": [
+        { "id": "demo/t-0012", "spans": [{ "icon": "blocked", "role": "bad" }, { "text": " demo t-0012" }, { "text": "  Which port?", "role": "warn" }],
+          "actions": [{ "id": "session.attach", "target": { "session": "s-7" } }, { "id": "session.clear", "target": { "session": "s-7" } }] },
+        { "id": "demo/t-0012#0", "spans": [{ "text": "    radio: ", "role": "faint" }, { "text": "8080", "role": "info" }, { "text": "  the usual", "role": "faint" }],
+          "actions": [{ "id": "question.answer", "target": { "session": "s-7", "question": "Which port?", "option": "8080" } }] },
+        { "id": "demo/t-0012#1", "spans": [{ "text": "    radio: ", "role": "faint" }, { "text": "3000", "role": "info" }],
+          "actions": [{ "id": "question.answer", "target": { "session": "s-7", "question": "Which port?", "option": "3000" } }] }
+      ] }, {}] } } },
+      { "method": "ui.view.set", "params": { "view": "calls", "options": { "height": 6 }, "widget": { "children": [{ "rows": [
+        { "id": "demo/t-0012" }, { "id": "demo/t-0012#0" }, { "id": "demo/t-0012#1" },
+        { "id": "web/t-0003", "spans": [{ "icon": "blocked", "role": "bad" }, { "text": " web t-0003" }, { "text": " T4", "role": "faint" }, { "text": "  Merge or release?", "role": "warn" }],
+          "actions": [{ "id": "task.show", "target": { "project": "web", "task": "T4" } }] }
+      ] }, {}] } } },
+      { "method": "ui.view.set", "params": { "view": "calls", "options": { "height": 5 }, "widget": { "children": [{ "rows": [
+        { "id": "demo/t-0012" }, { "id": "demo/t-0012#0" }, { "id": "demo/t-0012#1" }
+      ] }, {}] } } }
+    ]
+  }
+}

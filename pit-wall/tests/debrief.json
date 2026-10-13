@@ -1,0 +1,220 @@
+{
+  "name": "B opens the debrief, which lists what each project did today, its done tasks bound to task.show",
+  "answers": [
+    {
+      "method": "ui.view.open",
+      "params": {
+        "view": "debrief"
+      }
+    },
+    {
+      "method": "projects.list",
+      "result": [
+        {
+          "slug": "demo"
+        }
+      ]
+    },
+    {
+      "method": "project.get",
+      "params": {
+        "slug": "demo"
+      },
+      "result": {
+        "project": "demo",
+        "needs_you": [],
+        "inbox": [],
+        "ready": [],
+        "threads": [
+          {
+            "id": "t-0001",
+            "title": "Sidebar",
+            "state": "working",
+            "reports": 2,
+            "pr": "#412 merged",
+            "pr_checks": "pass"
+          },
+          {
+            "id": "t-0002",
+            "title": "Docs",
+            "state": "blocked",
+            "needs_you": "Which licence?",
+            "reports": 1
+          }
+        ]
+      }
+    },
+    {
+      "method": "tasks.list",
+      "params": {
+        "slug": "demo"
+      },
+      "result": [
+        {
+          "id": "T1",
+          "title": "Old",
+          "status": "done",
+          "steps_done": 0,
+          "steps_total": 0,
+          "updated": "2026-10-01",
+          "steps": []
+        },
+        {
+          "id": "T2",
+          "title": "Login",
+          "status": "done",
+          "steps_done": 3,
+          "steps_total": 3,
+          "updated": "2026-10-13",
+          "steps": []
+        },
+        {
+          "id": "T3",
+          "title": "Sidebar",
+          "status": "started",
+          "steps_done": 1,
+          "steps_total": 3,
+          "thread": "t-0001",
+          "steps": []
+        }
+      ]
+    }
+  ],
+  "events": [
+    {
+      "name": "command.run",
+      "project": "demo",
+      "data": {
+        "command": "debrief",
+        "project": "demo"
+      }
+    },
+    {
+      "name": "view.opened",
+      "data": {
+        "view": "debrief",
+        "slot": "full",
+        "width": 120,
+        "height": 40
+      }
+    }
+  ],
+  "expect": {
+    "calls": [
+      {
+        "method": "ui.view.open",
+        "params": {
+          "view": "debrief"
+        }
+      },
+      {
+        "method": "ui.view.set",
+        "params": {
+          "view": "debrief",
+          "widget": {
+            "kind": "stack",
+            "children": [
+              {
+                "kind": "text",
+                "lines": [
+                  [
+                    {
+                      "text": "DEBRIEF 2026-10-13",
+                      "role": "head"
+                    },
+                    {
+                      "text": "  1 done today · 1 merged · 1 calling · 2 on track",
+                      "role": "faint"
+                    }
+                  ]
+                ]
+              },
+              {
+                "kind": "text",
+                "text": "demo",
+                "role": "accent"
+              },
+              {
+                "kind": "kv",
+                "pairs": [
+                  {
+                    "key": "done",
+                    "value": [
+                      {
+                        "text": "T2 ",
+                        "role": "good"
+                      }
+                    ]
+                  },
+                  {
+                    "key": "merged",
+                    "value": [
+                      {
+                        "text": "#412 ",
+                        "role": "good"
+                      }
+                    ]
+                  },
+                  {
+                    "key": "flags",
+                    "value": [
+                      {
+                        "icon": "blocked",
+                        "role": "bad"
+                      },
+                      {
+                        "text": " 1 calling"
+                      }
+                    ]
+                  },
+                  {
+                    "key": "cars",
+                    "value": [
+                      {
+                        "text": "2 on track, 3 radio messages"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "kind": "list",
+                "id": "done-demo",
+                "rows": [
+                  {
+                    "id": "T2",
+                    "spans": [
+                      {
+                        "icon": "done",
+                        "role": "good"
+                      },
+                      {
+                        "text": " T2 Login"
+                      }
+                    ],
+                    "actions": [
+                      {
+                        "id": "task.show",
+                        "target": {
+                          "project": "demo",
+                          "task": "T2"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "kind": "text",
+                "role": "faint"
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "no_calls": [
+      "ui.toast"
+    ]
+  }
+}

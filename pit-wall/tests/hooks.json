@@ -1,0 +1,18 @@
+{
+  "name": "hooks: a merged pull request toasts the chequered flag, a task reaching review toasts scrutineering; an open PR and a task starting toast nothing",
+  "events": [
+    { "name": "pr.changed", "project": "demo", "data": { "project": "demo", "thread": "t-0001", "number": 412, "state": "OPEN", "checks": "pass" } },
+    { "name": "pr.changed", "project": "demo", "data": { "project": "demo", "thread": "t-0001", "number": 412, "state": "MERGED", "checks": "pass" } },
+    { "name": "task.changed", "project": "demo",
+      "data": { "project": "demo", "id": "T3", "title": "Sidebar", "from": "ready", "to": "started", "steps_done": 0, "steps_total": 3 } },
+    { "name": "task.changed", "project": "demo",
+      "data": { "project": "demo", "id": "T3", "title": "Sidebar", "from": "started", "to": "review", "steps_done": 3, "steps_total": 3, "thread": "t-0001" } }
+  ],
+  "expect": {
+    "calls": [
+      { "method": "ui.toast", "params": { "text": "Chequered flag: demo t-0001 #412 merged" } },
+      { "method": "ui.toast", "params": { "text": "Scrutineering: demo T3 Sidebar is in review" } }
+    ],
+    "no_calls": ["ui.view.set", "ui.notify", "project.get"]
+  }
+}

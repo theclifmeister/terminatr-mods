@@ -1,0 +1,15 @@
+# Pit Wall's keymap: the function keys, as a pit wall's console has
+# them. Each action id to all of its keys: the list replaces the
+# action's keys, so the built-in one stays beside the F-key. The mod's
+# own commands (R radio, L live timing, B debrief) are declared in
+# mod.toml, not here: a keymap binds the core's actions only.
+
+# F1, naturally.
+"help.open"       = ["?", "f1"]
+# The radio: the next and previous car calling the pit wall (needs you).
+"side.needs-next" = ["w", "f2"]
+"side.needs-prev" = ["W", "f3"]
+# The telemetry (the details panel) on and off.
+"details.toggle"  = ["|", "f4"]
+# The timing tower, full or slim.
+"sidebar.slim"    = ["b", "f5"]

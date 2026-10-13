@@ -1,0 +1,33 @@
+{
+  "name": "box box: a question notifies once with its options as answer buttons; the thread's state with the same question doesn't notify again; tyres gone notifies once per session; a car calling before the mod started isn't news",
+  "events": [
+    { "name": "mod.ready", "data": { "projects": [
+      { "project": "demo", "needs_you": [{ "why": "question", "title": "Docs", "thread": "t-0007", "session": "s-1" }], "inbox": [], "ready": [],
+        "threads": [{ "id": "t-0007", "title": "Docs", "needs_you": "Which licence?" }] } ] } },
+    { "name": "thread.state", "project": "demo",
+      "data": { "project": "demo", "thread": "t-0007", "task": "T7", "state": "blocked", "needs_you": "Which licence?" } },
+    { "name": "session.question", "project": "demo",
+      "data": { "session": "s-7", "project": "demo", "thread": "t-0012", "role": "thread",
+        "question": { "question": "Which port?", "options": [{ "label": "8080" }, { "label": "3000" }, { "label": "443" }, { "label": "80" }] } } },
+    { "name": "thread.state", "project": "demo",
+      "data": { "project": "demo", "thread": "t-0012", "task": "T12", "state": "blocked", "needs_you": "Which port? (more on the card)" } },
+    { "name": "session.state", "project": "demo",
+      "data": { "session": "s-7", "project": "demo", "thread": "t-0012", "role": "thread", "state": "working", "context": 91 } },
+    { "name": "session.state", "project": "demo",
+      "data": { "session": "s-7", "project": "demo", "thread": "t-0012", "role": "thread", "state": "working", "context": 92 } }
+  ],
+  "expect": {
+    "calls": [
+      { "method": "ui.notify", "params": { "notification": { "title": "BOX BOX t-0012", "text": "demo: Which port? (more on the card)", "level": "warn",
+        "actions": [
+          { "id": "question.answer", "target": { "session": "s-7", "question": "Which port?", "option": "8080" } },
+          { "id": "question.answer", "target": { "session": "s-7", "question": "Which port?", "option": "3000" } },
+          { "id": "question.answer", "target": { "session": "s-7", "question": "Which port?", "option": "443" } }
+        ] } } },
+      { "method": "ui.cell.set", "params": { "column": "tyres", "target": { "session": "s-7" }, "spans": [{ "text": "BOX BOX", "role": "bad" }] } },
+      { "method": "ui.notify", "params": { "notification": { "title": "BOX BOX t-0012", "text": "demo: tyres gone, 91% of the context window used. C on its pit call changes them.", "level": "warn" } } },
+      { "method": "ui.cell.set", "params": { "column": "tyres", "target": { "session": "s-7" }, "spans": [{ "text": "BOX BOX", "role": "bad" }] } }
+    ],
+    "store": { "asked": { "demo/t-0007": "Which licence?", "demo/t-0012": "Which port? (more on the card)" }, "boxed": ["s-7"] }
+  }
+}

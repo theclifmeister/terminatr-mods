@@ -1,0 +1,37 @@
+{
+  "name": "R opens the pit calls card (the human's input), where the top call is the first row",
+  "answers": [
+    {
+      "method": "ui.view.open",
+      "params": {
+        "view": "calls"
+      }
+    }
+  ],
+  "events": [
+    {
+      "name": "command.run",
+      "project": "demo",
+      "data": {
+        "command": "radio",
+        "project": "demo",
+        "selection": {
+          "project": "demo"
+        }
+      }
+    }
+  ],
+  "expect": {
+    "calls": [
+      {
+        "method": "ui.view.open",
+        "params": {
+          "view": "calls"
+        }
+      }
+    ],
+    "no_calls": [
+      "ui.toast"
+    ]
+  }
+}
