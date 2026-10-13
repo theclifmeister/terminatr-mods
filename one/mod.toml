@@ -1,0 +1,11 @@
+id = "one"
+name = "One"
+version = "1.0.0"
+api = "1.6"
+min_tm = "0.24.0"
+description = "One Dark and One Light colours for the dashboard (One Dark Pro terminal palette; Atom One Light)."
+authors = ["Clifmeister"]
+homepage = "https://github.com/theclifmeister/terminatr-mods/tree/main/one"
+
+[provides]
+theme = "theme.toml"
