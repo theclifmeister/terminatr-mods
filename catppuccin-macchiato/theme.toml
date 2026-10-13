@@ -8,6 +8,11 @@
 # Mapping: head/plain = text, sel = base on mauve, faint = overlay1,
 # accent = mauve, title = blue, bad = red, warn = yellow, good = green,
 # info = sapphire.
+#
+# [dark.pane] and [light.pane] (mod API 1.6) colour the panes the same way
+# on a truecolor terminal: default text and background plus the 16 ANSI
+# colours, from Catppuccin's official terminal palette (black red green
+# yellow blue magenta cyan white, then the bright ones).
 
 # Macchiato
 [dark]
@@ -22,6 +27,14 @@ good   = { fg = ["green", "#a6da95"] }
 info   = { fg = ["cyan", "#7dc4e4"] }
 plain  = { fg = ["white", "#cad3f5"] }
 
+[dark.pane]
+fg = "#cad3f5"
+bg = "#24273a"
+palette = [
+  "#494d64", "#ed8796", "#a6da95", "#eed49f", "#8aadf4", "#f5bde6", "#8bd5ca", "#b8c0e0",
+  "#5b6078", "#ed8796", "#a6da95", "#eed49f", "#8aadf4", "#f5bde6", "#8bd5ca", "#a5adcb",
+]
+
 # Latte
 [light]
 head   = { fg = ["black", "#4c4f69"], bold = true }
@@ -34,3 +47,11 @@ warn   = { fg = ["yellow", "#df8e1d"] }
 good   = { fg = ["green", "#40a02b"] }
 info   = { fg = ["cyan", "#209fb5"] }
 plain  = { fg = ["black", "#4c4f69"] }
+
+[light.pane]
+fg = "#4c4f69"
+bg = "#eff1f5"
+palette = [
+  "#5c5f77", "#d20f39", "#40a02b", "#df8e1d", "#1e66f5", "#ea76cb", "#179299", "#acb0be",
+  "#6c6f85", "#d20f39", "#40a02b", "#df8e1d", "#1e66f5", "#ea76cb", "#179299", "#bcc0cc",
+]

@@ -1,7 +1,8 @@
 id = "catppuccin-frappe"
 name = "Catppuccin Frappé"
-version = "1.0.0"
-api = "1.4"
+version = "1.1.0"
+api = "1.6"
+min_tm = "0.24.0"
 description = "The Catppuccin Frappé palette for the dashboard's colours (dark flavour)."
 authors = ["Clifmeister"]
 homepage = "https://github.com/theclifmeister/terminatr-mods/tree/main/catppuccin-frappe"

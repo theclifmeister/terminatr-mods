@@ -4,6 +4,11 @@ The [Catppuccin](https://github.com/catppuccin/palette) Frappé palette as a
 terminatr theme. Frappé is a dark flavour: on a dark terminal you get
 Frappé; on a light one the theme borrows Latte so text stays readable.
 
+On a truecolor terminal the panes follow the theme too (default colours and
+the 16 ANSI colours, from Catppuccin's terminal palette), and from tm 0.25.0
+Claude panes do as well, on next start or resume. No manual Claude `/theme`
+is needed on 0.25.0+. Needs tm 0.24.0 or later.
+
 A data mod: tm reads its files; nothing runs.
 
 ## Install
