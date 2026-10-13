@@ -1,0 +1,12 @@
+id = "solarized"
+name = "Solarized"
+version = "1.0.0"
+api = "1.6"
+min_tm = "0.24.0"
+description = "The Solarized palette for the dashboard's colours (dark and light)."
+authors = ["Clifmeister"]
+license = "MIT"
+homepage = "https://github.com/theclifmeister/terminatr-mods/tree/main/solarized"
+
+[provides]
+theme = "theme.toml"
