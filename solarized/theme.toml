@@ -1,0 +1,55 @@
+# Solarized (https://github.com/altercation/solarized) over tm's roles.
+# Each role is { fg, bg, bold, faint, reverse }; a colour pair is the
+# ANSI fallback first, then the truecolor value from the palette.
+# The console picks [dark] or [light] by the terminal's background.
+#
+# Mapping: head = emphasised content (base1 / base01), plain = body text
+# (base0 / base00), sel = background on blue, faint = comment text
+# (base01 / base1), accent = violet, title = blue, bad = red,
+# warn = yellow, good = green, info = cyan.
+#
+# [dark.pane] and [light.pane] (mod API 1.6) colour the panes the same way
+# on a truecolor terminal: default text and background plus the 16 ANSI
+# colours, from Solarized's own terminal palette (black red green yellow
+# blue magenta cyan white, then the bright ones). Solarized uses one
+# 16-colour palette for both modes; only fg and bg change.
+
+[dark]
+head   = { fg = ["brightcyan", "#93a1a1"], bold = true }
+sel    = { fg = ["black", "#002b36"], bg = ["blue", "#268bd2"] }
+faint  = { fg = ["brightgreen", "#586e75"] }
+accent = { fg = ["brightmagenta", "#6c71c4"] }
+title  = { fg = ["blue", "#268bd2"], bold = true }
+bad    = { fg = ["red", "#dc322f"] }
+warn   = { fg = ["yellow", "#b58900"] }
+good   = { fg = ["green", "#859900"] }
+info   = { fg = ["cyan", "#2aa198"] }
+plain  = { fg = ["brightblue", "#839496"] }
+
+[dark.pane]
+fg = "#839496"
+bg = "#002b36"
+palette = [
+  "#073642", "#dc322f", "#859900", "#b58900", "#268bd2", "#d33682", "#2aa198", "#eee8d5",
+  "#002b36", "#cb4b16", "#586e75", "#657b83", "#839496", "#6c71c4", "#93a1a1", "#fdf6e3",
+]
+
+[light]
+head   = { fg = ["brightgreen", "#586e75"], bold = true }
+sel    = { fg = ["brightwhite", "#fdf6e3"], bg = ["blue", "#268bd2"] }
+faint  = { fg = ["brightcyan", "#93a1a1"] }
+accent = { fg = ["brightmagenta", "#6c71c4"] }
+title  = { fg = ["blue", "#268bd2"], bold = true }
+bad    = { fg = ["red", "#dc322f"] }
+warn   = { fg = ["yellow", "#b58900"] }
+good   = { fg = ["green", "#859900"] }
+info   = { fg = ["cyan", "#2aa198"] }
+plain  = { fg = ["brightyellow", "#657b83"] }
+
+[light.pane]
+fg = "#657b83"
+bg = "#fdf6e3"
+palette = [
+  "#073642", "#dc322f", "#859900", "#b58900", "#268bd2", "#d33682", "#2aa198", "#eee8d5",
+  "#002b36", "#cb4b16", "#586e75", "#657b83", "#839496", "#6c71c4", "#93a1a1", "#fdf6e3",
+]
