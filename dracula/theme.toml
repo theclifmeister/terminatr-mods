@@ -1,0 +1,56 @@
+# Dracula (https://draculatheme.com) over tm's roles, with Alucard, its
+# official light theme. Each role is { fg, bg, bold, faint, reverse }; a
+# colour pair is the ANSI fallback first, then the truecolor value.
+# The console picks [dark] or [light] by the terminal's background:
+# [dark] is Dracula, [light] is Alucard.
+#
+# Mapping: head/plain = foreground, sel = background on purple,
+# faint = comment, accent = pink, title = purple, bad = red,
+# warn = yellow, good = green, info = cyan.
+#
+# [dark.pane] and [light.pane] (mod API 1.6) colour the panes the same way
+# on a truecolor terminal: default text and background plus the 16 ANSI
+# colours (black red green yellow blue magenta cyan white, then the bright
+# ones), from the ANSI palette of the Dracula spec (draculatheme.com/spec).
+
+# Dracula
+[dark]
+head   = { fg = ["brightwhite", "#f8f8f2"], bold = true }
+sel    = { fg = ["black", "#282a36"], bg = ["blue", "#bd93f9"] }
+faint  = { fg = ["brightblack", "#6272a4"] }
+accent = { fg = ["magenta", "#ff79c6"] }
+title  = { fg = ["blue", "#bd93f9"], bold = true }
+bad    = { fg = ["red", "#ff5555"] }
+warn   = { fg = ["yellow", "#f1fa8c"] }
+good   = { fg = ["green", "#50fa7b"] }
+info   = { fg = ["cyan", "#8be9fd"] }
+plain  = { fg = ["white", "#f8f8f2"] }
+
+[dark.pane]
+fg = "#f8f8f2"
+bg = "#282a36"
+palette = [
+  "#21222c", "#ff5555", "#50fa7b", "#f1fa8c", "#bd93f9", "#ff79c6", "#8be9fd", "#f8f8f2",
+  "#6272a4", "#ff6e6e", "#69ff94", "#ffffa5", "#d6acff", "#ff92df", "#a4ffff", "#ffffff",
+]
+
+# Alucard
+[light]
+head   = { fg = ["black", "#1f1f1f"], bold = true }
+sel    = { fg = ["brightwhite", "#fffbeb"], bg = ["blue", "#644ac9"] }
+faint  = { fg = ["brightblack", "#6c664b"] }
+accent = { fg = ["magenta", "#a3144d"] }
+title  = { fg = ["blue", "#644ac9"], bold = true }
+bad    = { fg = ["red", "#cb3a2a"] }
+warn   = { fg = ["yellow", "#846e15"] }
+good   = { fg = ["green", "#14710a"] }
+info   = { fg = ["cyan", "#036a96"] }
+plain  = { fg = ["black", "#1f1f1f"] }
+
+[light.pane]
+fg = "#1f1f1f"
+bg = "#fffbeb"
+palette = [
+  "#fffbeb", "#cb3a2a", "#14710a", "#846e15", "#644ac9", "#a3144d", "#036a96", "#1f1f1f",
+  "#6c664b", "#d74c3d", "#198d0c", "#9e841a", "#7862d0", "#bf185a", "#047fb4", "#2c2b31",
+]
