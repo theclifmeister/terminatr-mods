@@ -1,0 +1,11 @@
+id = "tokyonight-storm"
+name = "Tokyo Night Storm"
+version = "1.0.0"
+api = "1.6"
+min_tm = "0.24.0"
+description = "The Tokyo Night Storm palette for the dashboard's colours and panes (dark flavour, Day on light terminals)."
+authors = ["Clifmeister"]
+homepage = "https://github.com/theclifmeister/terminatr-mods/tree/main/tokyonight-storm"
+
+[provides]
+theme = "theme.toml"

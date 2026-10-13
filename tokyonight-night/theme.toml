@@ -1,0 +1,57 @@
+# Tokyo Night Night (https://github.com/folke/tokyonight.nvim) over tm's
+# roles. Each role is { fg, bg, bold, faint, reverse }; a colour pair is
+# the ANSI fallback first, then the truecolor value from the palette.
+# The console picks [dark] or [light] by the terminal's background:
+# Night is a dark flavour, so [dark] is Night and [light] is Day,
+# keeping the text readable on a light terminal.
+#
+# Mapping: head/plain = foreground, sel = background on magenta,
+# faint = comment, accent = magenta, title = blue, bad = red,
+# warn = yellow, good = green, info = cyan.
+#
+# [dark.pane] and [light.pane] (mod API 1.6) colour the panes the same way
+# on a truecolor terminal: default text and background plus the 16 ANSI
+# colours, from the upstream terminal palette (extras/ghostty: black red
+# green yellow blue magenta cyan white, then the bright ones).
+
+# Night
+[dark]
+head   = { fg = ["brightwhite", "#c0caf5"], bold = true }
+sel    = { fg = ["black", "#1a1b26"], bg = ["magenta", "#bb9af7"] }
+faint  = { fg = ["brightblack", "#565f89"] }
+accent = { fg = ["magenta", "#bb9af7"] }
+title  = { fg = ["blue", "#7aa2f7"], bold = true }
+bad    = { fg = ["red", "#f7768e"] }
+warn   = { fg = ["yellow", "#e0af68"] }
+good   = { fg = ["green", "#9ece6a"] }
+info   = { fg = ["cyan", "#7dcfff"] }
+plain  = { fg = ["white", "#c0caf5"] }
+
+[dark.pane]
+fg = "#c0caf5"
+bg = "#1a1b26"
+palette = [
+  "#15161e", "#f7768e", "#9ece6a", "#e0af68", "#7aa2f7", "#bb9af7", "#7dcfff", "#a9b1d6",
+  "#414868", "#ff899d", "#9fe044", "#faba4a", "#8db0ff", "#c7a9ff", "#a4daff", "#c0caf5",
+]
+
+# Day
+[light]
+head   = { fg = ["black", "#3760bf"], bold = true }
+sel    = { fg = ["brightwhite", "#e1e2e7"], bg = ["magenta", "#9854f1"] }
+faint  = { fg = ["brightblack", "#848cb5"] }
+accent = { fg = ["magenta", "#9854f1"] }
+title  = { fg = ["blue", "#2e7de9"], bold = true }
+bad    = { fg = ["red", "#f52a65"] }
+warn   = { fg = ["yellow", "#8c6c3e"] }
+good   = { fg = ["green", "#587539"] }
+info   = { fg = ["cyan", "#007197"] }
+plain  = { fg = ["black", "#3760bf"] }
+
+[light.pane]
+fg = "#3760bf"
+bg = "#e1e2e7"
+palette = [
+  "#b4b5b9", "#f52a65", "#587539", "#8c6c3e", "#2e7de9", "#9854f1", "#007197", "#6172b0",
+  "#a1a6c5", "#ff4774", "#5c8524", "#a27629", "#358aff", "#a463ff", "#007ea8", "#3760bf",
+]

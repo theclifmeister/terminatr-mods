@@ -1,0 +1,11 @@
+id = "tokyonight-night"
+name = "Tokyo Night Night"
+version = "1.0.0"
+api = "1.6"
+min_tm = "0.24.0"
+description = "The Tokyo Night Night palette for the dashboard's colours and panes (dark flavour, Day on light terminals)."
+authors = ["Clifmeister"]
+homepage = "https://github.com/theclifmeister/terminatr-mods/tree/main/tokyonight-night"
+
+[provides]
+theme = "theme.toml"
