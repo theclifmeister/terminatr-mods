@@ -8,6 +8,11 @@
 # Mapping: head/plain = text, sel = base on mauve, faint = overlay1,
 # accent = mauve, title = blue, bad = red, warn = yellow, good = green,
 # info = sapphire.
+#
+# [dark.pane] and [light.pane] (mod API 1.6) colour the panes the same way
+# on a truecolor terminal: default text and background plus the 16 ANSI
+# colours, from Catppuccin's official terminal palette (black red green
+# yellow blue magenta cyan white, then the bright ones).
 
 # Frappé
 [dark]
@@ -22,6 +27,14 @@ good   = { fg = ["green", "#a6d189"] }
 info   = { fg = ["cyan", "#85c1dc"] }
 plain  = { fg = ["white", "#c6d0f5"] }
 
+[dark.pane]
+fg = "#c6d0f5"
+bg = "#303446"
+palette = [
+  "#51576d", "#e78284", "#a6d189", "#e5c890", "#8caaee", "#f4b8e4", "#81c8be", "#b5bfe2",
+  "#626880", "#e78284", "#a6d189", "#e5c890", "#8caaee", "#f4b8e4", "#81c8be", "#a5adce",
+]
+
 # Latte
 [light]
 head   = { fg = ["black", "#4c4f69"], bold = true }
@@ -34,3 +47,11 @@ warn   = { fg = ["yellow", "#df8e1d"] }
 good   = { fg = ["green", "#40a02b"] }
 info   = { fg = ["cyan", "#209fb5"] }
 plain  = { fg = ["black", "#4c4f69"] }
+
+[light.pane]
+fg = "#4c4f69"
+bg = "#eff1f5"
+palette = [
+  "#5c5f77", "#d20f39", "#40a02b", "#df8e1d", "#1e66f5", "#ea76cb", "#179299", "#acb0be",
+  "#6c6f85", "#d20f39", "#40a02b", "#df8e1d", "#1e66f5", "#ea76cb", "#179299", "#bcc0cc",
+]
