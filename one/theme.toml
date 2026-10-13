@@ -1,0 +1,57 @@
+# One (One Dark / One Light) over tm's roles. Each role is
+# { fg, bg, bold, faint, reverse }; a colour pair is the ANSI fallback
+# first, then the truecolor value.
+#
+# [dark] is One Dark, with the terminal palette of One Dark Pro
+# (Binaryify/OneDark-Pro, theme OneDark-Pro.json, terminal.ansi*).
+# [light] is One Light, with the terminal palette of
+# Ghostty's "Atom One Light" (mbadolato/iTerm2-Color-Schemes, ghostty/);
+# Atom shipped no terminal palette (see README). The light warn and info
+# roles use Atom One Light's own syntax colours instead (amber, blue), for
+# contrast on the background.
+#
+# Mapping: head/plain = foreground, sel = background on blue (dark) or
+# magenta (light), faint = bright black, accent = magenta, title = blue,
+# bad = red, warn = yellow, good = green, info = cyan.
+
+# One Dark
+[dark]
+head   = { fg = ["brightwhite", "#e6e6e6"], bold = true }
+sel    = { fg = ["black", "#282c34"], bg = ["blue", "#4aa5f0"] }
+faint  = { fg = ["brightblack", "#5c6370"] }
+accent = { fg = ["magenta", "#c162de"] }
+title  = { fg = ["blue", "#4aa5f0"], bold = true }
+bad    = { fg = ["red", "#e05561"] }
+warn   = { fg = ["yellow", "#d18f52"] }
+good   = { fg = ["green", "#8cc265"] }
+info   = { fg = ["cyan", "#42b3c2"] }
+plain  = { fg = ["white", "#abb2bf"] }
+
+[dark.pane]
+fg = "#abb2bf"
+bg = "#282c34"
+palette = [
+  "#3f4451", "#e05561", "#8cc265", "#d18f52", "#4aa5f0", "#c162de", "#42b3c2", "#d7dae0",
+  "#4f5666", "#ff616e", "#a5e075", "#f0a45d", "#4dc4ff", "#de73ff", "#4cd1e0", "#e6e6e6",
+]
+
+# One Light
+[light]
+head   = { fg = ["black", "#2a2c33"], bold = true }
+sel    = { fg = ["brightwhite", "#f9f9f9"], bg = ["magenta", "#950095"] }
+faint  = { fg = ["brightblack", "#bbbbbb"] }
+accent = { fg = ["magenta", "#950095"] }
+title  = { fg = ["blue", "#2f5af3"], bold = true }
+bad    = { fg = ["red", "#de3e35"] }
+warn   = { fg = ["yellow", "#c18401"] }
+good   = { fg = ["green", "#3f953a"] }
+info   = { fg = ["cyan", "#4078f2"] }
+plain  = { fg = ["black", "#2a2c33"] }
+
+[light.pane]
+fg = "#2a2c33"
+bg = "#f9f9f9"
+palette = [
+  "#000000", "#de3e35", "#3f953a", "#d2b67c", "#2f5af3", "#950095", "#3f953a", "#bbbbbb",
+  "#000000", "#de3e35", "#3f953a", "#d2b67c", "#2f5af3", "#a00095", "#3f953a", "#ffffff",
+]
