@@ -1,0 +1,66 @@
+# Pit Wall: carbon and papaya over tm's roles. Each role is { fg, bg,
+# bold, faint, reverse }; a colour pair is the ANSI fallback first, then
+# the truecolor value. The console picks [dark] or [light] by the
+# terminal's background.
+#
+# [dark] is the pit wall at night: light grey text on carbon, papaya
+# (McLaren's #ff8000) for headings, the accent and the selection, and
+# the marshals' flags for the states: red for bad, yellow for warn,
+# green for good, blue for info (the flag shown to a car being lapped:
+# information, not danger). Faint is a darker carbon grey.
+#
+# [light] is the same livery in daylight: carbon text on a warm white,
+# a deeper papaya that still reads on white, and the flags darkened to
+# keep their contrast.
+#
+# [dark.pane] and [light.pane] (mod API 1.6) colour the panes the same
+# way on a truecolor terminal: default text and background and the 16
+# ANSI colours (black red green yellow blue magenta cyan white, then the
+# bright ones). The flags keep their ANSI meaning (red stays red, green
+# green), bright black (faint text) stays readable on carbon, and bright
+# yellow is papaya, so an agent's bold-yellow highlights carry the
+# livery. A program's own truecolor passes through unchanged.
+
+# Night race: carbon
+[dark]
+head      = { fg = ["yellow", "#ff8000"], bold = true }
+sel       = { fg = ["black", "#121212"], bg = ["yellow", "#ff8000"] }
+sel_focus = { fg = ["black", "#121212"], bg = ["brightyellow", "#ffa040"], bold = true }
+faint     = { fg = ["brightblack", "#6f6f6f"] }
+accent    = { fg = ["yellow", "#ff8000"] }
+title     = { fg = ["brightyellow", "#ffa040"], bold = true }
+bad       = { fg = ["red", "#e10600"], bold = true }
+warn      = { fg = ["brightyellow", "#ffd500"] }
+good      = { fg = ["green", "#2ecc40"] }
+info      = { fg = ["cyan", "#47c7fc"] }
+plain     = { fg = ["white", "#d9d9d9"] }
+
+[dark.pane]
+fg = "#d9d9d9"
+bg = "#121212"
+palette = [
+  "#1e1e1e", "#e10600", "#2ecc40", "#ffd500", "#3d8bff", "#d45fd4", "#47c7fc", "#d9d9d9",
+  "#6f6f6f", "#ff3b30", "#5fff6a", "#ff8000", "#6ea8ff", "#ff8ad4", "#7fdcff", "#f5f5f5",
+]
+
+# Day race: livery white
+[light]
+head      = { fg = ["yellow", "#d96a00"], bold = true }
+sel       = { fg = ["brightwhite", "#fbf9f4"], bg = ["yellow", "#e07000"] }
+sel_focus = { fg = ["brightwhite", "#fbf9f4"], bg = ["black", "#1b1b1b"], bold = true }
+faint     = { fg = ["brightblack", "#8a8580"] }
+accent    = { fg = ["yellow", "#d96a00"] }
+title     = { fg = ["black", "#1b1b1b"], bold = true }
+bad       = { fg = ["red", "#c40000"], bold = true }
+warn      = { fg = ["yellow", "#9a6b00"] }
+good      = { fg = ["green", "#1f7a2e"] }
+info      = { fg = ["cyan", "#0a6fa8"] }
+plain     = { fg = ["black", "#1b1b1b"] }
+
+[light.pane]
+fg = "#1b1b1b"
+bg = "#f5f3ee"
+palette = [
+  "#1b1b1b", "#c40000", "#1f7a2e", "#9a6b00", "#1a5fb4", "#a3309a", "#0a6fa8", "#d8d4cc",
+  "#8a8580", "#e10600", "#2a9a3c", "#d96a00", "#3d8bff", "#c74fc0", "#1998d6", "#fbf9f4",
+]

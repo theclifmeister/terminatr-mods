@@ -1,0 +1,19 @@
+# Pit Wall: an F1 race-engineer total conversion. Threads are cars, the
+# user is the race engineer on the pit wall. This phase ships the data
+# files: a carbon-and-papaya theme (with pane palettes), an icon set of
+# tyres and flags, and a layout with the timing tower on the left and
+# the telemetry along the bottom. Pick each in Settings (General: Theme,
+# Icons and Layout); each is picked on its own.
+id = "pit-wall"
+name = "Pit Wall"
+version = "0.1.0"
+api = "1.7"
+min_tm = "0.25.3"
+description = "An F1 pit wall: a carbon-and-papaya theme (pane palettes included), tyre-and-flag icons, and a timing-tower layout with the telemetry along the bottom."
+authors = ["Clifmeister"]
+homepage = "https://github.com/theclifmeister/terminatr-mods/tree/main/pit-wall"
+
+[provides]
+theme = "theme.toml"
+icons = "icons.toml"
+layout = "layout.toml"

@@ -1,0 +1,29 @@
+# Pit Wall's layout: the timing tower on the left, the telemetry along
+# the bottom.
+#
+# The sidebar is the timing tower: on the left, 28% of the window (33
+# cells at 120 columns, 56 at 200), its columns in a timing screen's
+# order: the car's state (position), the flag (needs you), the sector
+# (the PR's checks), the lap count (steps), then remote, paused and
+# inactive. The safety columns would show even if left out.
+#
+# The details panel is the telemetry: under the list, 35% of the height
+# (14 rows at 40). The dashboard puts the pit calls (mods' cards) before
+# the sessions outside projects, so a card is never below the fold. The
+# header, footer, status bar and rows keep their built-in style.
+#
+# Unlike cockpit (sidebar right, details 40%), compact (everything
+# compact), zen (no sidebar), Spotlight (no sidebar, details right),
+# Triage (slim sidebar right) and Mainframe (no header, compact rows,
+# details 30%).
+[sidebar]
+columns = ["state", "needs", "ci", "count", "remote", "paused", "inactive"]
+side = "left"
+width = "28%"
+
+[details]
+place = "bottom"
+size = "35%"
+
+[dashboard]
+sections = ["needs", "project", "cards", "other"]
