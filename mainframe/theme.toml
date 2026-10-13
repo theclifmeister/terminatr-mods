@@ -23,7 +23,7 @@ sel       = { fg = ["black", "#001a00"], bg = ["green", "#1fae3a"] }
 sel_focus = { fg = ["black", "#001a00"], bg = ["brightgreen", "#33ff66"], bold = true }
 faint     = { fg = ["green", "#1c8a33"] }
 accent    = { fg = ["brightgreen", "#99ffaa"] }
-title     = { fg = ["brightwhite", "#e6ffe6"], bold = true }
+title     = { fg = ["brightgreen", "#99ffaa"], bold = true }
 bad       = { fg = ["red", "#ff4545"], bold = true }
 warn      = { fg = ["yellow", "#ffb000"] }
 good      = { fg = ["brightgreen", "#33ff66"] }
