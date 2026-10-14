@@ -1,0 +1,22 @@
+{
+  "name": "tm mod run changeset open, which can't open a view, says the thread's changes in one line",
+  "answers": [
+    { "method": "ui.view.open", "error": "no console asked for this view" },
+    { "method": "thread.changes", "params": { "project": "demo", "thread": "t-0002" },
+      "result": { "state": "clean", "mode": "base", "branch": "tm/demo/t-0002-notes", "base": "origin/main", "head": "9d0e771", "ahead": 3, "unpushed": 3, "pushed": false,
+        "files": [], "totals": { "files": 7, "add": 1240, "del": 340 },
+        "buckets": { "uncommitted": { "files": 0, "add": 0, "del": 0 }, "unpushed": { "files": 7, "add": 1240, "del": 340 }, "pushed": { "files": 0, "add": 0, "del": 0 } } } }
+  ],
+  "events": [
+    { "name": "command.run", "project": "demo",
+      "data": { "command": "open", "project": "demo", "selection": { "project": "demo", "thread": "t-0002" } } }
+  ],
+  "expect": {
+    "calls": [
+      { "method": "ui.view.open", "params": { "view": "diff" } },
+      { "method": "thread.changes", "params": { "project": "demo", "thread": "t-0002" } },
+      { "method": "ui.toast", "params": { "text": "Changeset: demo t-0002 +1240 -340 in 7 files since origin/main: 0 uncommitted, 7 unpushed, 0 pushed (3 commits ahead)." } }
+    ],
+    "no_calls": ["process.run"]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "name": "a thread without a repo, and a clean one with no commits, draw no section (not even its header)",
+  "answers": [
+    { "method": "thread.changes", "params": { "project": "demo", "thread": "t-0003" },
+      "result": { "state": "none", "mode": "base", "ahead": 0, "unpushed": 0, "pushed": false, "files": [],
+        "totals": { "files": 0, "add": 0, "del": 0 },
+        "buckets": { "uncommitted": { "files": 0, "add": 0, "del": 0 }, "unpushed": { "files": 0, "add": 0, "del": 0 }, "pushed": { "files": 0, "add": 0, "del": 0 } } } },
+    { "method": "thread.changes", "params": { "project": "demo", "thread": "t-0005" },
+      "result": { "state": "clean", "mode": "base", "branch": "tm/demo/t-0005-new", "base": "origin/main", "head": "aa11bb2", "ahead": 0, "unpushed": 0, "pushed": false, "files": [],
+        "totals": { "files": 0, "add": 0, "del": 0 },
+        "buckets": { "uncommitted": { "files": 0, "add": 0, "del": 0 }, "unpushed": { "files": 0, "add": 0, "del": 0 }, "pushed": { "files": 0, "add": 0, "del": 0 } } } }
+  ],
+  "events": [
+    { "name": "view.opened", "project": "demo",
+      "data": { "view": "files", "slot": "details.section", "project": "demo", "thread": "t-0003", "width": 48, "height": 8 } },
+    { "name": "view.opened", "project": "demo",
+      "data": { "view": "files", "slot": "details.section", "project": "demo", "thread": "t-0005", "width": 48, "height": 8 } }
+  ],
+  "expect": {
+    "calls": [
+      { "method": "thread.changes", "params": { "project": "demo", "thread": "t-0003" } },
+      { "method": "ui.view.set", "params": { "view": "files", "options": { "project": "demo", "thread": "t-0003" }, "widget": null } },
+      { "method": "thread.changes", "params": { "project": "demo", "thread": "t-0005" } },
+      { "method": "ui.view.set", "params": { "view": "files", "options": { "project": "demo", "thread": "t-0005" }, "widget": null } }
+    ],
+    "no_calls": ["process.run"]
+  }
+}

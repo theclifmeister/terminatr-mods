@@ -1,0 +1,2019 @@
+{
+ "name": "an open section is drawn again when its thread moves; enter on its header opens the diff on that thread, the diff cut at the max_lines setting",
+ "settings": {
+  "max_lines": 100,
+  "default_mode": "base"
+ },
+ "answers": [
+  {
+   "method": "thread.changes",
+   "params": {
+    "project": "demo",
+    "thread": "t-0001",
+    "options": {
+     "mode": "base",
+     "path": "gen/big.txt",
+     "patch": true
+    }
+   },
+   "result": {
+    "state": "dirty",
+    "mode": "base",
+    "branch": "tm/demo/t-0001-login",
+    "base": "origin/main",
+    "head": "4f1c2ab",
+    "ahead": 1,
+    "unpushed": 1,
+    "pushed": false,
+    "files": [
+     {
+      "path": "gen/big.txt",
+      "status": "A",
+      "add": 150,
+      "del": 0,
+      "bucket": "unpushed"
+     }
+    ],
+    "totals": {
+     "files": 2,
+     "add": 151,
+     "del": 0
+    },
+    "buckets": {
+     "uncommitted": {
+      "files": 1,
+      "add": 1,
+      "del": 0
+     },
+     "unpushed": {
+      "files": 1,
+      "add": 150,
+      "del": 0
+     },
+     "pushed": {
+      "files": 0,
+      "add": 0,
+      "del": 0
+     }
+    },
+    "patch": "diff --git a/gen/big.txt b/gen/big.txt\nnew file mode 100644\n--- /dev/null\n+++ b/gen/big.txt\n@@ -0,0 +1,150 @@\n+line 1\n+line 2\n+line 3\n+line 4\n+line 5\n+line 6\n+line 7\n+line 8\n+line 9\n+line 10\n+line 11\n+line 12\n+line 13\n+line 14\n+line 15\n+line 16\n+line 17\n+line 18\n+line 19\n+line 20\n+line 21\n+line 22\n+line 23\n+line 24\n+line 25\n+line 26\n+line 27\n+line 28\n+line 29\n+line 30\n+line 31\n+line 32\n+line 33\n+line 34\n+line 35\n+line 36\n+line 37\n+line 38\n+line 39\n+line 40\n+line 41\n+line 42\n+line 43\n+line 44\n+line 45\n+line 46\n+line 47\n+line 48\n+line 49\n+line 50\n+line 51\n+line 52\n+line 53\n+line 54\n+line 55\n+line 56\n+line 57\n+line 58\n+line 59\n+line 60\n+line 61\n+line 62\n+line 63\n+line 64\n+line 65\n+line 66\n+line 67\n+line 68\n+line 69\n+line 70\n+line 71\n+line 72\n+line 73\n+line 74\n+line 75\n+line 76\n+line 77\n+line 78\n+line 79\n+line 80\n+line 81\n+line 82\n+line 83\n+line 84\n+line 85\n+line 86\n+line 87\n+line 88\n+line 89\n+line 90\n+line 91\n+line 92\n+line 93\n+line 94\n+line 95\n+line 96\n+line 97\n+line 98\n+line 99\n+line 100\n+line 101\n+line 102\n+line 103\n+line 104\n+line 105\n+line 106\n+line 107\n+line 108\n+line 109\n+line 110\n+line 111\n+line 112\n+line 113\n+line 114\n+line 115\n+line 116\n+line 117\n+line 118\n+line 119\n+line 120\n+line 121\n+line 122\n+line 123\n+line 124\n+line 125\n+line 126\n+line 127\n+line 128\n+line 129\n+line 130\n+line 131\n+line 132\n+line 133\n+line 134\n+line 135\n+line 136\n+line 137\n+line 138\n+line 139\n+line 140\n+line 141\n+line 142\n+line 143\n+line 144\n+line 145\n+line 146\n+line 147\n+line 148\n+line 149\n+line 150\n"
+   }
+  },
+  {
+   "method": "thread.changes",
+   "params": {
+    "project": "demo",
+    "thread": "t-0001"
+   },
+   "result": {
+    "state": "dirty",
+    "mode": "base",
+    "branch": "tm/demo/t-0001-login",
+    "base": "origin/main",
+    "head": "4f1c2ab",
+    "ahead": 1,
+    "unpushed": 1,
+    "pushed": false,
+    "files": [
+     {
+      "path": "gen/big.txt",
+      "status": "A",
+      "add": 150,
+      "del": 0,
+      "bucket": "unpushed"
+     },
+     {
+      "path": "gen/more.txt",
+      "status": "?",
+      "add": 1,
+      "del": 0,
+      "bucket": "uncommitted"
+     }
+    ],
+    "totals": {
+     "files": 2,
+     "add": 151,
+     "del": 0
+    },
+    "buckets": {
+     "uncommitted": {
+      "files": 1,
+      "add": 1,
+      "del": 0
+     },
+     "unpushed": {
+      "files": 1,
+      "add": 150,
+      "del": 0
+     },
+     "pushed": {
+      "files": 0,
+      "add": 0,
+      "del": 0
+     }
+    }
+   }
+  }
+ ],
+ "events": [
+  {
+   "name": "view.opened",
+   "project": "demo",
+   "data": {
+    "view": "files",
+    "slot": "details.section",
+    "project": "demo",
+    "thread": "t-0001",
+    "width": 40,
+    "height": 8
+   }
+  },
+  {
+   "name": "thread.changes",
+   "project": "demo",
+   "data": {
+    "project": "demo",
+    "thread": "t-0001",
+    "head": "4f1c2ab",
+    "branch": "tm/demo/t-0001-login",
+    "dirty": true,
+    "ahead": 1,
+    "unpushed": 1,
+    "pushed": false,
+    "files": 2,
+    "add": 151,
+    "del": 0
+   }
+  },
+  {
+   "name": "ui.click",
+   "project": "demo",
+   "data": {
+    "view": "files",
+    "target": {
+     "project": "demo"
+    }
+   }
+  },
+  {
+   "name": "view.opened",
+   "project": "demo",
+   "data": {
+    "view": "diff",
+    "slot": "full",
+    "project": "demo",
+    "width": 100,
+    "height": 40
+   }
+  }
+ ],
+ "expect": {
+  "calls": [
+   {
+    "method": "thread.changes",
+    "params": {
+     "project": "demo",
+     "thread": "t-0001"
+    }
+   },
+   {
+    "method": "ui.view.set",
+    "params": {
+     "view": "files",
+     "widget": {
+      "kind": "text",
+      "lines": [
+       [
+        {
+         "text": "since ",
+         "role": "faint"
+        },
+        {
+         "text": "origin/main"
+        },
+        {
+         "text": " · 1 commit ahead",
+         "role": "faint"
+        },
+        {
+         "text": " · never pushed",
+         "role": "info"
+        }
+       ],
+       [
+        {
+         "text": "● ",
+         "role": "warn"
+        },
+        {
+         "text": "1 uncommitted"
+        },
+        {
+         "text": "  "
+        },
+        {
+         "text": "↑ ",
+         "role": "info"
+        },
+        {
+         "text": "1 unpushed"
+        }
+       ],
+       [
+        {
+         "text": "gen/",
+         "role": "faint"
+        }
+       ],
+       [
+        {
+         "text": "  "
+        },
+        {
+         "text": "A",
+         "role": "info"
+        },
+        {
+         "text": " big.txt             "
+        },
+        {
+         "text": ""
+        },
+        {
+         "text": "+150",
+         "role": "good"
+        },
+        {
+         "text": " -0",
+         "role": "bad"
+        },
+        {
+         "text": " "
+        },
+        {
+         "text": "████████",
+         "role": "good"
+        }
+       ],
+       [
+        {
+         "text": "  "
+        },
+        {
+         "text": "?",
+         "role": "warn"
+        },
+        {
+         "text": " more.txt            "
+        },
+        {
+         "text": "  "
+        },
+        {
+         "text": "+1",
+         "role": "good"
+        },
+        {
+         "text": " -0",
+         "role": "bad"
+        },
+        {
+         "text": " "
+        },
+        {
+         "text": "█",
+         "role": "good"
+        },
+        {
+         "text": "░░░░░░░",
+         "role": "faint"
+        }
+       ]
+      ]
+     },
+     "options": {
+      "project": "demo",
+      "thread": "t-0001",
+      "height": 5,
+      "badge": [
+       {
+        "text": "+151",
+        "role": "good"
+       },
+       {
+        "text": " -0",
+        "role": "bad"
+       }
+      ]
+     }
+    }
+   },
+   {
+    "method": "ui.cell.set",
+    "params": {
+     "column": "changes",
+     "target": {
+      "project": "demo",
+      "thread": "t-0001"
+     },
+     "spans": [
+      {
+       "text": "~ ",
+       "role": "faint"
+      },
+      {
+       "text": "+151",
+       "role": "good"
+      },
+      {
+       "text": " -0",
+       "role": "bad"
+      }
+     ]
+    }
+   },
+   {
+    "method": "thread.changes",
+    "params": {
+     "project": "demo",
+     "thread": "t-0001"
+    }
+   },
+   {
+    "method": "ui.view.set",
+    "params": {
+     "view": "files",
+     "widget": {
+      "kind": "text",
+      "lines": [
+       [
+        {
+         "text": "since ",
+         "role": "faint"
+        },
+        {
+         "text": "origin/main"
+        },
+        {
+         "text": " · 1 commit ahead",
+         "role": "faint"
+        },
+        {
+         "text": " · never pushed",
+         "role": "info"
+        }
+       ],
+       [
+        {
+         "text": "● ",
+         "role": "warn"
+        },
+        {
+         "text": "1 uncommitted"
+        },
+        {
+         "text": "  "
+        },
+        {
+         "text": "↑ ",
+         "role": "info"
+        },
+        {
+         "text": "1 unpushed"
+        }
+       ],
+       [
+        {
+         "text": "gen/",
+         "role": "faint"
+        }
+       ],
+       [
+        {
+         "text": "  "
+        },
+        {
+         "text": "A",
+         "role": "info"
+        },
+        {
+         "text": " big.txt             "
+        },
+        {
+         "text": ""
+        },
+        {
+         "text": "+150",
+         "role": "good"
+        },
+        {
+         "text": " -0",
+         "role": "bad"
+        },
+        {
+         "text": " "
+        },
+        {
+         "text": "████████",
+         "role": "good"
+        }
+       ],
+       [
+        {
+         "text": "  "
+        },
+        {
+         "text": "?",
+         "role": "warn"
+        },
+        {
+         "text": " more.txt            "
+        },
+        {
+         "text": "  "
+        },
+        {
+         "text": "+1",
+         "role": "good"
+        },
+        {
+         "text": " -0",
+         "role": "bad"
+        },
+        {
+         "text": " "
+        },
+        {
+         "text": "█",
+         "role": "good"
+        },
+        {
+         "text": "░░░░░░░",
+         "role": "faint"
+        }
+       ]
+      ]
+     },
+     "options": {
+      "project": "demo",
+      "thread": "t-0001",
+      "height": 5,
+      "badge": [
+       {
+        "text": "+151",
+        "role": "good"
+       },
+       {
+        "text": " -0",
+        "role": "bad"
+       }
+      ]
+     }
+    }
+   },
+   {
+    "method": "ui.view.open",
+    "params": {
+     "view": "diff"
+    }
+   },
+   {
+    "method": "thread.changes",
+    "params": {
+     "project": "demo",
+     "thread": "t-0001"
+    }
+   },
+   {
+    "method": "thread.changes",
+    "params": {
+     "project": "demo",
+     "thread": "t-0001",
+     "options": {
+      "mode": "base",
+      "path": "gen/big.txt",
+      "patch": true
+     }
+    }
+   },
+   {
+    "method": "ui.view.set",
+    "params": {
+     "view": "diff",
+     "widget": {
+      "kind": "stack",
+      "children": [
+       {
+        "kind": "text",
+        "lines": [
+         [
+          {
+           "text": "demo t-0001",
+           "role": "head"
+          },
+          {
+           "text": "  tm/demo/t-0001-login",
+           "role": "faint"
+          }
+         ],
+         [
+          {
+           "text": "[ ",
+           "role": "faint"
+          },
+          {
+           "text": "uncommitted",
+           "role": "faint"
+          },
+          {
+           "text": " | ",
+           "role": "faint"
+          },
+          {
+           "text": "since base",
+           "role": "accent"
+          },
+          {
+           "text": " ]",
+           "role": "faint"
+          },
+          {
+           "text": "  2 files "
+          },
+          {
+           "text": "+151",
+           "role": "good"
+          },
+          {
+           "text": " -0",
+           "role": "bad"
+          }
+         ],
+         [
+          {
+           "text": "since ",
+           "role": "faint"
+          },
+          {
+           "text": "origin/main"
+          },
+          {
+           "text": " · 1 commit ahead",
+           "role": "faint"
+          },
+          {
+           "text": " · never pushed",
+           "role": "info"
+          },
+          {
+           "text": "   "
+          },
+          {
+           "text": "● ",
+           "role": "warn"
+          },
+          {
+           "text": "1 uncommitted"
+          },
+          {
+           "text": "  "
+          },
+          {
+           "text": "↑ ",
+           "role": "info"
+          },
+          {
+           "text": "1 unpushed"
+          }
+         ]
+        ]
+       },
+       {
+        "kind": "list",
+        "id": "files",
+        "title": "FILES 2",
+        "rows": [
+         {
+          "id": "f1217mpo",
+          "spans": [
+           {
+            "text": "A",
+            "role": "info"
+           },
+           {
+            "text": " gen/big.txt"
+           },
+           {
+            "text": "  "
+           },
+           {
+            "text": "+150",
+            "role": "good"
+           },
+           {
+            "text": " -0",
+            "role": "bad"
+           },
+           {
+            "text": " "
+           },
+           {
+            "text": "████████",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "f1geoo3p",
+          "spans": [
+           {
+            "text": "?",
+            "role": "warn"
+           },
+           {
+            "text": " gen/more.txt"
+           },
+           {
+            "text": "  "
+           },
+           {
+            "text": "+1",
+            "role": "good"
+           },
+           {
+            "text": " -0",
+            "role": "bad"
+           },
+           {
+            "text": " "
+           },
+           {
+            "text": "█",
+            "role": "good"
+           },
+           {
+            "text": "░░░░░░░",
+            "role": "faint"
+           }
+          ]
+         }
+        ],
+        "empty": "no files"
+       },
+       {
+        "kind": "list",
+        "id": "patch",
+        "title": "gen/big.txt",
+        "rows": [
+         {
+          "id": "p0.0",
+          "spans": [
+           {
+            "text": "      "
+           },
+           {
+            "text": "new file mode 100644",
+            "role": "faint"
+           }
+          ]
+         },
+         {
+          "id": "p0.1",
+          "spans": [
+           {
+            "text": "      "
+           },
+           {
+            "text": "@@ -0,0 +1,150 @@",
+            "role": "info"
+           }
+          ]
+         },
+         {
+          "id": "p0.2",
+          "spans": [
+           {
+            "text": "    1 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 1",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.3",
+          "spans": [
+           {
+            "text": "    2 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 2",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.4",
+          "spans": [
+           {
+            "text": "    3 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 3",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.5",
+          "spans": [
+           {
+            "text": "    4 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 4",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.6",
+          "spans": [
+           {
+            "text": "    5 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 5",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.7",
+          "spans": [
+           {
+            "text": "    6 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 6",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.8",
+          "spans": [
+           {
+            "text": "    7 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 7",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.9",
+          "spans": [
+           {
+            "text": "    8 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 8",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.10",
+          "spans": [
+           {
+            "text": "    9 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 9",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.11",
+          "spans": [
+           {
+            "text": "   10 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 10",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.12",
+          "spans": [
+           {
+            "text": "   11 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 11",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.13",
+          "spans": [
+           {
+            "text": "   12 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 12",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.14",
+          "spans": [
+           {
+            "text": "   13 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 13",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.15",
+          "spans": [
+           {
+            "text": "   14 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 14",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.16",
+          "spans": [
+           {
+            "text": "   15 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 15",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.17",
+          "spans": [
+           {
+            "text": "   16 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 16",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.18",
+          "spans": [
+           {
+            "text": "   17 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 17",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.19",
+          "spans": [
+           {
+            "text": "   18 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 18",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.20",
+          "spans": [
+           {
+            "text": "   19 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 19",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.21",
+          "spans": [
+           {
+            "text": "   20 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 20",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.22",
+          "spans": [
+           {
+            "text": "   21 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 21",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.23",
+          "spans": [
+           {
+            "text": "   22 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 22",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.24",
+          "spans": [
+           {
+            "text": "   23 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 23",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.25",
+          "spans": [
+           {
+            "text": "   24 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 24",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.26",
+          "spans": [
+           {
+            "text": "   25 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 25",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.27",
+          "spans": [
+           {
+            "text": "   26 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 26",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.28",
+          "spans": [
+           {
+            "text": "   27 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 27",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.29",
+          "spans": [
+           {
+            "text": "   28 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 28",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.30",
+          "spans": [
+           {
+            "text": "   29 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 29",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.31",
+          "spans": [
+           {
+            "text": "   30 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 30",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.32",
+          "spans": [
+           {
+            "text": "   31 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 31",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.33",
+          "spans": [
+           {
+            "text": "   32 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 32",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.34",
+          "spans": [
+           {
+            "text": "   33 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 33",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.35",
+          "spans": [
+           {
+            "text": "   34 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 34",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.36",
+          "spans": [
+           {
+            "text": "   35 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 35",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.37",
+          "spans": [
+           {
+            "text": "   36 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 36",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.38",
+          "spans": [
+           {
+            "text": "   37 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 37",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.39",
+          "spans": [
+           {
+            "text": "   38 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 38",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.40",
+          "spans": [
+           {
+            "text": "   39 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 39",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.41",
+          "spans": [
+           {
+            "text": "   40 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 40",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.42",
+          "spans": [
+           {
+            "text": "   41 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 41",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.43",
+          "spans": [
+           {
+            "text": "   42 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 42",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.44",
+          "spans": [
+           {
+            "text": "   43 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 43",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.45",
+          "spans": [
+           {
+            "text": "   44 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 44",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.46",
+          "spans": [
+           {
+            "text": "   45 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 45",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.47",
+          "spans": [
+           {
+            "text": "   46 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 46",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.48",
+          "spans": [
+           {
+            "text": "   47 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 47",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.49",
+          "spans": [
+           {
+            "text": "   48 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 48",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.50",
+          "spans": [
+           {
+            "text": "   49 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 49",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.51",
+          "spans": [
+           {
+            "text": "   50 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 50",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.52",
+          "spans": [
+           {
+            "text": "   51 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 51",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.53",
+          "spans": [
+           {
+            "text": "   52 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 52",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.54",
+          "spans": [
+           {
+            "text": "   53 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 53",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.55",
+          "spans": [
+           {
+            "text": "   54 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 54",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.56",
+          "spans": [
+           {
+            "text": "   55 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 55",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.57",
+          "spans": [
+           {
+            "text": "   56 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 56",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.58",
+          "spans": [
+           {
+            "text": "   57 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 57",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.59",
+          "spans": [
+           {
+            "text": "   58 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 58",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.60",
+          "spans": [
+           {
+            "text": "   59 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 59",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.61",
+          "spans": [
+           {
+            "text": "   60 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 60",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.62",
+          "spans": [
+           {
+            "text": "   61 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 61",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.63",
+          "spans": [
+           {
+            "text": "   62 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 62",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.64",
+          "spans": [
+           {
+            "text": "   63 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 63",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.65",
+          "spans": [
+           {
+            "text": "   64 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 64",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.66",
+          "spans": [
+           {
+            "text": "   65 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 65",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.67",
+          "spans": [
+           {
+            "text": "   66 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 66",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.68",
+          "spans": [
+           {
+            "text": "   67 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 67",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.69",
+          "spans": [
+           {
+            "text": "   68 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 68",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.70",
+          "spans": [
+           {
+            "text": "   69 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 69",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.71",
+          "spans": [
+           {
+            "text": "   70 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 70",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.72",
+          "spans": [
+           {
+            "text": "   71 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 71",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.73",
+          "spans": [
+           {
+            "text": "   72 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 72",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.74",
+          "spans": [
+           {
+            "text": "   73 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 73",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.75",
+          "spans": [
+           {
+            "text": "   74 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 74",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.76",
+          "spans": [
+           {
+            "text": "   75 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 75",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.77",
+          "spans": [
+           {
+            "text": "   76 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 76",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.78",
+          "spans": [
+           {
+            "text": "   77 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 77",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.79",
+          "spans": [
+           {
+            "text": "   78 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 78",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.80",
+          "spans": [
+           {
+            "text": "   79 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 79",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.81",
+          "spans": [
+           {
+            "text": "   80 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 80",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.82",
+          "spans": [
+           {
+            "text": "   81 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 81",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.83",
+          "spans": [
+           {
+            "text": "   82 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 82",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.84",
+          "spans": [
+           {
+            "text": "   83 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 83",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.85",
+          "spans": [
+           {
+            "text": "   84 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 84",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.86",
+          "spans": [
+           {
+            "text": "   85 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 85",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.87",
+          "spans": [
+           {
+            "text": "   86 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 86",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.88",
+          "spans": [
+           {
+            "text": "   87 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 87",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.89",
+          "spans": [
+           {
+            "text": "   88 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 88",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.90",
+          "spans": [
+           {
+            "text": "   89 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 89",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.91",
+          "spans": [
+           {
+            "text": "   90 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 90",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.92",
+          "spans": [
+           {
+            "text": "   91 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 91",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.93",
+          "spans": [
+           {
+            "text": "   92 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 92",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.94",
+          "spans": [
+           {
+            "text": "   93 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 93",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.95",
+          "spans": [
+           {
+            "text": "   94 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 94",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.96",
+          "spans": [
+           {
+            "text": "   95 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 95",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.97",
+          "spans": [
+           {
+            "text": "   96 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 96",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.98",
+          "spans": [
+           {
+            "text": "   97 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 97",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.99",
+          "spans": [
+           {
+            "text": "   98 ",
+            "role": "faint"
+           },
+           {
+            "text": "+line 98",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.note",
+          "spans": [
+           {
+            "text": "      "
+           },
+           {
+            "text": "… 52 more lines (the max_lines setting)",
+            "role": "faint"
+           }
+          ]
+         }
+        ],
+        "empty": "no textual change"
+       },
+       {
+        "kind": "keys",
+        "id": "keys",
+        "keys": [
+         {
+          "key": "m",
+          "label": "uncommitted / since base"
+         },
+         {
+          "key": "u",
+          "label": "untracked"
+         },
+         {
+          "key": "[",
+          "label": "previous thread"
+         },
+         {
+          "key": "]",
+          "label": "next thread"
+         },
+         {
+          "key": "R",
+          "label": "read again"
+         }
+        ]
+       }
+      ]
+     },
+     "options": {
+      "project": "demo"
+     }
+    }
+   }
+  ],
+  "no_calls": [
+   "process.run"
+  ]
+ }
+}

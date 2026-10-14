@@ -1,0 +1,719 @@
+{
+ "name": "the details section: the commits, the three layers, and the files as a tree with +/- bars; for a task's row through its thread; cleared on view.closed",
+ "answers": [
+  {
+   "method": "thread.changes",
+   "params": {
+    "project": "demo",
+    "thread": "t-0001"
+   },
+   "result": {
+    "state": "dirty",
+    "mode": "base",
+    "branch": "tm/demo/t-0001-login",
+    "base": "origin/main",
+    "head": "4f1c2ab",
+    "ahead": 3,
+    "unpushed": 1,
+    "pushed": true,
+    "files": [
+     {
+      "path": "README.md",
+      "status": "M",
+      "add": 3,
+      "del": 0,
+      "bucket": "pushed"
+     },
+     {
+      "path": "internal/auth/login.go",
+      "status": "A",
+      "add": 80,
+      "del": 0,
+      "bucket": "unpushed"
+     },
+     {
+      "path": "internal/auth/session.go",
+      "old": "internal/auth/sess.go",
+      "status": "R",
+      "add": 12,
+      "del": 9,
+      "bucket": "unpushed"
+     },
+     {
+      "path": "internal/auth/login_test.go",
+      "status": "M",
+      "add": 20,
+      "del": 22,
+      "bucket": "uncommitted"
+     },
+     {
+      "path": "docs/logo.png",
+      "status": "A",
+      "add": 0,
+      "del": 0,
+      "binary": true,
+      "bucket": "pushed"
+     },
+     {
+      "path": "notes.txt",
+      "status": "?",
+      "add": 5,
+      "del": 0,
+      "bucket": "uncommitted"
+     }
+    ],
+    "totals": {
+     "files": 6,
+     "add": 120,
+     "del": 31
+    },
+    "buckets": {
+     "uncommitted": {
+      "files": 2,
+      "add": 25,
+      "del": 22
+     },
+     "unpushed": {
+      "files": 2,
+      "add": 92,
+      "del": 9
+     },
+     "pushed": {
+      "files": 2,
+      "add": 3,
+      "del": 0
+     }
+    }
+   }
+  },
+  {
+   "method": "tasks.list",
+   "params": {
+    "slug": "demo"
+   },
+   "result": [
+    {
+     "id": "T3",
+     "title": "Login",
+     "status": "started",
+     "steps_done": 1,
+     "steps_total": 3,
+     "thread": "t-0001",
+     "steps": []
+    }
+   ]
+  }
+ ],
+ "events": [
+  {
+   "name": "view.opened",
+   "project": "demo",
+   "data": {
+    "view": "files",
+    "slot": "details.section",
+    "project": "demo",
+    "thread": "t-0001",
+    "width": 48,
+    "height": 8
+   }
+  },
+  {
+   "name": "view.opened",
+   "project": "demo",
+   "data": {
+    "view": "files",
+    "slot": "details.section",
+    "project": "demo",
+    "task": "T3",
+    "width": 48,
+    "height": 8
+   }
+  },
+  {
+   "name": "view.closed",
+   "project": "demo",
+   "data": {
+    "view": "files",
+    "slot": "details.section",
+    "project": "demo",
+    "thread": "t-0001",
+    "width": 48,
+    "height": 8
+   }
+  }
+ ],
+ "expect": {
+  "calls": [
+   {
+    "method": "thread.changes",
+    "params": {
+     "project": "demo",
+     "thread": "t-0001"
+    }
+   },
+   {
+    "method": "ui.view.set",
+    "params": {
+     "view": "files",
+     "widget": {
+      "kind": "text",
+      "lines": [
+       [
+        {
+         "text": "since ",
+         "role": "faint"
+        },
+        {
+         "text": "origin/main"
+        },
+        {
+         "text": " · 3 commits ahead",
+         "role": "faint"
+        },
+        {
+         "text": " · 1 unpushed",
+         "role": "info"
+        }
+       ],
+       [
+        {
+         "text": "● ",
+         "role": "warn"
+        },
+        {
+         "text": "2 uncommitted"
+        },
+        {
+         "text": "  "
+        },
+        {
+         "text": "↑ ",
+         "role": "info"
+        },
+        {
+         "text": "2 unpushed"
+        },
+        {
+         "text": "  "
+        },
+        {
+         "text": "✓ ",
+         "role": "good"
+        },
+        {
+         "text": "2 pushed"
+        }
+       ],
+       [
+        {
+         "text": "M",
+         "role": "good"
+        },
+        {
+         "text": " README.md                     "
+        },
+        {
+         "text": "  "
+        },
+        {
+         "text": "+3",
+         "role": "good"
+        },
+        {
+         "text": " -0",
+         "role": "bad"
+        },
+        {
+         "text": " "
+        },
+        {
+         "text": "█",
+         "role": "good"
+        },
+        {
+         "text": "░░░░░░░",
+         "role": "faint"
+        }
+       ],
+       [
+        {
+         "text": "?",
+         "role": "warn"
+        },
+        {
+         "text": " notes.txt                     "
+        },
+        {
+         "text": "  "
+        },
+        {
+         "text": "+5",
+         "role": "good"
+        },
+        {
+         "text": " -0",
+         "role": "bad"
+        },
+        {
+         "text": " "
+        },
+        {
+         "text": "█",
+         "role": "good"
+        },
+        {
+         "text": "░░░░░░░",
+         "role": "faint"
+        }
+       ],
+       [
+        {
+         "text": "docs/",
+         "role": "faint"
+        }
+       ],
+       [
+        {
+         "text": "  "
+        },
+        {
+         "text": "A",
+         "role": "good"
+        },
+        {
+         "text": " logo.png                    "
+        },
+        {
+         "text": "    bin",
+         "role": "faint"
+        }
+       ],
+       [
+        {
+         "text": "internal/auth/",
+         "role": "faint"
+        }
+       ],
+       [
+        {
+         "text": "  "
+        },
+        {
+         "text": "A",
+         "role": "info"
+        },
+        {
+         "text": " login.go                    "
+        },
+        {
+         "text": " "
+        },
+        {
+         "text": "+80",
+         "role": "good"
+        },
+        {
+         "text": " -0",
+         "role": "bad"
+        },
+        {
+         "text": " "
+        },
+        {
+         "text": "████████",
+         "role": "good"
+        }
+       ],
+       [
+        {
+         "text": "  "
+        },
+        {
+         "text": "M",
+         "role": "warn"
+        },
+        {
+         "text": " login_test.go               "
+        },
+        {
+         "text": ""
+        },
+        {
+         "text": "+20",
+         "role": "good"
+        },
+        {
+         "text": " -22",
+         "role": "bad"
+        },
+        {
+         "text": " "
+        },
+        {
+         "text": "██",
+         "role": "good"
+        },
+        {
+         "text": "██",
+         "role": "bad"
+        },
+        {
+         "text": "░░░░",
+         "role": "faint"
+        }
+       ],
+       [
+        {
+         "text": "  "
+        },
+        {
+         "text": "R",
+         "role": "info"
+        },
+        {
+         "text": " session.go                  "
+        },
+        {
+         "text": " "
+        },
+        {
+         "text": "+12",
+         "role": "good"
+        },
+        {
+         "text": " -9",
+         "role": "bad"
+        },
+        {
+         "text": " "
+        },
+        {
+         "text": "█",
+         "role": "good"
+        },
+        {
+         "text": "█",
+         "role": "bad"
+        },
+        {
+         "text": "░░░░░░",
+         "role": "faint"
+        }
+       ]
+      ]
+     },
+     "options": {
+      "project": "demo",
+      "thread": "t-0001",
+      "height": 10,
+      "badge": [
+       {
+        "text": "+120",
+        "role": "good"
+       },
+       {
+        "text": " -31",
+        "role": "bad"
+       }
+      ]
+     }
+    }
+   },
+   {
+    "method": "tasks.list",
+    "params": {
+     "slug": "demo"
+    }
+   },
+   {
+    "method": "thread.changes",
+    "params": {
+     "project": "demo",
+     "thread": "t-0001"
+    }
+   },
+   {
+    "method": "ui.view.set",
+    "params": {
+     "view": "files",
+     "widget": {
+      "kind": "text",
+      "lines": [
+       [
+        {
+         "text": "since ",
+         "role": "faint"
+        },
+        {
+         "text": "origin/main"
+        },
+        {
+         "text": " · 3 commits ahead",
+         "role": "faint"
+        },
+        {
+         "text": " · 1 unpushed",
+         "role": "info"
+        }
+       ],
+       [
+        {
+         "text": "● ",
+         "role": "warn"
+        },
+        {
+         "text": "2 uncommitted"
+        },
+        {
+         "text": "  "
+        },
+        {
+         "text": "↑ ",
+         "role": "info"
+        },
+        {
+         "text": "2 unpushed"
+        },
+        {
+         "text": "  "
+        },
+        {
+         "text": "✓ ",
+         "role": "good"
+        },
+        {
+         "text": "2 pushed"
+        }
+       ],
+       [
+        {
+         "text": "M",
+         "role": "good"
+        },
+        {
+         "text": " README.md                     "
+        },
+        {
+         "text": "  "
+        },
+        {
+         "text": "+3",
+         "role": "good"
+        },
+        {
+         "text": " -0",
+         "role": "bad"
+        },
+        {
+         "text": " "
+        },
+        {
+         "text": "█",
+         "role": "good"
+        },
+        {
+         "text": "░░░░░░░",
+         "role": "faint"
+        }
+       ],
+       [
+        {
+         "text": "?",
+         "role": "warn"
+        },
+        {
+         "text": " notes.txt                     "
+        },
+        {
+         "text": "  "
+        },
+        {
+         "text": "+5",
+         "role": "good"
+        },
+        {
+         "text": " -0",
+         "role": "bad"
+        },
+        {
+         "text": " "
+        },
+        {
+         "text": "█",
+         "role": "good"
+        },
+        {
+         "text": "░░░░░░░",
+         "role": "faint"
+        }
+       ],
+       [
+        {
+         "text": "docs/",
+         "role": "faint"
+        }
+       ],
+       [
+        {
+         "text": "  "
+        },
+        {
+         "text": "A",
+         "role": "good"
+        },
+        {
+         "text": " logo.png                    "
+        },
+        {
+         "text": "    bin",
+         "role": "faint"
+        }
+       ],
+       [
+        {
+         "text": "internal/auth/",
+         "role": "faint"
+        }
+       ],
+       [
+        {
+         "text": "  "
+        },
+        {
+         "text": "A",
+         "role": "info"
+        },
+        {
+         "text": " login.go                    "
+        },
+        {
+         "text": " "
+        },
+        {
+         "text": "+80",
+         "role": "good"
+        },
+        {
+         "text": " -0",
+         "role": "bad"
+        },
+        {
+         "text": " "
+        },
+        {
+         "text": "████████",
+         "role": "good"
+        }
+       ],
+       [
+        {
+         "text": "  "
+        },
+        {
+         "text": "M",
+         "role": "warn"
+        },
+        {
+         "text": " login_test.go               "
+        },
+        {
+         "text": ""
+        },
+        {
+         "text": "+20",
+         "role": "good"
+        },
+        {
+         "text": " -22",
+         "role": "bad"
+        },
+        {
+         "text": " "
+        },
+        {
+         "text": "██",
+         "role": "good"
+        },
+        {
+         "text": "██",
+         "role": "bad"
+        },
+        {
+         "text": "░░░░",
+         "role": "faint"
+        }
+       ],
+       [
+        {
+         "text": "  "
+        },
+        {
+         "text": "R",
+         "role": "info"
+        },
+        {
+         "text": " session.go                  "
+        },
+        {
+         "text": " "
+        },
+        {
+         "text": "+12",
+         "role": "good"
+        },
+        {
+         "text": " -9",
+         "role": "bad"
+        },
+        {
+         "text": " "
+        },
+        {
+         "text": "█",
+         "role": "good"
+        },
+        {
+         "text": "█",
+         "role": "bad"
+        },
+        {
+         "text": "░░░░░░",
+         "role": "faint"
+        }
+       ]
+      ]
+     },
+     "options": {
+      "project": "demo",
+      "task": "T3",
+      "height": 10,
+      "badge": [
+       {
+        "text": "+120",
+        "role": "good"
+       },
+       {
+        "text": " -31",
+        "role": "bad"
+       }
+      ]
+     }
+    }
+   },
+   {
+    "method": "ui.view.set",
+    "params": {
+     "view": "files",
+     "widget": null,
+     "options": {
+      "project": "demo",
+      "thread": "t-0001"
+     }
+    }
+   }
+  ],
+  "no_calls": [
+   "process.run"
+  ]
+ }
+}
