@@ -6,7 +6,7 @@ then turn it on in the Mods tab or with `tm mod enable <id>`.
 
 Every pull request and push to main runs the **mods** check
 ([.github/workflows/mods.yml](.github/workflows/mods.yml)): it installs
-tm v0.25.3 and runs `tm mod validate` and `tm mod test` on each folder
+tm v0.26.0 and runs `tm mod validate` and `tm mod test` on each folder
 with a `mod.toml`. Run the same locally before pushing:
 
     tm mod validate */ && tm mod test */
@@ -20,10 +20,12 @@ noise, the exit code is what counts.)
 |-----|------|---------|
 | [Mission control](mission-control) | a kanban board of every project's tasks (Ready, Started, Review, Done) with each thread's live state, PR and CI, and a needs-you mark; a full view from the dashboard's ≡ menu | `tm mod install https://github.com/theclifmeister/terminatr-mods.git//mission-control` |
 | [Orbit](orbit) | a radar full view (≡ menu): each project a planet, its threads orbiting it, closer as they near done, pulsing when they need you; enter attaches | `tm mod install https://github.com/theclifmeister/terminatr-mods.git//orbit` |
+| [Changeset](changeset) | each thread's git changes before its PR exists: a `+N -M` sidebar column (`!` when an idle thread left work uncommitted), a details section with the files as a tree with +/- bars and what is uncommitted, unpushed and pushed, and a full view with each file's coloured diff (`m`: uncommitted or since base); needs terminatr v0.26.0 | `tm mod install https://github.com/theclifmeister/terminatr-mods.git//changeset` |
 
 Open each with its dashboard key (**M** for Mission control, **O** for
-Orbit) or from the ≡ menu (*Mission control · mission-control*,
-*Orbit · orbit*); esc returns. Each README lists the keys and what the
+Orbit, **G** for Changeset's diff of the selected thread) or from the ≡
+menu (*Mission control · mission-control*, *Orbit · orbit*,
+*Changeset · diff*); esc returns. Each README lists the keys and what the
 mod API doesn't let it do. [Pit Wall](pit-wall) (under Total
 conversions) brings two more full views: *Live timing* (**L**) and
 *Debrief* (**B**).

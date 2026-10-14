@@ -1,0 +1,45 @@
+{
+  "name": "at the start each thread gets its cell, marked by its newest layer: ! work left uncommitted on an idle thread, ↑ commits not pushed, ✓ all pushed (faint); none without a repo",
+  "answers": [
+    { "method": "thread.changes", "params": { "project": "demo", "thread": "t-0001" },
+      "result": { "state": "dirty", "mode": "base", "branch": "tm/demo/t-0001-login", "base": "origin/main", "head": "4f1c2ab", "ahead": 2, "unpushed": 1, "pushed": true,
+        "files": [], "totals": { "files": 3, "add": 120, "del": 34 },
+        "buckets": { "uncommitted": { "files": 1, "add": 12, "del": 3 }, "unpushed": { "files": 1, "add": 100, "del": 30 }, "pushed": { "files": 1, "add": 8, "del": 1 } } } },
+    { "method": "thread.changes", "params": { "project": "demo", "thread": "t-0002" },
+      "result": { "state": "clean", "mode": "base", "branch": "tm/demo/t-0002-notes", "base": "origin/main", "head": "9d0e771", "ahead": 3, "unpushed": 3, "pushed": false,
+        "files": [], "totals": { "files": 7, "add": 1240, "del": 340 },
+        "buckets": { "uncommitted": { "files": 0, "add": 0, "del": 0 }, "unpushed": { "files": 7, "add": 1240, "del": 340 }, "pushed": { "files": 0, "add": 0, "del": 0 } } } },
+    { "method": "thread.changes", "params": { "project": "demo", "thread": "t-0003" },
+      "result": { "state": "none", "mode": "base", "ahead": 0, "unpushed": 0, "pushed": false, "files": [],
+        "totals": { "files": 0, "add": 0, "del": 0 },
+        "buckets": { "uncommitted": { "files": 0, "add": 0, "del": 0 }, "unpushed": { "files": 0, "add": 0, "del": 0 }, "pushed": { "files": 0, "add": 0, "del": 0 } } } },
+    { "method": "thread.changes", "params": { "project": "demo", "thread": "t-0004" },
+      "result": { "state": "clean", "mode": "base", "branch": "tm/demo/t-0004-docs", "base": "origin/main", "head": "11aa22b", "ahead": 1, "unpushed": 0, "pushed": true,
+        "files": [], "totals": { "files": 1, "add": 5, "del": 0 },
+        "buckets": { "uncommitted": { "files": 0, "add": 0, "del": 0 }, "unpushed": { "files": 0, "add": 0, "del": 0 }, "pushed": { "files": 1, "add": 5, "del": 0 } } } }
+  ],
+  "events": [
+    { "name": "mod.ready", "data": { "projects": [
+      { "project": "demo", "needs_you": [], "inbox": [], "ready": [], "threads": [
+        { "id": "t-0001", "title": "Login", "state": "idle" },
+        { "id": "t-0002", "title": "Notes", "state": "working" },
+        { "id": "t-0003", "title": "Adopted", "state": "idle" },
+        { "id": "t-0004", "title": "Docs", "state": "idle", "done": true } ] } ] } }
+  ],
+  "expect": {
+    "calls": [
+      { "method": "thread.changes", "params": { "project": "demo", "thread": "t-0001" } },
+      { "method": "thread.changes", "params": { "project": "demo", "thread": "t-0002" } },
+      { "method": "thread.changes", "params": { "project": "demo", "thread": "t-0003" } },
+      { "method": "thread.changes", "params": { "project": "demo", "thread": "t-0004" } },
+      { "method": "ui.cell.set", "params": { "column": "changes", "target": { "project": "demo", "thread": "t-0001" },
+        "spans": [{ "text": "! ", "role": "warn" }, { "text": "+120", "role": "good" }, { "text": " -34", "role": "bad" }] } },
+      { "method": "ui.cell.set", "params": { "column": "changes", "target": { "project": "demo", "thread": "t-0002" },
+        "spans": [{ "text": "↑ ", "role": "info" }, { "text": "+1.2k", "role": "good" }, { "text": " -340", "role": "bad" }] } },
+      { "method": "ui.cell.set", "params": { "column": "changes", "target": { "project": "demo", "thread": "t-0003" }, "spans": null } },
+      { "method": "ui.cell.set", "params": { "column": "changes", "target": { "project": "demo", "thread": "t-0004" },
+        "spans": [{ "text": "✓ ", "role": "faint" }, { "text": "+5", "role": "faint" }, { "text": " -0", "role": "faint" }] } }
+    ],
+    "no_calls": ["process.run"]
+  }
+}

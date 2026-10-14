@@ -1,0 +1,1999 @@
+{
+ "name": "the diff: G opens it on the selected thread, uncommitted first while it has some; the cursor's file shows its coloured patch; m switches to since base, u hides the untracked files",
+ "answers": [
+  {
+   "method": "thread.changes",
+   "params": {
+    "project": "demo",
+    "thread": "t-0001",
+    "options": {
+     "mode": "uncommitted",
+     "path": "internal/auth/login_test.go",
+     "patch": true
+    }
+   },
+   "result": {
+    "state": "dirty",
+    "mode": "uncommitted",
+    "files": [
+     {
+      "path": "internal/auth/login_test.go",
+      "status": "M",
+      "add": 4,
+      "del": 2,
+      "bucket": "uncommitted"
+     }
+    ],
+    "totals": {
+     "files": 2,
+     "add": 6,
+     "del": 2
+    },
+    "branch": "tm/demo/t-0001-login",
+    "base": "origin/main",
+    "head": "4f1c2ab",
+    "ahead": 2,
+    "unpushed": 1,
+    "pushed": true,
+    "buckets": {
+     "uncommitted": {
+      "files": 2,
+      "add": 6,
+      "del": 2
+     },
+     "unpushed": {
+      "files": 1,
+      "add": 80,
+      "del": 0
+     },
+     "pushed": {
+      "files": 1,
+      "add": 3,
+      "del": 0
+     }
+    },
+    "patch": "diff --git a/internal/auth/login_test.go b/internal/auth/login_test.go\nindex 3b18e51..a9c4f02 100644\n--- a/internal/auth/login_test.go\n+++ b/internal/auth/login_test.go\n@@ -10,7 +10,9 @@ func TestLogin(t *testing.T) {\n \ts := newServer(t)\n-\tres := s.login(\"ann\", \"pw\")\n-\tif res.code != 200 {\n+\tres := s.login(\"ann\", \"secret\")\n+\tif res.code != http.StatusOK {\n+\t\tt.Fatalf(\"login: %d\", res.code)\n+\t}\n \tif res.token == \"\" {\n \t\tt.Fatal(\"no token\")\n \t}\n"
+   }
+  },
+  {
+   "method": "thread.changes",
+   "params": {
+    "project": "demo",
+    "thread": "t-0001",
+    "options": {
+     "mode": "uncommitted",
+     "path": "notes.txt",
+     "patch": true
+    }
+   },
+   "result": {
+    "state": "dirty",
+    "mode": "uncommitted",
+    "files": [
+     {
+      "path": "notes.txt",
+      "status": "?",
+      "add": 2,
+      "del": 0,
+      "bucket": "uncommitted"
+     }
+    ],
+    "totals": {
+     "files": 2,
+     "add": 6,
+     "del": 2
+    },
+    "branch": "tm/demo/t-0001-login",
+    "base": "origin/main",
+    "head": "4f1c2ab",
+    "ahead": 2,
+    "unpushed": 1,
+    "pushed": true,
+    "buckets": {
+     "uncommitted": {
+      "files": 2,
+      "add": 6,
+      "del": 2
+     },
+     "unpushed": {
+      "files": 1,
+      "add": 80,
+      "del": 0
+     },
+     "pushed": {
+      "files": 1,
+      "add": 3,
+      "del": 0
+     }
+    },
+    "patch": "diff --git a/notes.txt b/notes.txt\nnew file mode 100644\nindex 0000000..5e1c309\n--- /dev/null\n+++ b/notes.txt\n@@ -0,0 +1,2 @@\n+todo: lockout after 5 tries\n+todo: remember me\n\\ No newline at end of file\n"
+   }
+  },
+  {
+   "method": "thread.changes",
+   "params": {
+    "project": "demo",
+    "thread": "t-0001",
+    "options": {
+     "mode": "base",
+     "path": "internal/auth/login.go",
+     "patch": true
+    }
+   },
+   "result": {
+    "state": "dirty",
+    "mode": "base",
+    "files": [
+     {
+      "path": "internal/auth/login.go",
+      "status": "A",
+      "add": 80,
+      "del": 0,
+      "bucket": "unpushed"
+     }
+    ],
+    "totals": {
+     "files": 4,
+     "add": 105,
+     "del": 22
+    },
+    "branch": "tm/demo/t-0001-login",
+    "base": "origin/main",
+    "head": "4f1c2ab",
+    "ahead": 2,
+    "unpushed": 1,
+    "pushed": true,
+    "buckets": {
+     "uncommitted": {
+      "files": 2,
+      "add": 6,
+      "del": 2
+     },
+     "unpushed": {
+      "files": 1,
+      "add": 80,
+      "del": 0
+     },
+     "pushed": {
+      "files": 1,
+      "add": 3,
+      "del": 0
+     }
+    },
+    "patch": "diff --git a/internal/auth/login.go b/internal/auth/login.go\nnew file mode 100644\nindex 0000000..77aa012\n--- /dev/null\n+++ b/internal/auth/login.go\n@@ -0,0 +1,3 @@\n+package auth\n+\n+func Login() {}\n"
+   }
+  },
+  {
+   "method": "thread.changes",
+   "params": {
+    "project": "demo",
+    "thread": "t-0001",
+    "options": {
+     "mode": "base",
+     "path": "internal/auth/login_test.go",
+     "patch": true
+    }
+   },
+   "result": {
+    "state": "dirty",
+    "mode": "base",
+    "files": [
+     {
+      "path": "internal/auth/login_test.go",
+      "status": "M",
+      "add": 20,
+      "del": 22,
+      "bucket": "uncommitted"
+     }
+    ],
+    "totals": {
+     "files": 4,
+     "add": 105,
+     "del": 22
+    },
+    "branch": "tm/demo/t-0001-login",
+    "base": "origin/main",
+    "head": "4f1c2ab",
+    "ahead": 2,
+    "unpushed": 1,
+    "pushed": true,
+    "buckets": {
+     "uncommitted": {
+      "files": 2,
+      "add": 6,
+      "del": 2
+     },
+     "unpushed": {
+      "files": 1,
+      "add": 80,
+      "del": 0
+     },
+     "pushed": {
+      "files": 1,
+      "add": 3,
+      "del": 0
+     }
+    },
+    "patch": "diff --git a/internal/auth/login_test.go b/internal/auth/login_test.go\nindex 3b18e51..a9c4f02 100644\n--- a/internal/auth/login_test.go\n+++ b/internal/auth/login_test.go\n@@ -10,7 +10,9 @@ func TestLogin(t *testing.T) {\n \ts := newServer(t)\n-\tres := s.login(\"ann\", \"pw\")\n-\tif res.code != 200 {\n+\tres := s.login(\"ann\", \"secret\")\n+\tif res.code != http.StatusOK {\n+\t\tt.Fatalf(\"login: %d\", res.code)\n+\t}\n \tif res.token == \"\" {\n \t\tt.Fatal(\"no token\")\n \t}\n"
+   }
+  },
+  {
+   "method": "thread.changes",
+   "params": {
+    "project": "demo",
+    "thread": "t-0001",
+    "options": {
+     "mode": "uncommitted"
+    }
+   },
+   "result": {
+    "state": "dirty",
+    "mode": "uncommitted",
+    "files": [
+     {
+      "path": "internal/auth/login_test.go",
+      "status": "M",
+      "add": 4,
+      "del": 2,
+      "bucket": "uncommitted"
+     },
+     {
+      "path": "notes.txt",
+      "status": "?",
+      "add": 2,
+      "del": 0,
+      "bucket": "uncommitted"
+     }
+    ],
+    "totals": {
+     "files": 2,
+     "add": 6,
+     "del": 2
+    },
+    "branch": "tm/demo/t-0001-login",
+    "base": "origin/main",
+    "head": "4f1c2ab",
+    "ahead": 2,
+    "unpushed": 1,
+    "pushed": true,
+    "buckets": {
+     "uncommitted": {
+      "files": 2,
+      "add": 6,
+      "del": 2
+     },
+     "unpushed": {
+      "files": 1,
+      "add": 80,
+      "del": 0
+     },
+     "pushed": {
+      "files": 1,
+      "add": 3,
+      "del": 0
+     }
+    }
+   }
+  },
+  {
+   "method": "thread.changes",
+   "params": {
+    "project": "demo",
+    "thread": "t-0001"
+   },
+   "result": {
+    "state": "dirty",
+    "mode": "base",
+    "files": [
+     {
+      "path": "README.md",
+      "status": "M",
+      "add": 3,
+      "del": 0,
+      "bucket": "pushed"
+     },
+     {
+      "path": "internal/auth/login.go",
+      "status": "A",
+      "add": 80,
+      "del": 0,
+      "bucket": "unpushed"
+     },
+     {
+      "path": "internal/auth/login_test.go",
+      "status": "M",
+      "add": 20,
+      "del": 22,
+      "bucket": "uncommitted"
+     },
+     {
+      "path": "notes.txt",
+      "status": "?",
+      "add": 2,
+      "del": 0,
+      "bucket": "uncommitted"
+     }
+    ],
+    "totals": {
+     "files": 4,
+     "add": 105,
+     "del": 22
+    },
+    "branch": "tm/demo/t-0001-login",
+    "base": "origin/main",
+    "head": "4f1c2ab",
+    "ahead": 2,
+    "unpushed": 1,
+    "pushed": true,
+    "buckets": {
+     "uncommitted": {
+      "files": 2,
+      "add": 6,
+      "del": 2
+     },
+     "unpushed": {
+      "files": 1,
+      "add": 80,
+      "del": 0
+     },
+     "pushed": {
+      "files": 1,
+      "add": 3,
+      "del": 0
+     }
+    }
+   }
+  }
+ ],
+ "events": [
+  {
+   "name": "command.run",
+   "project": "demo",
+   "data": {
+    "command": "open",
+    "project": "demo",
+    "selection": {
+     "project": "demo",
+     "thread": "t-0001"
+    }
+   }
+  },
+  {
+   "name": "view.opened",
+   "project": "demo",
+   "data": {
+    "view": "diff",
+    "slot": "full",
+    "project": "demo",
+    "width": 100,
+    "height": 40
+   }
+  },
+  {
+   "name": "ui.cursor",
+   "project": "demo",
+   "data": {
+    "view": "diff",
+    "widget": "files",
+    "row": "fht5js6"
+   }
+  },
+  {
+   "name": "ui.key",
+   "project": "demo",
+   "data": {
+    "view": "diff",
+    "widget": "files",
+    "row": "fht5js6",
+    "key": "m"
+   }
+  },
+  {
+   "name": "ui.key",
+   "project": "demo",
+   "data": {
+    "view": "diff",
+    "widget": "files",
+    "row": "fht5js6",
+    "key": "u"
+   }
+  },
+  {
+   "name": "view.closed",
+   "project": "demo",
+   "data": {
+    "view": "diff",
+    "slot": "full",
+    "project": "demo",
+    "width": 100,
+    "height": 40
+   }
+  }
+ ],
+ "expect": {
+  "calls": [
+   {
+    "method": "ui.view.open",
+    "params": {
+     "view": "diff"
+    }
+   },
+   {
+    "method": "thread.changes",
+    "params": {
+     "project": "demo",
+     "thread": "t-0001"
+    }
+   },
+   {
+    "method": "thread.changes",
+    "params": {
+     "project": "demo",
+     "thread": "t-0001",
+     "options": {
+      "mode": "uncommitted"
+     }
+    }
+   },
+   {
+    "method": "thread.changes",
+    "params": {
+     "project": "demo",
+     "thread": "t-0001",
+     "options": {
+      "mode": "uncommitted",
+      "path": "notes.txt",
+      "patch": true
+     }
+    }
+   },
+   {
+    "method": "ui.view.set",
+    "params": {
+     "view": "diff",
+     "widget": {
+      "kind": "stack",
+      "children": [
+       {
+        "kind": "text",
+        "lines": [
+         [
+          {
+           "text": "demo t-0001",
+           "role": "head"
+          },
+          {
+           "text": "  tm/demo/t-0001-login",
+           "role": "faint"
+          }
+         ],
+         [
+          {
+           "text": "[ ",
+           "role": "faint"
+          },
+          {
+           "text": "uncommitted",
+           "role": "accent"
+          },
+          {
+           "text": " | ",
+           "role": "faint"
+          },
+          {
+           "text": "since base",
+           "role": "faint"
+          },
+          {
+           "text": " ]",
+           "role": "faint"
+          },
+          {
+           "text": "  2 files "
+          },
+          {
+           "text": "+6",
+           "role": "good"
+          },
+          {
+           "text": " -2",
+           "role": "bad"
+          }
+         ],
+         [
+          {
+           "text": "since ",
+           "role": "faint"
+          },
+          {
+           "text": "origin/main"
+          },
+          {
+           "text": " · 2 commits ahead",
+           "role": "faint"
+          },
+          {
+           "text": " · 1 unpushed",
+           "role": "info"
+          },
+          {
+           "text": "   "
+          },
+          {
+           "text": "● ",
+           "role": "warn"
+          },
+          {
+           "text": "2 uncommitted"
+          },
+          {
+           "text": "  "
+          },
+          {
+           "text": "↑ ",
+           "role": "info"
+          },
+          {
+           "text": "1 unpushed"
+          },
+          {
+           "text": "  "
+          },
+          {
+           "text": "✓ ",
+           "role": "good"
+          },
+          {
+           "text": "1 pushed"
+          }
+         ]
+        ]
+       },
+       {
+        "kind": "list",
+        "id": "files",
+        "title": "FILES 2",
+        "rows": [
+         {
+          "id": "f16q6owg",
+          "spans": [
+           {
+            "text": "?",
+            "role": "warn"
+           },
+           {
+            "text": " notes.txt"
+           },
+           {
+            "text": "  "
+           },
+           {
+            "text": "+2",
+            "role": "good"
+           },
+           {
+            "text": " -0",
+            "role": "bad"
+           },
+           {
+            "text": " "
+           },
+           {
+            "text": "███",
+            "role": "good"
+           },
+           {
+            "text": "░░░░░",
+            "role": "faint"
+           }
+          ]
+         },
+         {
+          "head": true,
+          "spans": [
+           {
+            "text": "internal/auth/"
+           }
+          ]
+         },
+         {
+          "id": "fht5js6",
+          "spans": [
+           {
+            "text": "M",
+            "role": "warn"
+           },
+           {
+            "text": " login_test.go"
+           },
+           {
+            "text": "  "
+           },
+           {
+            "text": "+4",
+            "role": "good"
+           },
+           {
+            "text": " -2",
+            "role": "bad"
+           },
+           {
+            "text": " "
+           },
+           {
+            "text": "█████",
+            "role": "good"
+           },
+           {
+            "text": "███",
+            "role": "bad"
+           }
+          ]
+         }
+        ],
+        "empty": "no files"
+       },
+       {
+        "kind": "list",
+        "id": "patch",
+        "title": "notes.txt",
+        "rows": [
+         {
+          "id": "p0.0",
+          "spans": [
+           {
+            "text": "      "
+           },
+           {
+            "text": "new file mode 100644",
+            "role": "faint"
+           }
+          ]
+         },
+         {
+          "id": "p0.1",
+          "spans": [
+           {
+            "text": "      "
+           },
+           {
+            "text": "@@ -0,0 +1,2 @@",
+            "role": "info"
+           }
+          ]
+         },
+         {
+          "id": "p0.2",
+          "spans": [
+           {
+            "text": "    1 ",
+            "role": "faint"
+           },
+           {
+            "text": "+todo: lockout after 5 tries",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.3",
+          "spans": [
+           {
+            "text": "    2 ",
+            "role": "faint"
+           },
+           {
+            "text": "+todo: remember me",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p0.4",
+          "spans": [
+           {
+            "text": "      "
+           },
+           {
+            "text": "\\ No newline at end of file",
+            "role": "faint"
+           }
+          ]
+         }
+        ],
+        "empty": "no textual change"
+       },
+       {
+        "kind": "keys",
+        "id": "keys",
+        "keys": [
+         {
+          "key": "m",
+          "label": "uncommitted / since base"
+         },
+         {
+          "key": "u",
+          "label": "untracked"
+         },
+         {
+          "key": "[",
+          "label": "previous thread"
+         },
+         {
+          "key": "]",
+          "label": "next thread"
+         },
+         {
+          "key": "R",
+          "label": "read again"
+         }
+        ]
+       }
+      ]
+     },
+     "options": {
+      "project": "demo"
+     }
+    }
+   },
+   {
+    "method": "thread.changes",
+    "params": {
+     "project": "demo",
+     "thread": "t-0001",
+     "options": {
+      "mode": "uncommitted"
+     }
+    }
+   },
+   {
+    "method": "thread.changes",
+    "params": {
+     "project": "demo",
+     "thread": "t-0001",
+     "options": {
+      "mode": "uncommitted",
+      "path": "internal/auth/login_test.go",
+      "patch": true
+     }
+    }
+   },
+   {
+    "method": "ui.view.set",
+    "params": {
+     "view": "diff",
+     "widget": {
+      "kind": "stack",
+      "children": [
+       {
+        "kind": "text",
+        "lines": [
+         [
+          {
+           "text": "demo t-0001",
+           "role": "head"
+          },
+          {
+           "text": "  tm/demo/t-0001-login",
+           "role": "faint"
+          }
+         ],
+         [
+          {
+           "text": "[ ",
+           "role": "faint"
+          },
+          {
+           "text": "uncommitted",
+           "role": "accent"
+          },
+          {
+           "text": " | ",
+           "role": "faint"
+          },
+          {
+           "text": "since base",
+           "role": "faint"
+          },
+          {
+           "text": " ]",
+           "role": "faint"
+          },
+          {
+           "text": "  2 files "
+          },
+          {
+           "text": "+6",
+           "role": "good"
+          },
+          {
+           "text": " -2",
+           "role": "bad"
+          }
+         ],
+         [
+          {
+           "text": "since ",
+           "role": "faint"
+          },
+          {
+           "text": "origin/main"
+          },
+          {
+           "text": " · 2 commits ahead",
+           "role": "faint"
+          },
+          {
+           "text": " · 1 unpushed",
+           "role": "info"
+          },
+          {
+           "text": "   "
+          },
+          {
+           "text": "● ",
+           "role": "warn"
+          },
+          {
+           "text": "2 uncommitted"
+          },
+          {
+           "text": "  "
+          },
+          {
+           "text": "↑ ",
+           "role": "info"
+          },
+          {
+           "text": "1 unpushed"
+          },
+          {
+           "text": "  "
+          },
+          {
+           "text": "✓ ",
+           "role": "good"
+          },
+          {
+           "text": "1 pushed"
+          }
+         ]
+        ]
+       },
+       {
+        "kind": "list",
+        "id": "files",
+        "title": "FILES 2",
+        "rows": [
+         {
+          "id": "f16q6owg",
+          "spans": [
+           {
+            "text": "?",
+            "role": "warn"
+           },
+           {
+            "text": " notes.txt"
+           },
+           {
+            "text": "  "
+           },
+           {
+            "text": "+2",
+            "role": "good"
+           },
+           {
+            "text": " -0",
+            "role": "bad"
+           },
+           {
+            "text": " "
+           },
+           {
+            "text": "███",
+            "role": "good"
+           },
+           {
+            "text": "░░░░░",
+            "role": "faint"
+           }
+          ]
+         },
+         {
+          "head": true,
+          "spans": [
+           {
+            "text": "internal/auth/"
+           }
+          ]
+         },
+         {
+          "id": "fht5js6",
+          "spans": [
+           {
+            "text": "M",
+            "role": "warn"
+           },
+           {
+            "text": " login_test.go"
+           },
+           {
+            "text": "  "
+           },
+           {
+            "text": "+4",
+            "role": "good"
+           },
+           {
+            "text": " -2",
+            "role": "bad"
+           },
+           {
+            "text": " "
+           },
+           {
+            "text": "█████",
+            "role": "good"
+           },
+           {
+            "text": "███",
+            "role": "bad"
+           }
+          ]
+         }
+        ],
+        "empty": "no files"
+       },
+       {
+        "kind": "list",
+        "id": "patch",
+        "title": "internal/auth/login_test.go",
+        "rows": [
+         {
+          "id": "p1.0",
+          "spans": [
+           {
+            "text": "      "
+           },
+           {
+            "text": "@@ -10,7 +10,9 @@ func TestLogin(t *testing.T) {",
+            "role": "info"
+           }
+          ]
+         },
+         {
+          "id": "p1.1",
+          "spans": [
+           {
+            "text": "   10 ",
+            "role": "faint"
+           },
+           {
+            "text": "     s := newServer(t)"
+           }
+          ]
+         },
+         {
+          "id": "p1.2",
+          "spans": [
+           {
+            "text": "      "
+           },
+           {
+            "text": "-    res := s.login(\"ann\", \"pw\")",
+            "role": "bad"
+           }
+          ]
+         },
+         {
+          "id": "p1.3",
+          "spans": [
+           {
+            "text": "      "
+           },
+           {
+            "text": "-    if res.code != 200 {",
+            "role": "bad"
+           }
+          ]
+         },
+         {
+          "id": "p1.4",
+          "spans": [
+           {
+            "text": "   11 ",
+            "role": "faint"
+           },
+           {
+            "text": "+    res := s.login(\"ann\", \"secret\")",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p1.5",
+          "spans": [
+           {
+            "text": "   12 ",
+            "role": "faint"
+           },
+           {
+            "text": "+    if res.code != http.StatusOK {",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p1.6",
+          "spans": [
+           {
+            "text": "   13 ",
+            "role": "faint"
+           },
+           {
+            "text": "+        t.Fatalf(\"login: %d\", res.code)",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p1.7",
+          "spans": [
+           {
+            "text": "   14 ",
+            "role": "faint"
+           },
+           {
+            "text": "+    }",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p1.8",
+          "spans": [
+           {
+            "text": "   15 ",
+            "role": "faint"
+           },
+           {
+            "text": "     if res.token == \"\" {"
+           }
+          ]
+         },
+         {
+          "id": "p1.9",
+          "spans": [
+           {
+            "text": "   16 ",
+            "role": "faint"
+           },
+           {
+            "text": "         t.Fatal(\"no token\")"
+           }
+          ]
+         },
+         {
+          "id": "p1.10",
+          "spans": [
+           {
+            "text": "   17 ",
+            "role": "faint"
+           },
+           {
+            "text": "     }"
+           }
+          ]
+         }
+        ],
+        "empty": "no textual change"
+       },
+       {
+        "kind": "keys",
+        "id": "keys",
+        "keys": [
+         {
+          "key": "m",
+          "label": "uncommitted / since base"
+         },
+         {
+          "key": "u",
+          "label": "untracked"
+         },
+         {
+          "key": "[",
+          "label": "previous thread"
+         },
+         {
+          "key": "]",
+          "label": "next thread"
+         },
+         {
+          "key": "R",
+          "label": "read again"
+         }
+        ]
+       }
+      ]
+     },
+     "options": {
+      "project": "demo"
+     }
+    }
+   },
+   {
+    "method": "thread.changes",
+    "params": {
+     "project": "demo",
+     "thread": "t-0001"
+    }
+   },
+   {
+    "method": "thread.changes",
+    "params": {
+     "project": "demo",
+     "thread": "t-0001",
+     "options": {
+      "mode": "base",
+      "path": "internal/auth/login_test.go",
+      "patch": true
+     }
+    }
+   },
+   {
+    "method": "ui.view.set",
+    "params": {
+     "view": "diff",
+     "widget": {
+      "kind": "stack",
+      "children": [
+       {
+        "kind": "text",
+        "lines": [
+         [
+          {
+           "text": "demo t-0001",
+           "role": "head"
+          },
+          {
+           "text": "  tm/demo/t-0001-login",
+           "role": "faint"
+          }
+         ],
+         [
+          {
+           "text": "[ ",
+           "role": "faint"
+          },
+          {
+           "text": "uncommitted",
+           "role": "faint"
+          },
+          {
+           "text": " | ",
+           "role": "faint"
+          },
+          {
+           "text": "since base",
+           "role": "accent"
+          },
+          {
+           "text": " ]",
+           "role": "faint"
+          },
+          {
+           "text": "  4 files "
+          },
+          {
+           "text": "+105",
+           "role": "good"
+          },
+          {
+           "text": " -22",
+           "role": "bad"
+          }
+         ],
+         [
+          {
+           "text": "since ",
+           "role": "faint"
+          },
+          {
+           "text": "origin/main"
+          },
+          {
+           "text": " · 2 commits ahead",
+           "role": "faint"
+          },
+          {
+           "text": " · 1 unpushed",
+           "role": "info"
+          },
+          {
+           "text": "   "
+          },
+          {
+           "text": "● ",
+           "role": "warn"
+          },
+          {
+           "text": "2 uncommitted"
+          },
+          {
+           "text": "  "
+          },
+          {
+           "text": "↑ ",
+           "role": "info"
+          },
+          {
+           "text": "1 unpushed"
+          },
+          {
+           "text": "  "
+          },
+          {
+           "text": "✓ ",
+           "role": "good"
+          },
+          {
+           "text": "1 pushed"
+          }
+         ]
+        ]
+       },
+       {
+        "kind": "list",
+        "id": "files",
+        "title": "FILES 4",
+        "rows": [
+         {
+          "id": "f7nd9ko",
+          "spans": [
+           {
+            "text": "M",
+            "role": "good"
+           },
+           {
+            "text": " README.md"
+           },
+           {
+            "text": "  "
+           },
+           {
+            "text": "+3",
+            "role": "good"
+           },
+           {
+            "text": " -0",
+            "role": "bad"
+           },
+           {
+            "text": " "
+           },
+           {
+            "text": "█",
+            "role": "good"
+           },
+           {
+            "text": "░░░░░░░",
+            "role": "faint"
+           }
+          ]
+         },
+         {
+          "id": "f16q6owg",
+          "spans": [
+           {
+            "text": "?",
+            "role": "warn"
+           },
+           {
+            "text": " notes.txt"
+           },
+           {
+            "text": "  "
+           },
+           {
+            "text": "+2",
+            "role": "good"
+           },
+           {
+            "text": " -0",
+            "role": "bad"
+           },
+           {
+            "text": " "
+           },
+           {
+            "text": "█",
+            "role": "good"
+           },
+           {
+            "text": "░░░░░░░",
+            "role": "faint"
+           }
+          ]
+         },
+         {
+          "head": true,
+          "spans": [
+           {
+            "text": "internal/auth/"
+           }
+          ]
+         },
+         {
+          "id": "f5o1k5r",
+          "spans": [
+           {
+            "text": "A",
+            "role": "info"
+           },
+           {
+            "text": " login.go"
+           },
+           {
+            "text": "  "
+           },
+           {
+            "text": "+80",
+            "role": "good"
+           },
+           {
+            "text": " -0",
+            "role": "bad"
+           },
+           {
+            "text": " "
+           },
+           {
+            "text": "████████",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "fht5js6",
+          "spans": [
+           {
+            "text": "M",
+            "role": "warn"
+           },
+           {
+            "text": " login_test.go"
+           },
+           {
+            "text": "  "
+           },
+           {
+            "text": "+20",
+            "role": "good"
+           },
+           {
+            "text": " -22",
+            "role": "bad"
+           },
+           {
+            "text": " "
+           },
+           {
+            "text": "██",
+            "role": "good"
+           },
+           {
+            "text": "██",
+            "role": "bad"
+           },
+           {
+            "text": "░░░░",
+            "role": "faint"
+           }
+          ]
+         }
+        ],
+        "empty": "no files"
+       },
+       {
+        "kind": "list",
+        "id": "patch",
+        "title": "internal/auth/login_test.go",
+        "rows": [
+         {
+          "id": "p2.0",
+          "spans": [
+           {
+            "text": "      "
+           },
+           {
+            "text": "@@ -10,7 +10,9 @@ func TestLogin(t *testing.T) {",
+            "role": "info"
+           }
+          ]
+         },
+         {
+          "id": "p2.1",
+          "spans": [
+           {
+            "text": "   10 ",
+            "role": "faint"
+           },
+           {
+            "text": "     s := newServer(t)"
+           }
+          ]
+         },
+         {
+          "id": "p2.2",
+          "spans": [
+           {
+            "text": "      "
+           },
+           {
+            "text": "-    res := s.login(\"ann\", \"pw\")",
+            "role": "bad"
+           }
+          ]
+         },
+         {
+          "id": "p2.3",
+          "spans": [
+           {
+            "text": "      "
+           },
+           {
+            "text": "-    if res.code != 200 {",
+            "role": "bad"
+           }
+          ]
+         },
+         {
+          "id": "p2.4",
+          "spans": [
+           {
+            "text": "   11 ",
+            "role": "faint"
+           },
+           {
+            "text": "+    res := s.login(\"ann\", \"secret\")",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p2.5",
+          "spans": [
+           {
+            "text": "   12 ",
+            "role": "faint"
+           },
+           {
+            "text": "+    if res.code != http.StatusOK {",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p2.6",
+          "spans": [
+           {
+            "text": "   13 ",
+            "role": "faint"
+           },
+           {
+            "text": "+        t.Fatalf(\"login: %d\", res.code)",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p2.7",
+          "spans": [
+           {
+            "text": "   14 ",
+            "role": "faint"
+           },
+           {
+            "text": "+    }",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p2.8",
+          "spans": [
+           {
+            "text": "   15 ",
+            "role": "faint"
+           },
+           {
+            "text": "     if res.token == \"\" {"
+           }
+          ]
+         },
+         {
+          "id": "p2.9",
+          "spans": [
+           {
+            "text": "   16 ",
+            "role": "faint"
+           },
+           {
+            "text": "         t.Fatal(\"no token\")"
+           }
+          ]
+         },
+         {
+          "id": "p2.10",
+          "spans": [
+           {
+            "text": "   17 ",
+            "role": "faint"
+           },
+           {
+            "text": "     }"
+           }
+          ]
+         }
+        ],
+        "empty": "no textual change"
+       },
+       {
+        "kind": "keys",
+        "id": "keys",
+        "keys": [
+         {
+          "key": "m",
+          "label": "uncommitted / since base"
+         },
+         {
+          "key": "u",
+          "label": "untracked"
+         },
+         {
+          "key": "[",
+          "label": "previous thread"
+         },
+         {
+          "key": "]",
+          "label": "next thread"
+         },
+         {
+          "key": "R",
+          "label": "read again"
+         }
+        ]
+       }
+      ]
+     },
+     "options": {
+      "project": "demo"
+     }
+    }
+   },
+   {
+    "method": "thread.changes",
+    "params": {
+     "project": "demo",
+     "thread": "t-0001"
+    }
+   },
+   {
+    "method": "thread.changes",
+    "params": {
+     "project": "demo",
+     "thread": "t-0001",
+     "options": {
+      "mode": "base",
+      "path": "internal/auth/login_test.go",
+      "patch": true
+     }
+    }
+   },
+   {
+    "method": "ui.view.set",
+    "params": {
+     "view": "diff",
+     "widget": {
+      "kind": "stack",
+      "children": [
+       {
+        "kind": "text",
+        "lines": [
+         [
+          {
+           "text": "demo t-0001",
+           "role": "head"
+          },
+          {
+           "text": "  tm/demo/t-0001-login",
+           "role": "faint"
+          }
+         ],
+         [
+          {
+           "text": "[ ",
+           "role": "faint"
+          },
+          {
+           "text": "uncommitted",
+           "role": "faint"
+          },
+          {
+           "text": " | ",
+           "role": "faint"
+          },
+          {
+           "text": "since base",
+           "role": "accent"
+          },
+          {
+           "text": " ]",
+           "role": "faint"
+          },
+          {
+           "text": "  4 files "
+          },
+          {
+           "text": "+105",
+           "role": "good"
+          },
+          {
+           "text": " -22",
+           "role": "bad"
+          },
+          {
+           "text": "  1 untracked hidden",
+           "role": "faint"
+          }
+         ],
+         [
+          {
+           "text": "since ",
+           "role": "faint"
+          },
+          {
+           "text": "origin/main"
+          },
+          {
+           "text": " · 2 commits ahead",
+           "role": "faint"
+          },
+          {
+           "text": " · 1 unpushed",
+           "role": "info"
+          },
+          {
+           "text": "   "
+          },
+          {
+           "text": "● ",
+           "role": "warn"
+          },
+          {
+           "text": "2 uncommitted"
+          },
+          {
+           "text": "  "
+          },
+          {
+           "text": "↑ ",
+           "role": "info"
+          },
+          {
+           "text": "1 unpushed"
+          },
+          {
+           "text": "  "
+          },
+          {
+           "text": "✓ ",
+           "role": "good"
+          },
+          {
+           "text": "1 pushed"
+          }
+         ]
+        ]
+       },
+       {
+        "kind": "list",
+        "id": "files",
+        "title": "FILES 3",
+        "rows": [
+         {
+          "id": "f7nd9ko",
+          "spans": [
+           {
+            "text": "M",
+            "role": "good"
+           },
+           {
+            "text": " README.md"
+           },
+           {
+            "text": "  "
+           },
+           {
+            "text": "+3",
+            "role": "good"
+           },
+           {
+            "text": " -0",
+            "role": "bad"
+           },
+           {
+            "text": " "
+           },
+           {
+            "text": "█",
+            "role": "good"
+           },
+           {
+            "text": "░░░░░░░",
+            "role": "faint"
+           }
+          ]
+         },
+         {
+          "head": true,
+          "spans": [
+           {
+            "text": "internal/auth/"
+           }
+          ]
+         },
+         {
+          "id": "f5o1k5r",
+          "spans": [
+           {
+            "text": "A",
+            "role": "info"
+           },
+           {
+            "text": " login.go"
+           },
+           {
+            "text": "  "
+           },
+           {
+            "text": "+80",
+            "role": "good"
+           },
+           {
+            "text": " -0",
+            "role": "bad"
+           },
+           {
+            "text": " "
+           },
+           {
+            "text": "████████",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "fht5js6",
+          "spans": [
+           {
+            "text": "M",
+            "role": "warn"
+           },
+           {
+            "text": " login_test.go"
+           },
+           {
+            "text": "  "
+           },
+           {
+            "text": "+20",
+            "role": "good"
+           },
+           {
+            "text": " -22",
+            "role": "bad"
+           },
+           {
+            "text": " "
+           },
+           {
+            "text": "██",
+            "role": "good"
+           },
+           {
+            "text": "██",
+            "role": "bad"
+           },
+           {
+            "text": "░░░░",
+            "role": "faint"
+           }
+          ]
+         }
+        ],
+        "empty": "no files"
+       },
+       {
+        "kind": "list",
+        "id": "patch",
+        "title": "internal/auth/login_test.go",
+        "rows": [
+         {
+          "id": "p2.0",
+          "spans": [
+           {
+            "text": "      "
+           },
+           {
+            "text": "@@ -10,7 +10,9 @@ func TestLogin(t *testing.T) {",
+            "role": "info"
+           }
+          ]
+         },
+         {
+          "id": "p2.1",
+          "spans": [
+           {
+            "text": "   10 ",
+            "role": "faint"
+           },
+           {
+            "text": "     s := newServer(t)"
+           }
+          ]
+         },
+         {
+          "id": "p2.2",
+          "spans": [
+           {
+            "text": "      "
+           },
+           {
+            "text": "-    res := s.login(\"ann\", \"pw\")",
+            "role": "bad"
+           }
+          ]
+         },
+         {
+          "id": "p2.3",
+          "spans": [
+           {
+            "text": "      "
+           },
+           {
+            "text": "-    if res.code != 200 {",
+            "role": "bad"
+           }
+          ]
+         },
+         {
+          "id": "p2.4",
+          "spans": [
+           {
+            "text": "   11 ",
+            "role": "faint"
+           },
+           {
+            "text": "+    res := s.login(\"ann\", \"secret\")",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p2.5",
+          "spans": [
+           {
+            "text": "   12 ",
+            "role": "faint"
+           },
+           {
+            "text": "+    if res.code != http.StatusOK {",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p2.6",
+          "spans": [
+           {
+            "text": "   13 ",
+            "role": "faint"
+           },
+           {
+            "text": "+        t.Fatalf(\"login: %d\", res.code)",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p2.7",
+          "spans": [
+           {
+            "text": "   14 ",
+            "role": "faint"
+           },
+           {
+            "text": "+    }",
+            "role": "good"
+           }
+          ]
+         },
+         {
+          "id": "p2.8",
+          "spans": [
+           {
+            "text": "   15 ",
+            "role": "faint"
+           },
+           {
+            "text": "     if res.token == \"\" {"
+           }
+          ]
+         },
+         {
+          "id": "p2.9",
+          "spans": [
+           {
+            "text": "   16 ",
+            "role": "faint"
+           },
+           {
+            "text": "         t.Fatal(\"no token\")"
+           }
+          ]
+         },
+         {
+          "id": "p2.10",
+          "spans": [
+           {
+            "text": "   17 ",
+            "role": "faint"
+           },
+           {
+            "text": "     }"
+           }
+          ]
+         }
+        ],
+        "empty": "no textual change"
+       },
+       {
+        "kind": "keys",
+        "id": "keys",
+        "keys": [
+         {
+          "key": "m",
+          "label": "uncommitted / since base"
+         },
+         {
+          "key": "u",
+          "label": "untracked"
+         },
+         {
+          "key": "[",
+          "label": "previous thread"
+         },
+         {
+          "key": "]",
+          "label": "next thread"
+         },
+         {
+          "key": "R",
+          "label": "read again"
+         }
+        ]
+       }
+      ]
+     },
+     "options": {
+      "project": "demo"
+     }
+    }
+   }
+  ],
+  "no_calls": [
+   "process.run"
+  ]
+ }
+}

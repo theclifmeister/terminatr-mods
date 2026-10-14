@@ -1,0 +1,35 @@
+{
+  "name": "the column follows thread.changes alone: ~ while a working thread edits, ! once it goes idle with work uncommitted, ↑ after the commit, ✓ faint once pushed, cleared when resolved",
+  "events": [
+    { "name": "thread.state", "project": "demo",
+      "data": { "project": "demo", "thread": "t-0001", "state": "working" } },
+    { "name": "thread.changes", "project": "demo",
+      "data": { "project": "demo", "thread": "t-0001", "head": "4f1c2ab", "branch": "tm/demo/t-0001-login", "dirty": true, "ahead": 0, "unpushed": 0, "pushed": false, "files": 2, "add": 30, "del": 7 } },
+    { "name": "thread.state", "project": "demo",
+      "data": { "project": "demo", "thread": "t-0001", "state": "idle" } },
+    { "name": "thread.changes", "project": "demo",
+      "data": { "project": "demo", "thread": "t-0001", "head": "77b0e1c", "branch": "tm/demo/t-0001-login", "dirty": false, "ahead": 1, "unpushed": 1, "pushed": false, "files": 2, "add": 30, "del": 7 } },
+    { "name": "thread.changes", "project": "demo",
+      "data": { "project": "demo", "thread": "t-0001", "head": "77b0e1c", "branch": "tm/demo/t-0001-login", "dirty": false, "ahead": 1, "unpushed": 0, "pushed": true, "files": 2, "add": 30, "del": 7 } },
+    { "name": "thread.changes", "project": "demo",
+      "data": { "project": "demo", "thread": "t-0002", "head": "0c0ffee", "branch": "tm/demo/t-0002-big", "dirty": true, "ahead": 4, "unpushed": 4, "pushed": false, "files": 210, "add": 123456, "del": 987654 } },
+    { "name": "thread.resolved", "project": "demo",
+      "data": { "project": "demo", "thread": "t-0001", "agent": "claude" } }
+  ],
+  "expect": {
+    "calls": [
+      { "method": "ui.cell.set", "params": { "column": "changes", "target": { "project": "demo", "thread": "t-0001" },
+        "spans": [{ "text": "~ ", "role": "faint" }, { "text": "+30", "role": "good" }, { "text": " -7", "role": "bad" }] } },
+      { "method": "ui.cell.set", "params": { "column": "changes", "target": { "project": "demo", "thread": "t-0001" },
+        "spans": [{ "text": "! ", "role": "warn" }, { "text": "+30", "role": "good" }, { "text": " -7", "role": "bad" }] } },
+      { "method": "ui.cell.set", "params": { "column": "changes", "target": { "project": "demo", "thread": "t-0001" },
+        "spans": [{ "text": "↑ ", "role": "info" }, { "text": "+30", "role": "good" }, { "text": " -7", "role": "bad" }] } },
+      { "method": "ui.cell.set", "params": { "column": "changes", "target": { "project": "demo", "thread": "t-0001" },
+        "spans": [{ "text": "✓ ", "role": "faint" }, { "text": "+30", "role": "faint" }, { "text": " -7", "role": "faint" }] } },
+      { "method": "ui.cell.set", "params": { "column": "changes", "target": { "project": "demo", "thread": "t-0002" },
+        "spans": [{ "text": "~", "role": "faint" }, { "text": "+123k", "role": "good" }, { "text": " -987k", "role": "bad" }] } },
+      { "method": "ui.cell.set", "params": { "column": "changes", "target": { "project": "demo", "thread": "t-0001" }, "spans": null } }
+    ],
+    "no_calls": ["thread.changes", "process.run"]
+  }
+}

@@ -1,0 +1,72 @@
+# Changeset: what each thread changed in its worktree, before its pull
+# request exists, split into uncommitted, unpushed and pushed work (mod
+# API 1.8). tm reads the worktree with git itself ($.thread.changes) and
+# says when it moved (the thread.changes event): the mod needs no
+# commands grant, never runs git and never learns where a worktree is.
+id = "changeset"
+name = "Changeset"
+version = "1.0.0"
+api = "1.8"
+min_tm = "0.26.0"
+description = "Each thread's git changes before its PR exists: a +N -M sidebar column (! when an idle thread left work uncommitted), a details section with the files as a tree with +/- bars and the uncommitted, unpushed and pushed split, and a full view (G, or enter on the section's header) with each file's coloured diff, m switching between uncommitted and since base."
+authors = ["Clifmeister"]
+homepage = "https://github.com/theclifmeister/terminatr-mods/tree/main/changeset"
+
+[provides]
+main = "main.ts"
+
+# +N -M since the thread's base, marked by its newest layer: ! uncommitted
+# work on an idle thread, ~ uncommitted, ↑ unpushed commits, ✓ all pushed.
+[[provides.columns]]
+id = "changes"
+title = "changes"
+width = 12
+where = ["sidebar.thread", "dashboard.thread"]
+
+# The files beside a thread: a tree with +/- bars and the three layers.
+# Enter on its header opens the full view.
+[[provides.views]]
+id = "files"
+title = "Changes"
+slot = "details.section"
+opens = "diff"
+description = "this thread's changed files, uncommitted, unpushed and pushed; enter: the diff"
+
+# The diff: the files, and the patch of the one under the cursor.
+[[provides.views]]
+id = "diff"
+title = "Changeset"
+slot = "full"
+description = "a thread's files and each one's diff; m: uncommitted or since base"
+
+[[provides.commands]]
+id = "open"
+title = "Changeset: the selected thread's diff"
+key = "G"
+
+[permissions]
+project_read = true
+views = true
+
+[settings.default_mode]
+type = "choice"
+options = ["auto", "uncommitted", "base"]
+default = "auto"
+label = "The diff opens on: auto (uncommitted while there is some, else since base), uncommitted, or since base"
+
+[settings.show_untracked]
+type = "bool"
+default = true
+label = "List untracked files (u in the diff toggles it)"
+
+[settings.max_lines]
+type = "int"
+default = 1500
+min = 100
+max = 4000
+label = "Diff lines shown per file"
+
+[settings.warn_idle]
+type = "bool"
+default = true
+label = "Mark ! a thread that is idle or done with uncommitted work"
