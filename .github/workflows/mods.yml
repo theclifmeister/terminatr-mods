@@ -11,12 +11,13 @@ permissions:
   contents: read
 
 env:
-  # changeset needs min_tm 0.26.0 (mod API 1.8; pit-wall 0.25.3,
+  # fixtures pin "now" (tm 0.27.0); changeset needs min_tm 0.26.0
+  # (mod API 1.8; pit-wall 0.25.3,
   # mainframe 0.24.0, spotlight and triage 0.23.0). To move up, change
   # both: the sha256 is tm_linux_amd64.tar.gz's line in the release's
   # checksums.txt.
-  TM_VERSION: v0.26.0
-  TM_SHA256: 78f2421fcc0890a1390d73634b710a386ce16a2fa914f422bed953f3945a2703
+  TM_VERSION: v0.27.0
+  TM_SHA256: d0f77d15f8a0d3dddd7b9455dfd306efd007b89751bc13fa462dab07494d4e52
 
 jobs:
   mods:
