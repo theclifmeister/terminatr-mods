@@ -1,5 +1,5 @@
 {
-  "name": "tm mod run pit-wall debrief --project demo can't open the view: the same in one line, as a toast",
+  "name": "tm mod run pit-wall debrief --project demo can't open the view: the same in one line, as a toast (date-independent: no task is done today)",
   "answers": [
     {
       "method": "ui.view.open",
@@ -58,7 +58,7 @@
           "status": "done",
           "steps_done": 3,
           "steps_total": 3,
-          "updated": "2026-10-13",
+          "updated": "2026-10-02",
           "steps": []
         },
         {
@@ -106,7 +106,7 @@
       {
         "method": "ui.toast",
         "params": {
-          "text": "Debrief, demo: 1 done today · 1 merged · 1 calling · 2 on track"
+          "text": "Debrief, demo: 0 done today · 1 merged · 1 calling · 2 on track"
         }
       }
     ],

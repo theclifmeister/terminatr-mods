@@ -1,5 +1,5 @@
 {
-  "name": "B opens the debrief, which lists what each project did today, its done tasks bound to task.show",
+  "name": "B opens the debrief: what each project did, as a date heading, the counts and kv lines; tasks done on another day don't count (date-independent: no task is done today)",
   "answers": [
     {
       "method": "ui.view.open",
@@ -65,7 +65,7 @@
           "status": "done",
           "steps_done": 3,
           "steps_total": 3,
-          "updated": "2026-10-13",
+          "updated": "2026-10-02",
           "steps": []
         },
         {
@@ -119,11 +119,10 @@
                 "lines": [
                   [
                     {
-                      "text": "DEBRIEF 2026-10-13",
                       "role": "head"
                     },
                     {
-                      "text": "  1 done today · 1 merged · 1 calling · 2 on track",
+                      "text": "  0 done today · 1 merged · 1 calling · 2 on track",
                       "role": "faint"
                     }
                   ]
@@ -141,8 +140,8 @@
                     "key": "done",
                     "value": [
                       {
-                        "text": "T2 ",
-                        "role": "good"
+                        "text": "none today",
+                        "role": "faint"
                       }
                     ]
                   },
@@ -172,33 +171,6 @@
                     "value": [
                       {
                         "text": "2 on track, 3 radio messages"
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "kind": "list",
-                "id": "done-demo",
-                "rows": [
-                  {
-                    "id": "T2",
-                    "spans": [
-                      {
-                        "icon": "done",
-                        "role": "good"
-                      },
-                      {
-                        "text": " T2 Login"
-                      }
-                    ],
-                    "actions": [
-                      {
-                        "id": "task.show",
-                        "target": {
-                          "project": "demo",
-                          "task": "T2"
-                        }
                       }
                     ]
                   }
