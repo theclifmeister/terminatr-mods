@@ -14,7 +14,7 @@ name = "Pit Wall"
 version = "1.0.0"
 api = "1.7"
 min_tm = "0.25.3"
-description = "An F1 pit wall: a carbon-and-papaya theme (pane palettes included), tyre-and-flag icons, a timing-tower layout and an F-key keymap; a tyre-wear column (each session's context window: soft, worn, BOX BOX), the race order under each project, a lap chart beside a thread, race control beside the coordinator, a race results tab, a pit calls card (enter attaches, C changes tyres, a answers), live timing (L), the Debrief (B) and Radio (R) commands, and box-box notifications whose buttons answer a question. The tyre column needs the Agent mod on for Claude sessions."
+description = "An F1 pit wall: carbon-and-papaya theme, tyre-and-flag icons, a timing-tower layout and an F-key keymap. Adds a tyre-wear column per session, race order, lap chart, race control, results tab, pit calls card, live timing (L), Debrief (B) and Radio (R), and box-box notifications. The tyre column needs the Agent mod for Claude sessions."
 authors = ["Clifmeister"]
 homepage = "https://github.com/theclifmeister/terminatr-mods/tree/main/pit-wall"
 
