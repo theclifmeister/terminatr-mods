@@ -1,0 +1,1380 @@
+{
+ "name": "designs.changed and tasks.changed read the shown project again and redraw its tab; closing the tab clears it",
+ "answers": [
+  {
+   "method": "designs.list",
+   "params": {
+    "slug": "demo"
+   },
+   "result": [
+    {
+     "name": "archive",
+     "title": "Archive old threads",
+     "status": "done",
+     "tasks": [
+      "T13"
+     ],
+     "tasks_done": 1,
+     "answers": [],
+     "questions": []
+    },
+    {
+     "name": "onboarding",
+     "title": "Onboarding",
+     "status": "designing",
+     "task": "T3",
+     "task_status": "started",
+     "tasks": [],
+     "tasks_done": 0,
+     "answers": [],
+     "questions": [
+      {
+       "id": "q1",
+       "header": "Who",
+       "question": "Who is the first user?"
+      },
+      {
+       "id": "q2",
+       "header": "Where",
+       "question": "Web or terminal first?"
+      }
+     ]
+    },
+    {
+     "name": "phase-view",
+     "title": "Phase view",
+     "status": "building",
+     "task": "T7",
+     "task_status": "done",
+     "artifact": "designs/phase-view.md",
+     "tasks": [
+      "T8",
+      "T9",
+      "T10"
+     ],
+     "tasks_done": 2,
+     "answers": [
+      "Tab and card",
+      "Picked: tab (T8); not picked: T9"
+     ],
+     "questions": [
+      {
+       "id": "q3",
+       "header": "Keys",
+       "question": "Which key folds?"
+      }
+     ]
+    },
+    {
+     "name": "search",
+     "title": "search",
+     "status": "planned",
+     "tasks": [
+      "T11"
+     ],
+     "tasks_done": 0,
+     "answers": [],
+     "questions": []
+    },
+    {
+     "name": "sync",
+     "title": "Sync API",
+     "status": "building",
+     "task": "T4",
+     "task_status": "done",
+     "tasks": [
+      "T5",
+      "T6"
+     ],
+     "tasks_done": 0,
+     "answers": [
+      "Offline first"
+     ],
+     "questions": []
+    }
+   ]
+  },
+  {
+   "method": "tasks.list",
+   "params": {
+    "slug": "demo"
+   },
+   "result": [
+    {
+     "id": "T1",
+     "title": "Discover: who demos terminatr",
+     "status": "started",
+     "steps_done": 0,
+     "steps_total": 3,
+     "thread": "t-0001",
+     "steps": []
+    },
+    {
+     "id": "T2",
+     "title": "Discover: other dashboards",
+     "status": "done",
+     "steps_done": 3,
+     "steps_total": 3,
+     "steps": []
+    },
+    {
+     "id": "T3",
+     "title": "Define: onboarding",
+     "status": "started",
+     "steps_done": 1,
+     "steps_total": 5,
+     "design": "onboarding",
+     "steps": []
+    },
+    {
+     "id": "T4",
+     "title": "Define: sync API",
+     "status": "done",
+     "steps_done": 5,
+     "steps_total": 5,
+     "design": "sync",
+     "steps": []
+    },
+    {
+     "id": "T5",
+     "title": "Develop: CRDT spike",
+     "status": "review",
+     "steps_done": 4,
+     "steps_total": 4,
+     "design": "sync",
+     "steps": []
+    },
+    {
+     "id": "T6",
+     "title": "Develop: server wins",
+     "status": "started",
+     "steps_done": 1,
+     "steps_total": 4,
+     "design": "sync",
+     "steps": []
+    },
+    {
+     "id": "T7",
+     "title": "Define: phase view",
+     "status": "done",
+     "steps_done": 5,
+     "steps_total": 5,
+     "design": "phase-view",
+     "steps": []
+    },
+    {
+     "id": "T8",
+     "title": "Develop: a project tab",
+     "status": "done",
+     "steps_done": 4,
+     "steps_total": 4,
+     "design": "phase-view",
+     "steps": []
+    },
+    {
+     "id": "T9",
+     "title": "Develop: a dashboard card",
+     "status": "done",
+     "steps_done": 4,
+     "steps_total": 4,
+     "design": "phase-view",
+     "steps": []
+    },
+    {
+     "id": "T10",
+     "title": "Deliver: the phases tab",
+     "status": "ready",
+     "steps_done": 0,
+     "steps_total": 4,
+     "design": "phase-view",
+     "after": [
+      "T8"
+     ],
+     "steps": []
+    },
+    {
+     "id": "T11",
+     "title": "Search index",
+     "status": "ready",
+     "steps_done": 0,
+     "steps_total": 2,
+     "design": "search",
+     "steps": []
+    },
+    {
+     "id": "T12",
+     "title": "Fix a typo",
+     "status": "open",
+     "steps_done": 0,
+     "steps_total": 0,
+     "steps": []
+    }
+   ]
+  }
+ ],
+ "events": [
+  {
+   "name": "view.opened",
+   "project": "demo",
+   "data": {
+    "view": "phases",
+    "slot": "project.tab",
+    "width": 100,
+    "height": 30,
+    "project": "demo"
+   }
+  },
+  {
+   "name": "designs.changed",
+   "project": "demo",
+   "data": {
+    "project": "demo"
+   }
+  },
+  {
+   "name": "tasks.changed",
+   "project": "demo",
+   "data": {
+    "project": "demo"
+   }
+  },
+  {
+   "name": "view.closed",
+   "project": "demo",
+   "data": {
+    "view": "phases",
+    "slot": "project.tab",
+    "project": "demo",
+    "width": 100,
+    "height": 30
+   }
+  }
+ ],
+ "expect": {
+  "calls": [
+   {
+    "method": "designs.list",
+    "params": {
+     "slug": "demo"
+    }
+   },
+   {
+    "method": "ui.view.set",
+    "params": {
+     "view": "phases",
+     "widget": {
+      "kind": "stack",
+      "children": [
+       {
+        "kind": "table",
+        "id": "designs",
+        "empty": "no designs",
+        "columns": [
+         {
+          "title": ""
+         },
+         {
+          "title": ""
+         },
+         {
+          "title": ""
+         },
+         {
+          "title": ""
+         },
+         {
+          "title": "",
+          "right": true
+         }
+        ],
+        "rows": [
+         {
+          "id": "p:discover",
+          "head": true,
+          "spans": [
+           {
+            "text": "DISCOVER",
+            "role": "head"
+           },
+           {
+            "text": "  1",
+            "role": "faint"
+           }
+          ]
+         },
+         {
+          "id": "r:T1",
+          "cells": [
+           [
+            {
+             "text": "  "
+            }
+           ],
+           [
+            {
+             "text": "T1",
+             "role": "faint"
+            },
+            {
+             "text": " Discover: who demos terminatr"
+            }
+           ],
+           [
+            {
+             "icon": "working",
+             "role": "good"
+            },
+            {
+             "text": " started",
+             "role": "good"
+            }
+           ],
+           [],
+           []
+          ],
+          "actions": [
+           {
+            "id": "task.show",
+            "target": {
+             "project": "demo",
+             "task": "T1"
+            }
+           }
+          ]
+         },
+         {
+          "id": "p:define",
+          "head": true,
+          "spans": [
+           {
+            "text": "DEFINE",
+            "role": "head"
+           },
+           {
+            "text": "  1",
+            "role": "faint"
+           }
+          ]
+         },
+         {
+          "id": "d:onboarding",
+          "cells": [
+           [
+            {
+             "text": "▸",
+             "role": "faint"
+            }
+           ],
+           [
+            {
+             "text": "Onboarding"
+            }
+           ],
+           [
+            {
+             "icon": "hint",
+             "role": "info"
+            },
+            {
+             "text": " designing",
+             "role": "info"
+            }
+           ],
+           [
+            {
+             "text": "? 2 open",
+             "role": "info"
+            }
+           ],
+           []
+          ],
+          "actions": [
+           {
+            "id": "task.show",
+            "target": {
+             "project": "demo",
+             "task": "T3"
+            }
+           }
+          ]
+         },
+         {
+          "id": "p:develop",
+          "head": true,
+          "spans": [
+           {
+            "text": "DEVELOP",
+            "role": "head"
+           },
+           {
+            "text": "  1",
+            "role": "faint"
+           }
+          ]
+         },
+         {
+          "id": "d:sync",
+          "cells": [
+           [
+            {
+             "text": "▸",
+             "role": "faint"
+            }
+           ],
+           [
+            {
+             "text": "Sync API"
+            },
+            {
+             "text": "  sync",
+             "role": "faint"
+            }
+           ],
+           [
+            {
+             "icon": "working",
+             "role": "good"
+            },
+            {
+             "text": " building",
+             "role": "good"
+            }
+           ],
+           [],
+           [
+            {
+             "text": "0/2 tasks",
+             "role": "faint"
+            }
+           ]
+          ],
+          "actions": [
+           {
+            "id": "task.show",
+            "target": {
+             "project": "demo",
+             "task": "T4"
+            }
+           }
+          ]
+         },
+         {
+          "id": "p:deliver",
+          "head": true,
+          "spans": [
+           {
+            "text": "DELIVER",
+            "role": "head"
+           },
+           {
+            "text": "  3",
+            "role": "faint"
+           }
+          ]
+         },
+         {
+          "id": "d:archive",
+          "cells": [
+           [
+            {
+             "text": "▸",
+             "role": "faint"
+            }
+           ],
+           [
+            {
+             "text": "Archive old threads"
+            },
+            {
+             "text": "  archive",
+             "role": "faint"
+            }
+           ],
+           [
+            {
+             "icon": "done",
+             "role": "good"
+            },
+            {
+             "text": " done",
+             "role": "good"
+            }
+           ],
+           [],
+           [
+            {
+             "text": "1/1 tasks",
+             "role": "faint"
+            }
+           ]
+          ],
+          "actions": []
+         },
+         {
+          "id": "d:phase-view",
+          "cells": [
+           [
+            {
+             "text": "▸",
+             "role": "faint"
+            }
+           ],
+           [
+            {
+             "text": "Phase view"
+            },
+            {
+             "text": "  phase-view",
+             "role": "faint"
+            }
+           ],
+           [
+            {
+             "icon": "working",
+             "role": "good"
+            },
+            {
+             "text": " building",
+             "role": "good"
+            }
+           ],
+           [
+            {
+             "text": "? 1 open",
+             "role": "warn"
+            }
+           ],
+           [
+            {
+             "text": "2/3 tasks",
+             "role": "faint"
+            }
+           ]
+          ],
+          "actions": [
+           {
+            "id": "task.show",
+            "target": {
+             "project": "demo",
+             "task": "T7"
+            }
+           }
+          ]
+         },
+         {
+          "id": "d:search",
+          "cells": [
+           [
+            {
+             "text": "▸",
+             "role": "faint"
+            }
+           ],
+           [
+            {
+             "text": "search"
+            }
+           ],
+           [
+            {
+             "icon": "idle",
+             "role": "faint"
+            },
+            {
+             "text": " planned",
+             "role": "faint"
+            }
+           ],
+           [],
+           [
+            {
+             "text": "0/1 tasks",
+             "role": "faint"
+            }
+           ]
+          ],
+          "actions": []
+         }
+        ]
+       },
+       {
+        "kind": "text",
+        "text": "1 open task outside the diamond (the Tasks tab lists them)",
+        "role": "faint"
+       },
+       {
+        "kind": "keys",
+        "id": "keys",
+        "keys": [
+         {
+          "key": "o",
+          "label": "fold"
+         },
+         {
+          "key": "O",
+          "label": "unfold all"
+         }
+        ]
+       }
+      ]
+     },
+     "options": {
+      "project": "demo"
+     }
+    }
+   },
+   {
+    "method": "designs.list",
+    "params": {
+     "slug": "demo"
+    }
+   },
+   {
+    "method": "ui.view.set",
+    "params": {
+     "view": "phases",
+     "widget": {
+      "kind": "stack",
+      "children": [
+       {
+        "kind": "table",
+        "id": "designs",
+        "empty": "no designs",
+        "columns": [
+         {
+          "title": ""
+         },
+         {
+          "title": ""
+         },
+         {
+          "title": ""
+         },
+         {
+          "title": ""
+         },
+         {
+          "title": "",
+          "right": true
+         }
+        ],
+        "rows": [
+         {
+          "id": "p:discover",
+          "head": true,
+          "spans": [
+           {
+            "text": "DISCOVER",
+            "role": "head"
+           },
+           {
+            "text": "  1",
+            "role": "faint"
+           }
+          ]
+         },
+         {
+          "id": "r:T1",
+          "cells": [
+           [
+            {
+             "text": "  "
+            }
+           ],
+           [
+            {
+             "text": "T1",
+             "role": "faint"
+            },
+            {
+             "text": " Discover: who demos terminatr"
+            }
+           ],
+           [
+            {
+             "icon": "working",
+             "role": "good"
+            },
+            {
+             "text": " started",
+             "role": "good"
+            }
+           ],
+           [],
+           []
+          ],
+          "actions": [
+           {
+            "id": "task.show",
+            "target": {
+             "project": "demo",
+             "task": "T1"
+            }
+           }
+          ]
+         },
+         {
+          "id": "p:define",
+          "head": true,
+          "spans": [
+           {
+            "text": "DEFINE",
+            "role": "head"
+           },
+           {
+            "text": "  1",
+            "role": "faint"
+           }
+          ]
+         },
+         {
+          "id": "d:onboarding",
+          "cells": [
+           [
+            {
+             "text": "▸",
+             "role": "faint"
+            }
+           ],
+           [
+            {
+             "text": "Onboarding"
+            }
+           ],
+           [
+            {
+             "icon": "hint",
+             "role": "info"
+            },
+            {
+             "text": " designing",
+             "role": "info"
+            }
+           ],
+           [
+            {
+             "text": "? 2 open",
+             "role": "info"
+            }
+           ],
+           []
+          ],
+          "actions": [
+           {
+            "id": "task.show",
+            "target": {
+             "project": "demo",
+             "task": "T3"
+            }
+           }
+          ]
+         },
+         {
+          "id": "p:develop",
+          "head": true,
+          "spans": [
+           {
+            "text": "DEVELOP",
+            "role": "head"
+           },
+           {
+            "text": "  1",
+            "role": "faint"
+           }
+          ]
+         },
+         {
+          "id": "d:sync",
+          "cells": [
+           [
+            {
+             "text": "▸",
+             "role": "faint"
+            }
+           ],
+           [
+            {
+             "text": "Sync API"
+            },
+            {
+             "text": "  sync",
+             "role": "faint"
+            }
+           ],
+           [
+            {
+             "icon": "working",
+             "role": "good"
+            },
+            {
+             "text": " building",
+             "role": "good"
+            }
+           ],
+           [],
+           [
+            {
+             "text": "0/2 tasks",
+             "role": "faint"
+            }
+           ]
+          ],
+          "actions": [
+           {
+            "id": "task.show",
+            "target": {
+             "project": "demo",
+             "task": "T4"
+            }
+           }
+          ]
+         },
+         {
+          "id": "p:deliver",
+          "head": true,
+          "spans": [
+           {
+            "text": "DELIVER",
+            "role": "head"
+           },
+           {
+            "text": "  3",
+            "role": "faint"
+           }
+          ]
+         },
+         {
+          "id": "d:archive",
+          "cells": [
+           [
+            {
+             "text": "▸",
+             "role": "faint"
+            }
+           ],
+           [
+            {
+             "text": "Archive old threads"
+            },
+            {
+             "text": "  archive",
+             "role": "faint"
+            }
+           ],
+           [
+            {
+             "icon": "done",
+             "role": "good"
+            },
+            {
+             "text": " done",
+             "role": "good"
+            }
+           ],
+           [],
+           [
+            {
+             "text": "1/1 tasks",
+             "role": "faint"
+            }
+           ]
+          ],
+          "actions": []
+         },
+         {
+          "id": "d:phase-view",
+          "cells": [
+           [
+            {
+             "text": "▸",
+             "role": "faint"
+            }
+           ],
+           [
+            {
+             "text": "Phase view"
+            },
+            {
+             "text": "  phase-view",
+             "role": "faint"
+            }
+           ],
+           [
+            {
+             "icon": "working",
+             "role": "good"
+            },
+            {
+             "text": " building",
+             "role": "good"
+            }
+           ],
+           [
+            {
+             "text": "? 1 open",
+             "role": "warn"
+            }
+           ],
+           [
+            {
+             "text": "2/3 tasks",
+             "role": "faint"
+            }
+           ]
+          ],
+          "actions": [
+           {
+            "id": "task.show",
+            "target": {
+             "project": "demo",
+             "task": "T7"
+            }
+           }
+          ]
+         },
+         {
+          "id": "d:search",
+          "cells": [
+           [
+            {
+             "text": "▸",
+             "role": "faint"
+            }
+           ],
+           [
+            {
+             "text": "search"
+            }
+           ],
+           [
+            {
+             "icon": "idle",
+             "role": "faint"
+            },
+            {
+             "text": " planned",
+             "role": "faint"
+            }
+           ],
+           [],
+           [
+            {
+             "text": "0/1 tasks",
+             "role": "faint"
+            }
+           ]
+          ],
+          "actions": []
+         }
+        ]
+       },
+       {
+        "kind": "text",
+        "text": "1 open task outside the diamond (the Tasks tab lists them)",
+        "role": "faint"
+       },
+       {
+        "kind": "keys",
+        "id": "keys",
+        "keys": [
+         {
+          "key": "o",
+          "label": "fold"
+         },
+         {
+          "key": "O",
+          "label": "unfold all"
+         }
+        ]
+       }
+      ]
+     },
+     "options": {
+      "project": "demo"
+     }
+    }
+   },
+   {
+    "method": "designs.list",
+    "params": {
+     "slug": "demo"
+    }
+   },
+   {
+    "method": "ui.view.set",
+    "params": {
+     "view": "phases",
+     "widget": {
+      "kind": "stack",
+      "children": [
+       {
+        "kind": "table",
+        "id": "designs",
+        "empty": "no designs",
+        "columns": [
+         {
+          "title": ""
+         },
+         {
+          "title": ""
+         },
+         {
+          "title": ""
+         },
+         {
+          "title": ""
+         },
+         {
+          "title": "",
+          "right": true
+         }
+        ],
+        "rows": [
+         {
+          "id": "p:discover",
+          "head": true,
+          "spans": [
+           {
+            "text": "DISCOVER",
+            "role": "head"
+           },
+           {
+            "text": "  1",
+            "role": "faint"
+           }
+          ]
+         },
+         {
+          "id": "r:T1",
+          "cells": [
+           [
+            {
+             "text": "  "
+            }
+           ],
+           [
+            {
+             "text": "T1",
+             "role": "faint"
+            },
+            {
+             "text": " Discover: who demos terminatr"
+            }
+           ],
+           [
+            {
+             "icon": "working",
+             "role": "good"
+            },
+            {
+             "text": " started",
+             "role": "good"
+            }
+           ],
+           [],
+           []
+          ],
+          "actions": [
+           {
+            "id": "task.show",
+            "target": {
+             "project": "demo",
+             "task": "T1"
+            }
+           }
+          ]
+         },
+         {
+          "id": "p:define",
+          "head": true,
+          "spans": [
+           {
+            "text": "DEFINE",
+            "role": "head"
+           },
+           {
+            "text": "  1",
+            "role": "faint"
+           }
+          ]
+         },
+         {
+          "id": "d:onboarding",
+          "cells": [
+           [
+            {
+             "text": "▸",
+             "role": "faint"
+            }
+           ],
+           [
+            {
+             "text": "Onboarding"
+            }
+           ],
+           [
+            {
+             "icon": "hint",
+             "role": "info"
+            },
+            {
+             "text": " designing",
+             "role": "info"
+            }
+           ],
+           [
+            {
+             "text": "? 2 open",
+             "role": "info"
+            }
+           ],
+           []
+          ],
+          "actions": [
+           {
+            "id": "task.show",
+            "target": {
+             "project": "demo",
+             "task": "T3"
+            }
+           }
+          ]
+         },
+         {
+          "id": "p:develop",
+          "head": true,
+          "spans": [
+           {
+            "text": "DEVELOP",
+            "role": "head"
+           },
+           {
+            "text": "  1",
+            "role": "faint"
+           }
+          ]
+         },
+         {
+          "id": "d:sync",
+          "cells": [
+           [
+            {
+             "text": "▸",
+             "role": "faint"
+            }
+           ],
+           [
+            {
+             "text": "Sync API"
+            },
+            {
+             "text": "  sync",
+             "role": "faint"
+            }
+           ],
+           [
+            {
+             "icon": "working",
+             "role": "good"
+            },
+            {
+             "text": " building",
+             "role": "good"
+            }
+           ],
+           [],
+           [
+            {
+             "text": "0/2 tasks",
+             "role": "faint"
+            }
+           ]
+          ],
+          "actions": [
+           {
+            "id": "task.show",
+            "target": {
+             "project": "demo",
+             "task": "T4"
+            }
+           }
+          ]
+         },
+         {
+          "id": "p:deliver",
+          "head": true,
+          "spans": [
+           {
+            "text": "DELIVER",
+            "role": "head"
+           },
+           {
+            "text": "  3",
+            "role": "faint"
+           }
+          ]
+         },
+         {
+          "id": "d:archive",
+          "cells": [
+           [
+            {
+             "text": "▸",
+             "role": "faint"
+            }
+           ],
+           [
+            {
+             "text": "Archive old threads"
+            },
+            {
+             "text": "  archive",
+             "role": "faint"
+            }
+           ],
+           [
+            {
+             "icon": "done",
+             "role": "good"
+            },
+            {
+             "text": " done",
+             "role": "good"
+            }
+           ],
+           [],
+           [
+            {
+             "text": "1/1 tasks",
+             "role": "faint"
+            }
+           ]
+          ],
+          "actions": []
+         },
+         {
+          "id": "d:phase-view",
+          "cells": [
+           [
+            {
+             "text": "▸",
+             "role": "faint"
+            }
+           ],
+           [
+            {
+             "text": "Phase view"
+            },
+            {
+             "text": "  phase-view",
+             "role": "faint"
+            }
+           ],
+           [
+            {
+             "icon": "working",
+             "role": "good"
+            },
+            {
+             "text": " building",
+             "role": "good"
+            }
+           ],
+           [
+            {
+             "text": "? 1 open",
+             "role": "warn"
+            }
+           ],
+           [
+            {
+             "text": "2/3 tasks",
+             "role": "faint"
+            }
+           ]
+          ],
+          "actions": [
+           {
+            "id": "task.show",
+            "target": {
+             "project": "demo",
+             "task": "T7"
+            }
+           }
+          ]
+         },
+         {
+          "id": "d:search",
+          "cells": [
+           [
+            {
+             "text": "▸",
+             "role": "faint"
+            }
+           ],
+           [
+            {
+             "text": "search"
+            }
+           ],
+           [
+            {
+             "icon": "idle",
+             "role": "faint"
+            },
+            {
+             "text": " planned",
+             "role": "faint"
+            }
+           ],
+           [],
+           [
+            {
+             "text": "0/1 tasks",
+             "role": "faint"
+            }
+           ]
+          ],
+          "actions": []
+         }
+        ]
+       },
+       {
+        "kind": "text",
+        "text": "1 open task outside the diamond (the Tasks tab lists them)",
+        "role": "faint"
+       },
+       {
+        "kind": "keys",
+        "id": "keys",
+        "keys": [
+         {
+          "key": "o",
+          "label": "fold"
+         },
+         {
+          "key": "O",
+          "label": "unfold all"
+         }
+        ]
+       }
+      ]
+     },
+     "options": {
+      "project": "demo"
+     }
+    }
+   },
+   {
+    "method": "ui.view.set",
+    "params": {
+     "view": "phases",
+     "widget": null,
+     "options": {
+      "project": "demo"
+     }
+    }
+   }
+  ]
+ }
+}
