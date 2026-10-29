@@ -1,0 +1,8 @@
+{
+  "name": "a project that sets nothing has no gates",
+  "projects": {"plain": {}},
+  "rules": {
+    "coordinator": {"project": "plain", "contains": ["### The phases"], "lacks": ["### The gates"]}
+  },
+  "expect": {}
+}
