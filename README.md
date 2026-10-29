@@ -6,7 +6,7 @@ then turn it on in the Mods tab or with `tm mod enable <id>`.
 
 Every pull request and push to main runs the **mods** check
 ([.github/workflows/mods.yml](.github/workflows/mods.yml)): it installs
-tm v0.62.1 and runs `tm mod validate` and `tm mod test` on each folder
+tm v0.63.0 and runs `tm mod validate` and `tm mod test` on each folder
 with a `mod.toml`. Run the same locally before pushing:
 
     tm mod validate */ && tm mod test */
@@ -40,11 +40,11 @@ all projects.
 
 | mod | what | install |
 |-----|------|---------|
-| [Double diamond](double-diamond) | runs a project through Discover, Define, Develop and Deliver in order: research tasks, one design per problem, parallel spikes per option, build tasks ordered with after; the coordinator names each design's phase; discover, define, develop and deliver task templates; with a two-week trial plan | `tm mod install https://github.com/theclifmeister/terminatr-mods.git//double-diamond` |
-| [Double diamond gates](double-diamond-gates) | soft gates, opt-in per project: no build task for a design still in Define or with open questions | `tm mod install https://github.com/theclifmeister/terminatr-mods.git//double-diamond-gates` |
+| [Double diamond](double-diamond) | runs a project through Discover, Define, Develop and Deliver in order: research tasks, one design per problem, parallel spikes per option, build tasks ordered with after; the coordinator names each design's phase; discover, define, develop and deliver task templates; with optional per-project soft gates (the `gates` setting) and a two-week trial plan | `tm mod install https://github.com/theclifmeister/terminatr-mods.git//double-diamond` |
 
-`tm mod test` only validates these; `sh double-diamond/check.sh` checks
-that their rules reach the coordinator (CI runs it).
+`tm mod test` checks Double diamond's rules per project (fixtures);
+`sh double-diamond/check.sh` checks what they can't: that the rules and
+templates reach the coordinator (CI runs it).
 
 ## Layouts
 

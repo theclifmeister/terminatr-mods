@@ -1,0 +1,11 @@
+{
+  "name": "the gates are in a project's rules only once it sets gates=true",
+  "projects": {
+    "gated": {"gates": true},
+    "open": {"gates": false}
+  },
+  "rules": {
+    "coordinator": {"project": "gated", "contains": ["### The phases", "### The gates", "Don't propose a `Deliver:` task"]}
+  },
+  "expect": {}
+}
