@@ -30,6 +30,22 @@ mod API doesn't let it do. [Pit Wall](pit-wall) (under Total
 conversions) brings two more full views: *Live timing* (**L**) and
 *Debrief* (**B**).
 
+## Policies
+
+Rules mods: house rules the coordinator follows, added after tm's own
+policy (`default-policy`) and its safety rules, which they never loosen.
+`tm skill coordinator` shows them under `## House rules (mod: <id>)`.
+Enable one for a project with `--project <slug>`, or leave that out for
+all projects.
+
+| mod | what | install |
+|-----|------|---------|
+| [Double diamond](double-diamond) | runs a project through Discover, Define, Develop and Deliver in order: research tasks, one design per problem, parallel spikes per option, build tasks ordered with after; the coordinator names each design's phase; discover, define, develop and deliver task templates; with a two-week trial plan | `tm mod install https://github.com/theclifmeister/terminatr-mods.git//double-diamond` |
+| [Double diamond gates](double-diamond-gates) | soft gates, opt-in per project: no build task for a design still in Define or with open questions | `tm mod install https://github.com/theclifmeister/terminatr-mods.git//double-diamond-gates` |
+
+`tm mod test` only validates these; `sh double-diamond/check.sh` checks
+that their rules reach the coordinator (CI runs it).
+
 ## Layouts
 
 Layout-only mods: no code, just where the panels go. Each needs terminatr

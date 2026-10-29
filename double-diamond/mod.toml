@@ -1,0 +1,19 @@
+# A policy mod: house rules for the coordinator, added after tm's own
+# policy (default-policy), and a task template per phase. It replaces
+# nothing: tm's safety part comes first and default-policy stays whole.
+# The gates are a second mod, double-diamond-gates, enabled per project.
+# The playbook's commands (tm design set --answer) need tm 0.52.0; min_tm
+# is left out so CI's pinned tm still validates it.
+id = "double-diamond"
+name = "Double diamond"
+version = "1.0.0"
+api = "1.0"
+description = "A coordinator playbook that runs a project through Discover, Define, Develop and Deliver in order, on top of tm's default policy: research tasks, one design per problem, parallel spikes per option, build tasks ordered with after. The coordinator names each design's phase when it reports or proposes. Adds discover, define, develop and deliver task templates."
+authors = ["Clifmeister"]
+homepage = "https://github.com/theclifmeister/terminatr-mods/tree/main/double-diamond"
+
+[provides]
+templates = "templates"
+
+[provides.rules]
+coordinator = "rules/coordinator.md"
