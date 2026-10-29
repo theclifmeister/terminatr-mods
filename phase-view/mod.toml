@@ -1,0 +1,39 @@
+# Phase view: a project's designs by double-diamond phase, with each
+# design's tasks folded under it (mod API 1.10). tm lists the designs
+# ($.designs.list) and the tasks naming them, and says when they moved
+# (designs.changed): the mod only reads, and keeps no phase of its own.
+id = "phase-view"
+name = "Phase view"
+version = "1.0.0"
+api = "1.10"
+min_tm = "0.63.0"
+description = "A project's designs by phase (Discover, Define, Develop, Deliver): a project tab with each design's status, open questions and tasks done, its tasks folded under it (o, O), and a dashboard card of the same, one line a design. The phase comes from the design's status, answers and its tasks' titles, as the double-diamond rules read it."
+authors = ["Clifmeister"]
+homepage = "https://github.com/theclifmeister/terminatr-mods/tree/main/phase-view"
+
+[provides]
+main = "main.ts"
+
+# The phases tab of the project popup: a head per phase, a row per
+# design, its tasks under it; enter shows the row's task.
+[[provides.views]]
+id = "phases"
+title = "phases"
+slot = "project.tab"
+
+# The same on the dashboard, one line a design, without the tasks.
+[[provides.views]]
+id = "card"
+title = "Phases"
+slot = "dashboard.card"
+
+[permissions]
+project_read = true
+views = true
+
+[settings.card_designs]
+type = "int"
+default = 4
+min = 1
+max = 20
+label = "Designs the card lists per phase"

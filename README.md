@@ -21,12 +21,14 @@ noise, the exit code is what counts.)
 | [Mission control](mission-control) | a kanban board of every project's tasks (Ready, Started, Review, Done) with each thread's live state, PR and CI, and a needs-you mark; a full view from the dashboard's ≡ menu | `tm mod install https://github.com/theclifmeister/terminatr-mods.git//mission-control` |
 | [Orbit](orbit) | a radar full view (≡ menu): each project a planet, its threads orbiting it, closer as they near done, pulsing when they need you; enter attaches | `tm mod install https://github.com/theclifmeister/terminatr-mods.git//orbit` |
 | [Changeset](changeset) | each thread's git changes before its PR exists: a `+N -M` sidebar column (`!` when an idle thread left work uncommitted), a details section with the files as a tree with +/- bars and what is uncommitted, unpushed and pushed, and a full view with each file's coloured diff (`m`: uncommitted or since base); needs terminatr v0.26.0 | `tm mod install https://github.com/theclifmeister/terminatr-mods.git//changeset` |
+| [Phase view](phase-view) | a project's designs by phase (Discover, Define, Develop, Deliver): a *phases* tab in the project popup with each design's status, open questions and tasks done, its tasks folded under it (`o`, `O`), and a *Phases* dashboard card; needs terminatr v0.63.0 | `tm mod install https://github.com/theclifmeister/terminatr-mods.git//phase-view` |
 
 Open each with its dashboard key (**M** for Mission control, **O** for
 Orbit, **G** for Changeset's diff of the selected thread) or from the ≡
 menu (*Mission control · mission-control*, *Orbit · orbit*,
-*Changeset · diff*); esc returns. Each README lists the keys and what the
-mod API doesn't let it do. [Pit Wall](pit-wall) (under Total
+*Changeset · diff*); esc returns. Phase view shows with its panels:
+the project popup's *phases* tab and the dashboard's *Phases* card.
+Each README lists the keys and what the mod API doesn't let it do. [Pit Wall](pit-wall) (under Total
 conversions) brings two more full views: *Live timing* (**L**) and
 *Debrief* (**B**).
 
