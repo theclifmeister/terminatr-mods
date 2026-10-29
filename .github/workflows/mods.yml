@@ -57,3 +57,8 @@ jobs:
       # noise; the exit code is what counts.
       - name: tm mod test
         run: tm mod test ${{ steps.mods.outputs.dirs }}
+
+      # tm mod test only validates a data mod: check that the policy mods'
+      # rules and templates reach the coordinator, in a scratch tm.
+      - name: double-diamond rules
+        run: sh double-diamond/check.sh
