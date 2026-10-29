@@ -80,8 +80,8 @@ read it, first match wins:
 
 Open questions don't move a design back to Define: in the double
 diamond they can stay open through Develop. They show as a count, and
-the [Double diamond gates](../double-diamond-gates) mod holds back a
-build while they're open.
+Double diamond's `gates` setting holds back a build while they're
+open.
 
 ## Settings
 
