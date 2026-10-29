@@ -1,0 +1,11 @@
+{
+  "name": "a project without the gates keeps the playbook and not the gate section",
+  "projects": {
+    "open": {"gates": false},
+    "plain": {}
+  },
+  "rules": {
+    "coordinator": {"project": "open", "contains": ["### The phases"], "lacks": ["### The gates", "Don't propose a `Deliver:` task"]}
+  },
+  "expect": {}
+}

@@ -33,41 +33,52 @@ coordinator` shows them under `## House rules (mod: double-diamond)`.
 
 ## Gates
 
-Off by default. With [Double diamond gates](../double-diamond-gates)
-enabled for a project, its coordinator proposes no build task for a
-design still in Define or with open questions: it says which gate holds
-it and proposes what clears it instead. You can lift a gate for one task
-in chat; the coordinator notes it on the task. Without the gates, the
-coordinator may propose such a task but says which questions are open.
+Off by default, per project. With the `gates` setting on for a project,
+its coordinator proposes no build task for a design still in Define or
+with open questions: it says which gate holds it and proposes what
+clears it instead. You can lift a gate for one task in chat; the
+coordinator notes it on the task. Without the gates, the coordinator may
+propose such a task but says which questions are open.
 
-The gates are a second mod because a rules file can't read a setting:
-its text is the same for every project, and a mod's settings are not per
-project. What is per project is where a mod runs (`tm mod enable <id>
---project <slug>`), so that is the switch. A per-project setting a rules
-mod could read would let one mod do both; that is a request for
-terminatr, not something this mod works around.
+Turn them on for a project:
+
+    tm mod settings double-diamond --project <slug> gates=true
+
+or in the project popup's Settings tab, the row "Double diamond
+settings". `--reset gates` (with `--project`) puts it back. The gate
+rules are a `tm:if gates` section of the rules file, so they are in a
+project's rules only while its setting is on.
+
+### Moving from double-diamond-gates
+
+Version 2.0.0 folds the separate double-diamond-gates mod into this one.
+For each project that had it enabled:
+
+    tm mod remove double-diamond-gates
+    tm mod settings double-diamond --project <slug> gates=true
+
+(or the project popup's Settings tab). Then update this mod
+(`tm mod update double-diamond`); it now needs terminatr v0.63.0 and mod
+API 1.11, and the setting is human-only.
 
 ## Install
 
     tm mod install https://github.com/theclifmeister/terminatr-mods.git//double-diamond
     tm mod enable double-diamond --project <slug>
 
-Leave out `--project` to run it for every project. For the gates too:
-
-    tm mod install https://github.com/theclifmeister/terminatr-mods.git//double-diamond-gates
-    tm mod enable double-diamond-gates --project <slug>
+Leave out `--project` to run it for every project. For the gates too,
+set `gates=true` for the project (see [Gates](#gates)).
 
 The rules take effect when the coordinator next reads them (a new or
-cleared conversation). The playbook uses `tm design set --answer`, which
-needs terminatr v0.52.0, which the mod's `min_tm` requires; it loads on
-mod API 1.0. Then add
-work by phase:
+cleared conversation). The mod needs terminatr v0.63.0 (`min_tm`): mod
+API 1.11 for the per-project setting and `tm:if` sections, on top of
+`tm design set --answer` from v0.52.0. Then add work by phase:
 
     tm task add "offline sync" --template define
 
 ## Trial
 
-A two-week trial on one real project, which you choose. Enable both mods
+A two-week trial on one real project, which you choose. Enable the mod and its gates
 for it only, note how the project ran the two weeks before, and at the
 end look at its TASKS.md, `tm design list`, the reports and the
 coordinator's replies. The trial succeeds when:
@@ -100,11 +111,13 @@ statements and hard gates).
 
 ## Develop
 
-    tm mod validate double-diamond double-diamond-gates
+    tm mod validate double-diamond && tm mod test double-diamond
     sh double-diamond/check.sh
 
-`tm mod test` only validates a data mod. `check.sh` installs both mods
-in a scratch tm (its own home and socket), and checks that the playbook
-reaches every project's coordinator after tm's own policy, that the
-gates reach only the project they are enabled for, and that each
-template sets its phase on a task. CI runs it too.
+`tests/` holds `tm mod test` fixtures with projects that have the gates
+on and off, checking the rules contain or lack the gate section.
+`check.sh` covers what fixtures can't: it installs the mod in a scratch
+tm (its own home and socket), and checks that the playbook reaches every
+project's coordinator after tm's own policy, that `gates=true` set with
+`tm mod settings --project` reaches only that project, and that each
+template sets its phase on a task. CI runs both.
