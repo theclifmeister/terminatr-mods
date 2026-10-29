@@ -59,7 +59,8 @@ Leave out `--project` to run it for every project. For the gates too:
 
 The rules take effect when the coordinator next reads them (a new or
 cleared conversation). The playbook uses `tm design set --answer`, which
-needs terminatr v0.52.0; the mod itself loads on mod API 1.0. Then add
+needs terminatr v0.52.0, which the mod's `min_tm` requires; it loads on
+mod API 1.0. Then add
 work by phase:
 
     tm task add "offline sync" --template define
