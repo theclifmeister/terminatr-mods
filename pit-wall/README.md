@@ -18,9 +18,9 @@ files:
   columns in a timing screen's order: state, flag, sector, laps, tyres),
   the telemetry along the bottom (the details panel, 35% of the height),
   and the pit calls (mods' cards) before the sessions outside projects.
-- **a keymap**: the function keys. F1 is help; F2 and F3 jump the timing
+- **a keymap**: the function keys. F1 is help; F2 and F3 (or `>` and `<`) jump the timing
   tower to the next and previous car calling the pit wall; F4 toggles
-  the telemetry; F5 slims the timing tower. The built-in keys stay.
+  the telemetry; F5 (or `_`) slims the timing tower. The built-in keys stay.
 
 And the code, on as soon as the mod is:
 
@@ -111,9 +111,9 @@ want.
 | `a` | a radio row under a pit call | answer with that option, tm asks first |
 | `enter` | the race order's header | the race results tab |
 | `F1` | anywhere the help is | help |
-| `F2`, `F3` | the timing tower | the next and previous car calling |
+| `>`, `<`, `F2`, `F3` | the timing tower | the next and previous car calling |
 | `F4` | dashboard | the telemetry (details panel) on and off |
-| `F5` | dashboard | the timing tower full or slim |
+| `_`, `F5` | dashboard | the timing tower full or slim |
 | `1`–`3` | a box-box notification (`N`) | answer with that option, tm asks first |
 
 The ≡ menu lists *Live timing · pit-wall*, *Debrief · pit-wall* and
